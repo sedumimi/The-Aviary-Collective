@@ -1,0 +1,105 @@
+# Enable GZIP compression
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/plain
+    AddOutputFilterByType DEFLATE text/html
+    AddOutputFilterByType DEFLATE text/xml
+    AddOutputFilterByType DEFLATE text/css
+    AddOutputFilterByType DEFLATE text/javascript
+    AddOutputFilterByType DEFLATE application/xml
+    AddOutputFilterByType DEFLATE application/xhtml+xml
+    AddOutputFilterByType DEFLATE application/rss+xml
+    AddOutputFilterByType DEFLATE application/javascript
+    AddOutputFilterByType DEFLATE application/x-javascript
+    AddOutputFilterByType DEFLATE application/x-font-ttf
+    AddOutputFilterByType DEFLATE application/font-woff
+    AddOutputFilterByType DEFLATE image/svg+xml
+</IfModule>
+
+# Set Expires headers for better caching
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresDefault "access plus 1 week"
+    
+    # HTML - Cache for 1 day
+    ExpiresByType text/html "access plus 1 day"
+    
+    # CSS, JavaScript - Cache for 1 month
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+    ExpiresByType text/javascript "access plus 1 month"
+    
+    # Images - Cache for 3 months
+    ExpiresByType image/webp "access plus 3 months"
+    ExpiresByType image/jpeg "access plus 3 months"
+    ExpiresByType image/png "access plus 3 months"
+    ExpiresByType image/gif "access plus 3 months"
+    ExpiresByType image/svg+xml "access plus 3 months"
+    
+    # Fonts - Cache for 1 year
+    ExpiresByType application/font-woff "access plus 1 year"
+    ExpiresByType application/x-font-ttf "access plus 1 year"
+    ExpiresByType font/opentype "access plus 1 year"
+    
+    # JSON - Cache for 1 week
+    ExpiresByType application/json "access plus 1 week"
+</IfModule>
+
+# Cache control headers
+<IfModule mod_headers.c>
+    # Default cache control
+    Header set Cache-Control "public, max-age=604800"
+    
+    # HTML - No cache
+    <FilesMatch "\.(html|htm)$">
+        Header set Cache-Control "public, max-age=86400"
+    </FilesMatch>
+    
+    # CSS, JS - Cache for 1 month
+    <FilesMatch "\.(js|css)$">
+        Header set Cache-Control "public, max-age=2592000"
+    </FilesMatch>
+    
+    # Images - Cache for 3 months
+    <FilesMatch "\.(jpg|jpeg|png|gif|webp|svg)$">
+        Header set Cache-Control "public, max-age=7776000"
+    </FilesMatch>
+    
+    # Fonts - Cache for 1 year
+    <FilesMatch "\.(woff|woff2|ttf|otf)$">
+        Header set Cache-Control "public, max-age=31536000"
+    </FilesMatch>
+    
+    # Security headers
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set X-XSS-Protection "1; mode=block"
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+# Enable mod_rewrite for clean URLs (if needed)
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    
+    # Remove www
+    RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+    RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
+    
+    # HTTPS redirect (uncomment if using SSL)
+    # RewriteCond %{HTTPS} off
+    # RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+</IfModule>
+
+# Prevent access to hidden files and directories
+<FilesMatch "^\.|^#.*#|~$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+</FilesMatch>
+
+# Enable browser caching for media files
+<FilesMatch "\.(jpg|jpeg|png|gif|webp|ico|svg)$">
+    Header set Cache-Control "max-age=31536000, public"
+</FilesMatch>
+
+# Disable directory listing
+Options -Indexes

@@ -1,0 +1,3865 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="The Aviary Collective - Original art for spaces with character. Discover contemporary paintings inspired by Kenya, African heritage, nature and culture.">
+    <meta name="theme-color" content="#F27A33">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>THE AVIARY COLLECTIVE | Original Art Inspired by Kenya</title>
+    
+    <!-- Resource Hints for Performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://images.unsplash.com">
+    
+    <!-- Google Fonts for typography - Optimized with swap strategy -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Swiper CSS for the carousel structure -->
+    <link rel="preload" as="style" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    
+    <!-- Font Awesome - Async load for non-critical icons -->
+    <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+
+    <style>
+        /* --- Critical Path CSS: Load-time optimized --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background-color: #ffffff;
+            color: #111111;
+            overflow-x: hidden;
+            font-size: 16px;
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* --- Performance: Optimize paint and layout --- */
+        body, html {
+            height: 100%;
+            width: 100%;
+        }
+
+        /* Header - Optimized for initial paint */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 5%;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(18, 18, 18, 0.4);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            contain: layout;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            color: #ffffff;
+            text-decoration: none;
+            min-width: fit-content;
+            flex-shrink: 0;
+            transition: transform 0.3s ease, color 0.3s ease;
+            will-change: transform;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+            color: #F27A33;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            flex: 1;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+            flex-wrap: nowrap;
+        }
+
+        nav ul li a {
+            color: #a0a0a0;
+            text-decoration: none;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            position: relative;
+            padding: 8px 0;
+            display: inline-block;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover, nav ul li a.active {
+            color: #ffffff;
+            border-bottom: 2px solid #F27A33;
+        }
+
+        /* Mobile hamburger menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            background: none;
+            border: none;
+            color: #ffffff;
+            cursor: pointer;
+            width: 32px;
+            height: 32px;
+            gap: 6px;
+            padding: 0;
+            justify-content: center;
+            align-items: center;
+            transition: color 0.3s ease;
+            will-change: color;
+        }
+
+        .hamburger:hover, .hamburger.active {
+            color: #F27A33;
+        }
+
+        .hamburger span {
+            width: 24px;
+            height: 2.5px;
+            background-color: currentColor;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+            will-change: transform;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translateY(10px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translateY(-10px);
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-shrink: 0;
+            contain: layout;
+        }
+
+        .search-icon, .cart-icon {
+            color: #ffffff;
+            cursor: pointer;
+            font-size: 18px;
+            padding: 10px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 44px;
+            min-height: 44px;
+            transition: all 0.3s ease;
+            will-change: color, transform;
+            backface-visibility: hidden;
+        }
+
+        .search-icon:hover {
+            color: #F27A33;
+            transform: scale(1.15) rotate(15deg);
+            background-color: rgba(242, 122, 51, 0.15);
+        }
+
+        .cart-icon {
+            position: relative;
+        }
+
+        .cart-icon:hover {
+            color: #F27A33;
+            transform: scale(1.15);
+            background-color: rgba(242, 122, 51, 0.15);
+        }
+
+        .cart-badge {
+            position: absolute;
+            top: 4px;
+            right: 4px;
+            background-color: #F27A33;
+            color: #121212;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            font-weight: 700;
+            contain: size;
+        }
+
+        .shop-btn {
+            background-color: #F27A33;
+            color: #ffffff;
+            border: 2px solid #F27A33;
+            padding: 10px 24px;
+            border-radius: 25px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            will-change: background-color, transform;
+            backface-visibility: hidden;
+        }
+
+        .shop-btn:hover {
+            background-color: #d96826;
+            border-color: #d96826;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(242, 122, 51, 0.3);
+        }
+
+        /* --- Hero Section & Swiper Styles --- */
+        .hero-section {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 80px 5% 60px;
+            gap: 50px;
+            background: radial-gradient(circle at center, #2a2a2a 0%, #121212 70%);
+            contain: layout style;
+        }
+
+        .hero-heading-container {
+            text-align: center;
+            z-index: 50;
+            width: 100%;
+            max-width: 800px;
+            animation: fadeInDown 0.8s ease-out;
+            will-change: opacity, transform;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-main-heading {
+            font-size: 64px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #ffffff;
+            margin-bottom: 16px;
+            text-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+            line-height: 1.2;
+            -webkit-text-stroke: 0.5px rgba(255, 255, 255, 0.3);
+        }
+
+        .hero-subheading {
+            font-size: 20px;
+            font-weight: 400;
+            color: #e8e8e8;
+            letter-spacing: 1.2px;
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+            line-height: 1.6;
+        }
+
+        .swiper {
+            width: 100%;
+            max-width: 1380px;
+            touch-action: pan-y;
+            user-select: none;
+            position: relative;
+            height: 540px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+            contain: strict;
+        }
+
+        .swiper-wrapper {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .swiper-slide {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 340px;
+            height: 480px;
+            transform-origin: center center;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+            transition: transform 600ms cubic-bezier(.2,.8,.2,1), opacity 600ms ease;
+            pointer-events: auto;
+            background-color: #111;
+            color: #fff;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            perspective: 1000px;
+            will-change: transform;
+            contain: paint;
+        }
+
+        .carousel-card .card-image {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            filter: saturate(1.02) contrast(1.03);
+            transition: transform 600ms ease;
+            backface-visibility: hidden;
+            image-rendering: -webkit-optimize-contrast;
+        }
+
+        .carousel-card .card-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 26px 20px;
+            background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(6,6,6,0.85) 80%);
+            box-sizing: border-box;
+        }
+
+        .slide-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 60%;
+            background: linear-gradient(to top, rgba(20, 20, 20, 0.95) 0%, rgba(0, 0, 0, 0) 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 30px 25px;
+            transition: all 600ms ease;
+            contain: layout;
+        }
+
+        .slide-title {
+            font-size: 26px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            line-height: 1.2;
+            letter-spacing: 1px;
+            transition: all 600ms ease;
+            will-change: color;
+        }
+
+        .slide-subtitle {
+            font-size: 13px;
+            color: #e6e5e5;
+            font-weight: 400;
+            transition: all 600ms ease;
+        }
+
+        .slide-price {
+            font-size: 16px;
+            font-weight: 700;
+            color: #F27A33;
+            margin-top: 8px;
+        }
+
+        /* Carousel positioning */
+        .swiper-slide.pos1 { transform: translate(calc(-50% - 450px + var(--drag)), -50%) scale(0.78) translateZ(0); opacity: 0.5; z-index: 10; }
+        .swiper-slide.pos2 { transform: translate(calc(-50% - 225px + var(--drag)), -50%) scale(0.9) translateZ(0); opacity: 0.8; z-index: 20; }
+        .swiper-slide.pos3 { transform: translate(calc(-50% + var(--drag)), -50%) scale(1.08) translateZ(0); opacity: 1; z-index: 50; }
+        .swiper-slide.pos4 { transform: translate(calc(-50% + 225px + var(--drag)), -50%) scale(0.9) translateZ(0); opacity: 0.8; z-index: 20; }
+        .swiper-slide.pos5 { transform: translate(calc(-50% + 450px + var(--drag)), -50%) scale(0.78) translateZ(0); opacity: 0.5; z-index: 10; }
+
+        .no-transition .swiper-slide { transition: none !important; }
+        .dragging .swiper-slide { transition: none !important; }
+
+        @media (max-width: 900px) {
+            .swiper {
+                height: 420px;
+            }
+            .swiper-slide {
+                width: 300px;
+                height: 420px;
+            }
+            .swiper-slide.pos1 { transform: translate(calc(-50% - 400px + var(--drag)), -50%) scale(0.72) translateZ(0); }
+            .swiper-slide.pos2 { transform: translate(calc(-50% - 200px + var(--drag)), -50%) scale(0.88) translateZ(0); }
+            .swiper-slide.pos3 { transform: translate(calc(-50% + var(--drag)), -50%) scale(1.02) translateZ(0); }
+            .swiper-slide.pos4 { transform: translate(calc(-50% + 200px + var(--drag)), -50%) scale(0.88) translateZ(0); }
+            .swiper-slide.pos5 { transform: translate(calc(-50% + 400px + var(--drag)), -50%) scale(0.72) translateZ(0); }
+        }
+
+        .swiper-button-next, .swiper-button-prev {
+            color: rgba(255, 255, 255, 0.4);
+            background-color: rgba(0, 0, 0, 0.3);
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform: scale(0.7);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            z-index: 60;
+            contain: layout;
+        }
+
+        .swiper-button-next:hover, .swiper-button-prev:hover {
+            color: #F27A33;
+            background-color: rgba(242, 122, 51, 0.2);
+            transform: scale(0.85);
+        }
+
+        /* --- Featured Paintings Section --- */
+        .featured-section {
+            padding: 80px 5%;
+            background: #ffffff;
+            text-align: center;
+            contain: layout;
+        }
+
+        .section-heading {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #111111;
+        }
+
+        .section-subheading {
+            font-size: 14px;
+            color: #555555;
+            margin-bottom: 60px;
+            font-weight: 400;
+            letter-spacing: 1px;
+        }
+
+        .paintings-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .painting-card {
+            background-color: #f7f7f7;
+            border: 1px solid #e5e5e5;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            contain: content;
+        }
+
+        .painting-card:hover {
+            border-color: #F27A33;
+            box-shadow: 0 15px 40px rgba(242, 122, 51, 0.2);
+            transform: translateY(-8px);
+        }
+
+        .painting-image {
+            display: block;
+            width: 100%;
+            height: 300px;
+            background-color: #0a0a0a;
+            object-fit: cover;
+            object-position: center;
+            transition: transform 0.3s ease;
+            image-rendering: -webkit-optimize-contrast;
+            backface-visibility: hidden;
+            will-change: transform;
+        }
+
+        .painting-card:hover .painting-image {
+            transform: scale(1.05) translateZ(0);
+        }
+
+        .painting-info {
+            padding: 20px;
+        }
+
+        .painting-title {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #111111;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .painting-artist {
+            font-size: 12px;
+            color: #F27A33;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .painting-price {
+            font-size: 18px;
+            font-weight: 700;
+            color: #F27A33;
+            margin-bottom: 12px;
+        }
+
+        .add-to-cart-btn {
+            background-color: transparent;
+            color: #F27A33;
+            border: 1px solid #F27A33;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .add-to-cart-btn:hover {
+            background-color: #F27A33;
+            color: #121212;
+        }
+
+        .view-all-btn {
+            background-color: #F27A33;
+            color: #ffffff;
+            border: 2px solid #F27A33;
+            padding: 12px 36px;
+            border-radius: 25px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .view-all-btn:hover {
+            background-color: #d96826;
+            border-color: #d96826;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(242, 122, 51, 0.3);
+        }
+
+        /* --- Categories Section --- */
+        .categories-section {
+            padding: 80px 5%;
+            background-color: #ffffff;
+            text-align: center;
+        }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .category-card {
+            background: linear-gradient(135deg, #faf8f8 0%, #c4c3c3 100%);
+            border: 1px solid #333333;
+            border-radius: 12px;
+            padding: 40px 20px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            contain: paint;
+        }
+
+        .category-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(241, 240, 238, 0.1);
+            transition: left 0.3s ease;
+        }
+
+        .category-card:hover::before {
+            left: 0;
+        }
+
+        .category-icon {
+            font-size: 36px;
+            color: #F27A33;
+            margin-bottom: 15px;
+            transition: transform 0.3s ease;
+            will-change: transform;
+        }
+
+        .category-card:hover .category-icon {
+            transform: scale(1.2);
+        }
+
+        .category-name {
+            font-size: 16px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #111111;
+            transition: color 0.3s ease;
+        }
+
+        .category-card:hover .category-name {
+            color: #F27A33;
+        }
+
+        /* --- About Section --- */
+        .about-section {
+            padding: 80px 5%;
+            background: #ffffff;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+            contain: layout;
+        }
+
+        .about-content h2 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #111111;
+        }
+
+        .about-content p {
+            font-size: 14px;
+            line-height: 1.8;
+            color: #444444;
+            margin-bottom: 20px;
+        }
+
+        .about-features {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .feature-icon {
+            color: #F27A33;
+            font-size: 20px;
+            margin-top: 3px;
+            flex-shrink: 0;
+        }
+
+        .feature-text {
+            font-size: 13px;
+            color: #333333;
+            font-weight: 500;
+        }
+
+        /* --- Newsletter Section --- */
+        .newsletter-section {
+            padding: 60px 5%;
+            background: linear-gradient(135deg, #F27A33 0%, #d96826 100%);
+            text-align: center;
+            contain: layout;
+        }
+
+        .newsletter-heading {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #ffffff;
+        }
+
+        .newsletter-subheading {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 30px;
+        }
+
+        .newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            min-width: 200px;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 25px;
+            font-size: 13px;
+            background-color: rgba(255, 255, 255, 0.95);
+            color: #121212;
+            transition: all 0.3s ease;
+        }
+
+        .newsletter-input:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
+        }
+
+        .newsletter-submit {
+            background-color: #121212;
+            color: #F27A33;
+            border: none;
+            padding: 12px 28px;
+            border-radius: 25px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .newsletter-submit:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        /* --- Footer --- */
+        footer {
+            background-color: #0a0a0a;
+            border-top: 1px solid #333333;
+            padding: 50px 5%;
+            display: grid;
+            grid-template-columns: minmax(240px, .8fr) minmax(0, 2fr);
+            gap: 40px;
+            contain: layout;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+
+        .footer-column h3 {
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 20px;
+            color: #F27A33;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-column ul li a {
+            color: #a0a0a0;
+            text-decoration: none;
+            font-size: 12px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-column ul li a:hover {
+            color: #F27A33;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            background-color: #1a1a1a;
+            border: 1px solid #333333;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #a0a0a0;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            background-color: #F27A33;
+            border-color: #F27A33;
+            color: #ffffff;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #333333;
+            padding-top: 30px;
+            text-align: center;
+            grid-column: 1 / -1;
+        }
+
+        .footer-bottom p {
+            font-size: 12px;
+            color: #666666;
+        }
+
+        .footer-brand { color: #ffffff; font-size: 18px; font-weight: 700; letter-spacing: 1px; margin-bottom: 14px; }
+        .footer-brand span { display: block; color: #F27A33; font-size: 12px; margin-top: 8px; letter-spacing: .4px; }
+        .footer-description { color: #a0a0a0; font-size: 12px; line-height: 1.7; max-width: 310px; margin-bottom: 12px; }
+        .footer-contact { color: #a0a0a0; font-size: 12px; line-height: 1.8; }
+        .footer-contact a { color: #a0a0a0; text-decoration: none; transition: color 0.3s ease; }
+        .footer-contact a:hover { color: #F27A33; }
+
+        /* --- Page Wrapper --- */
+        .page-wrapper {
+            min-height: 100vh;
+            display: none;
+            contain: layout;
+        }
+
+        .page-wrapper.active {
+            display: block;
+        }
+
+        .page-header {
+            position: relative;
+            padding: 140px 5% 60px;
+            text-align: center;
+            border-bottom: 1px solid #333333;
+            overflow: hidden;
+            background: 
+                linear-gradient(135deg, rgba(18, 18, 18, 0.92) 0%, rgba(42, 42, 42, 0.92) 100%),
+                linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.4) 100%);
+            backdrop-filter: blur(10px);
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(ellipse at center, rgba(242, 122, 51, 0.08) 0%, rgba(0, 0, 0, 0.3) 100%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .page-header h1, .page-header p {
+            position: relative;
+            z-index: 1;
+        }
+
+        .page-header h1 {
+            font-size: 56px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 16px;
+            color: #ffffff;
+            text-shadow: 0 4px 16px rgba(0, 0, 0, 0.6);
+            line-height: 1.2;
+        }
+
+        .page-header p {
+            font-size: 18px;
+            color: #e8e8e8;
+            letter-spacing: 1.5px;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+            font-weight: 400;
+        }
+
+        .page-content {
+            padding: 80px 5%;
+        }
+
+        /* Utility classes for layouts */
+        .catalogue-toolbar { max-width: 1180px; margin: 0 auto 34px; display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; }
+        .catalogue-toolbar p { color: #666; font-size: 13px; }
+        .filter-controls { display: flex; gap: 8px; flex-wrap: wrap; }
+        .filter-btn { border: 1px solid #d6d6d6; background: #fff; color: #444; padding: 9px 15px; border-radius: 20px; cursor: pointer; font-size: 11px; text-transform: uppercase; letter-spacing: .8px; transition: all 0.3s ease; }
+        .filter-btn.active, .filter-btn:hover { background: #111; color: #fff; border-color: #111; }
+
+        .blog-grid { max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        .blog-card { border: 1px solid #e1e1e1; background: #fff; overflow: hidden; contain: content; }
+        .blog-card img { display: block; width: 100%; height: 220px; object-fit: cover; }
+        .blog-card-content { padding: 22px; }
+        .blog-meta { color: #F27A33; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 13px; }
+        .blog-card h2 { font-size: 21px; line-height: 1.25; margin-bottom: 12px; }
+        .blog-card p { color: #666; font-size: 13px; line-height: 1.7; margin-bottom: 18px; }
+        .read-more { color: #111; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; text-decoration: none; border-bottom: 2px solid #F27A33; padding-bottom: 4px; }
+
+        /* Cart & checkout */
+        .cart-layout { max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: 1.5fr .8fr; gap: 40px; align-items: start; }
+        .cart-items { border-top: 1px solid #ddd; }
+        .cart-item { display: grid; grid-template-columns: 110px 1fr auto; gap: 20px; align-items: center; padding: 20px 0; border-bottom: 1px solid #ddd; contain: content; }
+        .cart-item img { width: 110px; height: 130px; object-fit: cover; background: #111; }
+        .cart-summary { background: #f7f7f7; padding: 28px; border-top: 3px solid #F27A33; }
+        .cart-summary h2 { font-size: 20px; margin-bottom: 24px; text-transform: uppercase; }
+        .summary-row { display: flex; justify-content: space-between; margin-bottom: 14px; color: #555; font-size: 13px; gap: 12px; }
+        .summary-total { border-top: 1px solid #ddd; padding-top: 18px; margin-top: 18px; color: #111; font-size: 17px; font-weight: 700; }
+        .checkout-btn { width: 100%; margin-top: 20px; border: 0; cursor: pointer; }
+        .empty-cart { padding: 55px 20px; text-align: center; border: 1px dashed #ccc; color: #777; }
+        .empty-cart i { color: #F27A33; font-size: 32px; margin-bottom: 14px; }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 1024px) {
+            header {
+                padding: 16px 4%;
+            }
+
+            .logo {
+                font-size: 20px;
+            }
+
+            nav ul {
+                gap: 30px;
+            }
+
+            nav ul li a {
+                font-size: 10px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 14px 4%;
+                gap: 12px;
+            }
+
+            .logo {
+                font-size: 18px;
+            }
+
+            .hamburger {
+                display: flex;
+                order: -1;
+                margin-right: 8px;
+            }
+
+            nav {
+                position: fixed;
+                top: 60px;
+                left: 0;
+                right: 0;
+                max-height: 0;
+                overflow: hidden;
+                flex-direction: column;
+                background: rgba(18, 18, 18, 0.98);
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                transition: max-height 0.4s ease;
+                z-index: 99;
+                -webkit-backdrop-filter: blur(8px);
+            }
+
+            nav.active {
+                max-height: 400px;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 0;
+                width: 100%;
+                padding: 12px 0;
+            }
+
+            nav ul li {
+                border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            }
+
+            nav ul li a {
+                display: block;
+                padding: 12px 20px;
+                font-size: 11px;
+                border: none;
+            }
+
+            nav ul li a:hover, nav ul li a.active {
+                background-color: rgba(242, 122, 51, 0.1);
+                color: #F27A33;
+                border-left: 3px solid #F27A33;
+                padding-left: 17px;
+            }
+
+            .hero-section {
+                padding: 60px 5% 40px;
+                gap: 35px;
+                min-height: auto;
+            }
+
+            .hero-main-heading {
+                font-size: 42px;
+                letter-spacing: 2px;
+            }
+
+            .hero-subheading {
+                font-size: 16px;
+                letter-spacing: 0.8px;
+            }
+
+            .swiper {
+                height: 420px;
+            }
+
+            .swiper-slide {
+                width: 280px;
+                height: 420px;
+            }
+
+            .swiper-slide.pos1 { transform: translate(calc(-50% - 350px + var(--drag)), -50%) scale(0.75); }
+            .swiper-slide.pos2 { transform: translate(calc(-50% - 175px + var(--drag)), -50%) scale(0.90); }
+            .swiper-slide.pos3 { transform: translate(calc(-50% + var(--drag)), -50%) scale(1.05); }
+            .swiper-slide.pos4 { transform: translate(calc(-50% + 175px + var(--drag)), -50%) scale(0.90); }
+            .swiper-slide.pos5 { transform: translate(calc(-50% + 350px + var(--drag)), -50%) scale(0.75); }
+
+            .section-heading {
+                font-size: 32px;
+            }
+
+            .about-section {
+                grid-template-columns: 1fr;
+                padding: 60px 5%;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .newsletter-input {
+                min-width: 100%;
+            }
+
+            footer { display: block; }
+            .footer-content { margin-bottom: 30px; }
+
+            .cart-layout, .blog-grid { grid-template-columns: 1fr; }
+            .cart-summary { order: -1; }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                padding: 12px 3%;
+                gap: 8px;
+            }
+
+            .logo {
+                font-size: 16px;
+                letter-spacing: 0.5px;
+            }
+
+            .page-header {
+                padding: 80px 3% 35px;
+            }
+
+            .page-header h1 {
+                font-size: 32px;
+                letter-spacing: 1.5px;
+            }
+
+            .page-header p {
+                font-size: 12px;
+                letter-spacing: 0.5px;
+            }
+
+            .swiper-slide {
+                width: 240px;
+                height: 360px;
+            }
+
+            .swiper {
+                height: 360px;
+            }
+
+            .swiper-slide.pos1 { transform: translate(calc(-50% - 300px + var(--drag)), -50%) scale(0.70); }
+            .swiper-slide.pos2 { transform: translate(calc(-50% - 150px + var(--drag)), -50%) scale(0.85); }
+            .swiper-slide.pos3 { transform: translate(calc(-50% + var(--drag)), -50%) scale(1.00); }
+            .swiper-slide.pos4 { transform: translate(calc(-50% + 150px + var(--drag)), -50%) scale(0.85); }
+            .swiper-slide.pos5 { transform: translate(calc(-50% + 300px + var(--drag)), -50%) scale(0.70); }
+
+            .hero-main-heading {
+                font-size: 32px;
+                letter-spacing: 1.5px;
+                margin-bottom: 12px;
+            }
+
+            .hero-subheading {
+                font-size: 13px;
+                letter-spacing: 0.5px;
+            }
+
+            .section-heading {
+                font-size: 24px;
+            }
+
+            .paintings-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .categories-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Smooth scrolling & reduced motion support */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation: none !important;
+                transition: none !important;
+            }
+        }
+
+        /* Dark mode preference */
+        @media (prefers-color-scheme: light) {
+            body {
+                background-color: #f5f5f5;
+                color: #000000;
+            }
+        }
+    </style>
+
+        .logo {
+            font-size: 22px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            color: #ffffff;
+            text-decoration: none;
+            transition: transform 0.3s ease, color 0.3s ease;
+            min-width: fit-content;
+            flex-shrink: 0;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+            color: #F27A33;
+        }
+
+        .logo:focus-visible {
+            outline: 2px solid #F27A33;
+            outline-offset: 4px;
+            border-radius: 4px;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            flex: 1;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+            flex-wrap: nowrap;
+        }
+
+        nav ul li a {
+            color: #a0a0a0;
+            text-decoration: none;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            transition: color 0.3s ease, border-bottom 0.3s ease;
+            position: relative;
+            padding: 8px 0;
+            display: inline-block;
+        }
+
+        nav ul li a:hover {
+            color: #ffffff;
+            border-bottom: 2px solid #F27A33;
+        }
+
+        nav ul li a:focus-visible {
+            outline: 2px solid #F27A33;
+            outline-offset: 4px;
+            border-radius: 2px;
+        }
+
+        /* Underline effect for the active link */
+        nav ul li a.active {
+            color: #ffffff;
+            border-bottom: 2px solid #F27A33;
+        }
+
+        /* Mobile hamburger menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            background: none;
+            border: none;
+            color: #ffffff;
+            cursor: pointer;
+            width: 32px;
+            height: 32px;
+            gap: 6px;
+            transition: all 0.3s ease;
+            padding: 0;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hamburger:hover,
+        .hamburger.active {
+            color: #F27A33;
+        }
+
+        .hamburger:focus-visible {
+            outline: 2px solid #F27A33;
+            outline-offset: 4px;
+            border-radius: 4px;
+        }
+
+        .hamburger span {
+            width: 24px;
+            height: 2.5px;
+            background-color: currentColor;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translateY(10px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translateY(-10px);
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-shrink: 0;
+        }
+
+        .search-icon {
+            color: #ffffff;
+            cursor: pointer;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            padding: 10px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 44px;
+            min-height: 44px;
+        }
+
+        .search-icon:hover {
+            color: #F27A33;
+            transform: scale(1.15) rotate(15deg);
+            background-color: rgba(242, 122, 51, 0.15);
+        }
+
+        .search-icon:focus-visible {
+            outline: 2px solid #F27A33;
+            outline-offset: 4px;
+        }
+
+        .cart-icon {
+            color: #ffffff;
+            cursor: pointer;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            padding: 10px;
+            border-radius: 50%;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 44px;
+            min-height: 44px;
+        }
+
+        .cart-icon:hover {
+            color: #F27A33;
+            transform: scale(1.15);
+            background-color: rgba(242, 122, 51, 0.15);
+        }
+
+        .cart-icon:focus-visible {
+            outline: 2px solid #F27A33;
+            outline-offset: 4px;
+        }
+
+        .cart-badge {
+            position: absolute;
+            top: 4px;
+            right: 4px;
+            background-color: #F27A33;
+            color: #121212;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            font-weight: 700;
+        }
+
+        .shop-btn {
+            background-color: #F27A33; /* Orange accent color */
+            color: #ffffff;
+            border: 2px solid #F27A33;
+            padding: 10px 24px;
+            border-radius: 25px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .shop-btn:hover {
+            background-color: #d96826;
+            border-color: #d96826;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(242, 122, 51, 0.3);
+        }
+
+        .shop-btn:focus-visible {
+            outline: 2px solid #F27A33;
+            outline-offset: 4px;
+        }
+
+        .shop-btn:active {
+            transform: translateY(0);
+        }
+
+        /* --- Hero Section & Swiper Styles --- */
+        .hero-section {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 80px 5% 60px;
+            gap: 50px;
+            background: radial-gradient(circle at center, #2a2a2a 0%, #121212 70%);
+        }
+
+        .hero-heading-container {
+            text-align: center;
+            z-index: 50;
+            width: 100%;
+            max-width: 800px;
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        .hero-main-heading {
+            font-size: 64px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #ffffff;
+            margin-bottom: 16px;
+            text-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+            line-height: 1.2;
+        }
+
+        .hero-subheading {
+            font-size: 20px;
+            font-weight: 400;
+            color: #e8e8e8;
+            letter-spacing: 1.2px;
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+            line-height: 1.6;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .swiper {
+            width: 100%;
+            max-width: 1380px;
+            touch-action: pan-y;
+            user-select: none;
+            position: relative;
+            height: 540px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+        }
+
+        .swiper-wrapper {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        /* --- Fixed 5-position carousel (cards rotate through positions) --- */
+        .fixed-carousel {
+            width: 100%;
+            max-width: 1380px;
+            margin: 0 auto;
+            position: relative;
+            height: 540px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            touch-action: pan-y;
+            --drag: 0px;
+        }
+
+        .carousel-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .carousel-card {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 340px;
+            height: 480px;
+            transform-origin: center center;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+            transition: transform 600ms cubic-bezier(.2,.8,.2,1), opacity 600ms ease, box-shadow 600ms ease;
+            pointer-events: auto;
+            background-color: #111;
+            color: #fff;
+        }
+
+        .carousel-card .card-image {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            filter: saturate(1.02) contrast(1.03);
+            transition: transform 600ms ease;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: crisp-edges;
+        }
+
+        .carousel-card .card-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 26px 20px;
+            background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(6,6,6,0.85) 80%);
+            box-sizing: border-box;
+        }
+
+        .carousel-card .card-title { font-size: 22px; font-weight:700; text-transform:uppercase; line-height:1.1 }
+        .carousel-card .card-meta { font-size:13px; color: #f1f1f1; margin-top:6px }
+
+        /* Position classes - fixed visual slots */
+        .swiper-slide.pos1 { transform: translate(calc(-50% - 450px + var(--drag)), -50%) scale(0.78) translateZ(0); opacity: 0.5; z-index: 10; }
+        .swiper-slide.pos2 { transform: translate(calc(-50% - 225px + var(--drag)), -50%) scale(0.9) translateZ(0); opacity: 0.8; z-index: 20; }
+        .swiper-slide.pos3 { transform: translate(calc(-50% + var(--drag)), -50%) scale(1.08) translateZ(0); opacity: 1; z-index: 50; box-shadow: 0 36px 72px rgba(242,122,51,0.32); }
+        .swiper-slide.pos4 { transform: translate(calc(-50% + 225px + var(--drag)), -50%) scale(0.9) translateZ(0); opacity: 0.8; z-index: 20; }
+        .swiper-slide.pos5 { transform: translate(calc(-50% + 450px + var(--drag)), -50%) scale(0.78) translateZ(0); opacity: 0.5; z-index: 10; }
+
+        /* Disable transitions while dragging or when we need to instant-reset classes */
+        .no-transition .swiper-slide { transition: none !important; }
+        .dragging .swiper-slide { transition: none !important; }
+
+        /* Responsive scaling */
+        @media (max-width: 900px) {
+            .swiper {
+                height: 420px;
+            }
+            .swiper-slide {
+                width: 300px;
+                height: 420px;
+            }
+            .swiper-slide.pos1 { transform: translate(calc(-50% - 400px + var(--drag)), -50%) scale(0.72) translateZ(0); }
+            .swiper-slide.pos2 { transform: translate(calc(-50% - 200px + var(--drag)), -50%) scale(0.88) translateZ(0); }
+            .swiper-slide.pos3 { transform: translate(calc(-50% + var(--drag)), -50%) scale(1.02) translateZ(0); }
+            .swiper-slide.pos4 { transform: translate(calc(-50% + 200px + var(--drag)), -50%) scale(0.88) translateZ(0); }
+            .swiper-slide.pos5 { transform: translate(calc(-50% + 400px + var(--drag)), -50%) scale(0.72) translateZ(0); }
+        }
+
+        .swiper-slide {
+            background-position: center;
+            background-size: cover;
+            background-attachment: fixed;
+            border-radius: 12px;
+            overflow: hidden;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) translateZ(0);
+            width: 340px;
+            height: 480px;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+            transition: transform 600ms cubic-bezier(.2,.8,.2,1), opacity 600ms ease, box-shadow 600ms ease;
+            pointer-events: auto;
+            background-color: #111;
+            color: #fff;
+            --drag: 0px;
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: crisp-edges;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            perspective: 1000px;
+            -webkit-perspective: 1000px;
+            will-change: transform;
+        }
+
+        /* Gradient overlay for text readability */
+        .slide-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 60%;
+            background: linear-gradient(to top, rgba(20, 20, 20, 0.95) 0%, rgba(0, 0, 0, 0) 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 30px 25px;
+            transition: all 600ms ease;
+        }
+
+        .swiper-slide:hover .slide-overlay {
+            height: 70%;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.98) 0%, rgba(0, 0, 0, 0) 100%);
+        }
+
+        .slide-title {
+            font-size: 26px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            line-height: 1.2;
+            letter-spacing: 1px;
+            transition: all 600ms ease;
+        }
+
+        .swiper-slide:hover .slide-title {
+            font-size: 28px;
+            color: #F27A33;
+        }
+
+        .slide-subtitle {
+            font-size: 13px;
+            color: #e6e5e5;
+            font-weight: 400;
+            transition: all 600ms ease;
+        }
+
+        .swiper-slide:hover .slide-subtitle {
+            color: #F27A33;
+            transform: translateX(5px);
+        }
+
+        .slide-price {
+            font-size: 16px;
+            font-weight: 700;
+            color: #F27A33;
+            margin-top: 8px;
+            transition: all 600ms ease;
+        }
+        
+        /* Custom Pagination/Navigation Arrows */
+        .swiper-button-next, .swiper-button-prev {
+            color: rgba(255, 255, 255, 0.4);
+            transition: all 0.3s ease;
+            transform: scale(0.7);
+            background-color: rgba(0, 0, 0, 0.3);
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .swiper-button-next:hover, .swiper-button-prev:hover {
+            color: #F27A33;
+            background-color: rgba(242, 122, 51, 0.2);
+            transform: scale(0.85);
+        }
+
+        .swiper-button-next:focus-visible, .swiper-button-prev:focus-visible {
+            outline: 2px solid #F27A33;
+            outline-offset: 4px;
+        }
+
+        /* --- Cloud Transitions --- */
+        .cloud-transition {
+            position: relative;
+            height: 120px;
+            background: #121212;
+            overflow: hidden;
+        }
+
+        .cloud {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 120px;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"><path d="M0,50 Q100,20 200,50 T400,50 T600,50 T800,50 T1000,50 T1200,50 L1200,120 L0,120 Z" fill="%231a1a1a" opacity="0.6"/><path d="M0,70 Q150,40 300,70 T600,70 T900,70 T1200,70 L1200,120 L0,120 Z" fill="%232a2a2a" opacity="0.4"/></svg>') repeat-x;
+            background-size: 600px 120px;
+            animation: cloudMove 15s linear infinite;
+        }
+
+        .cloud:nth-child(2) {
+            opacity: 0.8;
+            animation: cloudMove 20s linear infinite reverse;
+            background-position: 100px 0;
+        }
+
+        .cloud:nth-child(3) {
+            opacity: 0.6;
+            animation: cloudMove 25s linear infinite;
+            background-position: 200px 0;
+        }
+
+        @keyframes cloudMove {
+            0% {
+                background-position: 0 0;
+            }
+            100% {
+                background-position: 600px 0;
+            }
+        }
+
+        .cloud-transition.hero-to-featured {
+            background: linear-gradient(180deg, #121212 0%, #1a1a1a 50%, #2a2a2a 100%);
+        }
+
+        .cloud-transition.featured-to-categories {
+            background: linear-gradient(180deg, #2a2a2a 0%, #1a1a1a 50%, #121212 100%);
+        }
+
+        .cloud-transition.categories-to-about {
+            background: linear-gradient(180deg, #121212 0%, #1a1a1a 50%, #2a2a2a 100%);
+        }
+
+        .cloud-transition.about-to-newsletter {
+            background: linear-gradient(180deg, #2a2a2a 0%, #d96826 50%, #F27A33 100%);
+        }
+
+        .cloud-transition.newsletter-to-footer {
+            background: linear-gradient(180deg, #F27A33 0%, #8b4513 50%, #0a0a0a 100%);
+        }
+
+        /* --- Featured Paintings Section --- */
+        .featured-section {
+            padding: 80px 5%;
+            background: #ffffff;
+            text-align: center;
+        }
+
+        .section-heading {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #111111;
+        }
+
+        .section-subheading {
+            font-size: 14px;
+            color: #555555;
+            margin-bottom: 60px;
+            font-weight: 400;
+            letter-spacing: 1px;
+        }
+
+        .paintings-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .painting-card {
+            width: 100%;
+            background-color: #f7f7f7;
+            border: 1px solid #e5e5e5;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .painting-card:hover {
+            border-color: #F27A33;
+            box-shadow: 0 15px 40px rgba(242, 122, 51, 0.2);
+            transform: translateY(-8px);
+        }
+
+        .painting-image {
+            display: block;
+            width: 100%;
+            height: 300px;
+            background-color: #0a0a0a;
+            object-fit: cover;
+            object-position: center;
+            transition: transform 0.3s ease;
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: crisp-edges;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            will-change: transform;
+        }
+
+        .painting-card:hover .painting-image {
+            transform: scale(1.05) translateZ(0);
+        }
+
+        .painting-info {
+            padding: 20px;
+        }
+
+        .painting-title {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #111111;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .painting-artist {
+            font-size: 12px;
+            color: #F27A33;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .painting-price {
+            font-size: 18px;
+            font-weight: 700;
+            color: #F27A33;
+            margin-bottom: 12px;
+        }
+
+        .add-to-cart-btn {
+            background-color: transparent;
+            color: #F27A33;
+            border: 1px solid #F27A33;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .add-to-cart-btn:hover {
+            background-color: #F27A33;
+            color: #121212;
+        }
+
+        .view-all-btn {
+            background-color: #F27A33;
+            color: #ffffff;
+            border: 2px solid #F27A33;
+            padding: 12px 36px;
+            border-radius: 25px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .view-all-btn:hover {
+            background-color: #d96826;
+            border-color: #d96826;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(242, 122, 51, 0.3);
+        }
+
+        /* --- Categories Section --- */
+        .categories-section {
+            padding: 80px 5%;
+            background-color: #ffffff;
+            text-align: center;
+        }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .category-card {
+            background: linear-gradient(135deg, #faf8f8 0%, #c4c3c3 100%);
+            border: 1px solid #333333;
+            border-radius: 12px;
+            padding: 40px 20px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .category-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(241, 240, 238, 0.1);
+            transition: left 0.3s ease;
+        }
+
+        .category-card:hover::before {
+            left: 0;
+        }
+
+        .category-icon {
+            font-size: 36px;
+            color: #F27A33;
+            margin-bottom: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        .category-card:hover .category-icon {
+            transform: scale(1.2);
+        }
+
+        .category-name {
+            font-size: 16px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #111111;
+            transition: color 0.3s ease;
+        }
+
+        .category-card:hover .category-name {
+            color: #F27A33;
+        }
+
+        /* --- About Section --- */
+        .about-section {
+            padding: 80px 5%;
+            background: #ffffff;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-content h2 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #111111;
+        }
+
+        .about-content p {
+            font-size: 14px;
+            line-height: 1.8;
+            color: #444444;
+            margin-bottom: 20px;
+        }
+
+        .about-features {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .feature-icon {
+            color: #F27A33;
+            font-size: 20px;
+            margin-top: 3px;
+            flex-shrink: 0;
+        }
+
+        .feature-text {
+            font-size: 13px;
+            color: #333333;
+            font-weight: 500;
+        }
+
+        .about-image {
+            width: 60px;
+            height: 80px;
+            background-color: #0a0a0a;
+            border: 1px solid #333333;
+            border-radius: 12px;
+            object-fit: cover;
+        }
+
+        /* --- Newsletter Section --- */
+        .newsletter-section {
+            padding: 60px 5%;
+            background: linear-gradient(135deg, #F27A33 0%, #d96826 100%);
+            text-align: center;
+        }
+
+        .newsletter-heading {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #ffffff;
+        }
+
+        .newsletter-subheading {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 30px;
+        }
+
+        .newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .newsletter-name {
+            flex: 1;
+            min-width: 200px;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 25px;
+            font-size: 13px;
+            background-color: rgba(255, 255, 255, 0.95);
+            color: #121212;
+        }
+
+        .newsletter-label {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            min-width: 200px;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 25px;
+            font-size: 13px;
+            background-color: rgba(255, 255, 255, 0.95);
+            color: #121212;
+            transition: all 0.3s ease;
+        }
+
+        .newsletter-input:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
+        }
+
+        .newsletter-submit {
+            background-color: #121212;
+            color: #F27A33;
+            border: none;
+            padding: 12px 28px;
+            border-radius: 25px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .newsletter-submit:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        /* --- Footer --- */
+        footer {
+            background-color: #0a0a0a;
+            border-top: 1px solid #333333;
+            padding: 50px 5%;
+            display: grid;
+            grid-template-columns: minmax(240px, .8fr) minmax(0, 2fr);
+            gap: 40px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 30px;
+            margin-bottom: 0;
+        }
+
+        .footer-column h3 {
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 20px;
+            color: #F27A33;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-column ul li a {
+            color: #a0a0a0;
+            text-decoration: none;
+            font-size: 12px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-column ul li a:hover {
+            color: #F27A33;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            background-color: #1a1a1a;
+            border: 1px solid #333333;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #a0a0a0;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            background-color: #F27A33;
+            border-color: #F27A33;
+            color: #ffffff;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #333333;
+            padding-top: 30px;
+            text-align: center;
+            grid-column: 1 / -1;
+        }
+
+        .footer-bottom p {
+            font-size: 12px;
+            color: #666666;
+        }
+
+        .footer-brand { color: #ffffff; font-size: 18px; font-weight: 700; letter-spacing: 1px; margin-bottom: 14px; }
+        .footer-brand span { display: block; color: #F27A33; font-size: 12px; margin-top: 8px; letter-spacing: .4px; }
+        .footer-description { color: #a0a0a0; font-size: 12px; line-height: 1.7; max-width: 310px; margin-bottom: 12px; }
+        .footer-contact { color: #a0a0a0; font-size: 12px; line-height: 1.8; }
+        .footer-contact a { color: #a0a0a0; text-decoration: none; }
+        .footer-contact a:hover { color: #F27A33; }
+        .footer-brand-block { max-width: 520px; margin-bottom: 36px; }
+        .support-page .page-content { max-width: 980px; margin: 0 auto; }
+        .support-page h2 { font-size: 28px; margin: 34px 0 14px; color: #111111; }
+        .support-page h3 { font-size: 18px; margin: 26px 0 10px; color: #222222; }
+        .support-page p, .support-page li { color: #444444; font-size: 14px; line-height: 1.8; }
+        .support-page p { margin-bottom: 15px; }
+        .support-page ul, .support-page ol { padding-left: 22px; margin: 10px 0 20px; }
+        .support-page li { margin-bottom: 7px; }
+        .support-intro { border-left: 3px solid #F27A33; padding: 3px 0 3px 20px; margin-bottom: 30px; }
+        .support-contact { background: #f7f7f7; border-top: 2px solid #F27A33; padding: 24px; margin-top: 34px; }
+        .support-contact a { color: #F27A33; font-weight: 600; }
+        .legal-modal { display: none; position: fixed; inset: 0; z-index: 300; background: rgba(10, 10, 10, .78); padding: 5vh 5%; }
+        .legal-modal.active { display: flex; align-items: center; justify-content: center; }
+        .legal-dialog { background: #fff; width: min(900px, 100%); max-height: 90vh; overflow-y: auto; padding: 38px; position: relative; }
+        .legal-dialog h2 { color: #111; font-size: 30px; margin-bottom: 8px; }
+        .legal-dialog h3 { color: #222; font-size: 18px; margin: 25px 0 8px; }
+        .legal-dialog p, .legal-dialog li { color: #444; font-size: 13px; line-height: 1.7; }
+        .legal-dialog ul { padding-left: 20px; }
+        .modal-close { position: absolute; top: 16px; right: 18px; border: 0; background: none; color: #111; font-size: 25px; cursor: pointer; }
+        .modal-close:focus-visible { outline: 2px solid #F27A33; outline-offset: 3px; }
+
+        /* --- Page Wrapper --- */
+        .page-wrapper {
+            min-height: 100vh;
+            display: none;
+        }
+
+        .page-wrapper.active {
+            display: block;
+        }
+
+        .page-header {
+            position: relative;
+            padding: 140px 5% 60px;
+            text-align: center;
+            border-bottom: 1px solid #333333;
+            overflow: hidden;
+            background: 
+                linear-gradient(135deg, rgba(18, 18, 18, 0.92) 0%, rgba(42, 42, 42, 0.92) 100%),
+                linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.4) 100%);
+            backdrop-filter: blur(10px);
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(ellipse at center, rgba(242, 122, 51, 0.08) 0%, rgba(0, 0, 0, 0.3) 100%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .page-header h1,
+        .page-header p {
+            position: relative;
+            z-index: 1;
+        }
+
+        .page-header h1 {
+            font-size: 56px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 16px;
+            color: #ffffff;
+            text-shadow: 0 4px 16px rgba(0, 0, 0, 0.6);
+            line-height: 1.2;
+        }
+
+        .page-header p {
+            font-size: 18px;
+            color: #e8e8e8;
+            letter-spacing: 1.5px;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+            font-weight: 400;
+        }
+
+        .page-content {
+            padding: 80px 5%;
+        }
+
+        .hero-section { padding: 86px 4% 34px; }
+        .hero-section .swiper { max-width: 1380px; }
+        .catalogue-toolbar { max-width: 1180px; margin: 0 auto 34px; display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; }
+        .catalogue-toolbar p { color: #666; font-size: 13px; }
+        .filter-controls { display: flex; gap: 8px; flex-wrap: wrap; }
+        .filter-btn { border: 1px solid #d6d6d6; background: #fff; color: #444; padding: 9px 15px; border-radius: 20px; cursor: pointer; font-size: 11px; text-transform: uppercase; letter-spacing: .8px; }
+        .filter-btn.active, .filter-btn:hover { background: #111; color: #fff; border-color: #111; }
+        .catalogue-grid { max-width: 1180px; margin: 0 auto; }
+        .cart-layout { max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: 1.5fr .8fr; gap: 40px; align-items: start; }
+        .cart-items { border-top: 1px solid #ddd; }
+        .cart-item { display: grid; grid-template-columns: 110px 1fr auto; gap: 20px; align-items: center; padding: 20px 0; border-bottom: 1px solid #ddd; }
+        .cart-item img { width: 110px; height: 130px; object-fit: cover; background: #111; }
+        .cart-item h3 { font-size: 16px; margin-bottom: 6px; }
+        .cart-item p { color: #777; font-size: 12px; margin-bottom: 12px; }
+        .cart-item-price { color: #F27A33; font-weight: 700; font-size: 15px; }
+        .quantity-control { display: inline-flex; border: 1px solid #ddd; align-items: center; }
+        .quantity-control button { width: 28px; height: 28px; border: 0; background: #f6f6f6; cursor: pointer; }
+        .quantity-control span { width: 30px; text-align: center; font-size: 12px; }
+        .remove-item { display: block; border: 0; background: none; color: #999; cursor: pointer; font-size: 11px; margin-top: 10px; }
+        .remove-item:hover { color: #F27A33; }
+        .cart-summary { background: #f7f7f7; padding: 28px; border-top: 3px solid #F27A33; }
+        .cart-summary h2 { font-size: 20px; margin-bottom: 24px; text-transform: uppercase; }
+        .summary-row { display: flex; justify-content: space-between; margin-bottom: 14px; color: #555; font-size: 13px; gap: 12px; }
+        .summary-total { border-top: 1px solid #ddd; padding-top: 18px; margin-top: 18px; color: #111; font-size: 17px; font-weight: 700; }
+        .checkout-btn { width: 100%; margin-top: 20px; border: 0; cursor: pointer; }
+        .empty-cart { padding: 55px 20px; text-align: center; border: 1px dashed #ccc; color: #777; }
+        .empty-cart i { color: #F27A33; font-size: 32px; margin-bottom: 14px; }
+        .blog-grid { max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        .blog-card { border: 1px solid #e1e1e1; background: #fff; overflow: hidden; }
+        .blog-card img { display: block; width: 100%; height: 220px; object-fit: cover; }
+        .blog-card-content { padding: 22px; }
+        .blog-meta { color: #F27A33; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 13px; }
+        .blog-card h2 { font-size: 21px; line-height: 1.25; margin-bottom: 12px; }
+        .blog-card p { color: #666; font-size: 13px; line-height: 1.7; margin-bottom: 18px; }
+        .read-more { color: #111; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; text-decoration: none; border-bottom: 2px solid #F27A33; padding-bottom: 4px; }
+        .map-preview { width: 100%; height: 300px; border: 0; display: block; background: #ececec; }
+
+        @media (max-width: 768px) {
+            .hero-section { padding: 150px 2% 20px; }
+            .cart-layout, .blog-grid { grid-template-columns: 1fr; }
+            .cart-summary { order: -1; }
+        }
+
+        @media (max-width: 480px) {
+            .hero-section { padding-top: 190px; }
+            .cart-item { grid-template-columns: 76px 1fr; gap: 12px; }
+            .cart-item img { width: 76px; height: 96px; }
+            .cart-item > .cart-item-total { grid-column: 2; }
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 1024px) {
+            header {
+                padding: 16px 4%;
+            }
+
+            .logo {
+                font-size: 20px;
+            }
+
+            nav ul {
+                gap: 30px;
+            }
+
+            nav ul li a {
+                font-size: 10px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 14px 4%;
+                gap: 12px;
+            }
+
+            .logo {
+                font-size: 18px;
+            }
+
+            .hamburger {
+                display: flex;
+                order: -1;
+                margin-right: 8px;
+            }
+
+            nav {
+                position: fixed;
+                top: 60px;
+                left: 0;
+                right: 0;
+                max-height: 0;
+                overflow: hidden;
+                flex-direction: column;
+                background: rgba(18, 18, 18, 0.98);
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                transition: max-height 0.4s ease;
+                z-index: 99;
+                backdrop-filter: blur(8px);
+            }
+
+            nav.active {
+                max-height: 400px;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 0;
+                width: 100%;
+                padding: 12px 0;
+            }
+
+            nav ul li {
+                border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            }
+
+            nav ul li a {
+                display: block;
+                padding: 12px 20px;
+                font-size: 11px;
+                border: none;
+            }
+
+            nav ul li a:hover,
+            nav ul li a.active {
+                background-color: rgba(242, 122, 51, 0.1);
+                color: #F27A33;
+                border-left: 3px solid #F27A33;
+                padding-left: 17px;
+            }
+
+            .header-actions {
+                gap: 4px;
+            }
+
+            .search-icon,
+            .cart-icon {
+                min-width: 40px;
+                min-height: 40px;
+                padding: 8px;
+                font-size: 16px;
+            }
+
+            .shop-btn {
+                padding: 8px 16px;
+                font-size: 9px;
+            }
+
+            .hero-heading-container {
+                max-width: 90%;
+                gap: 12px;
+            }
+
+            .hero-main-heading {
+                font-size: 42px;
+                letter-spacing: 2px;
+            }
+
+            .hero-subheading {
+                font-size: 16px;
+                letter-spacing: 0.8px;
+            }
+
+            .hero-section {
+                padding: 60px 5% 40px;
+                gap: 35px;
+                min-height: auto;
+            }
+
+            .swiper-slide {
+                width: 280px;
+                height: 420px;
+            }
+
+            .swiper {
+                height: 420px;
+            }
+
+            .swiper-slide.pos1 { transform: translate(calc(-50% - 350px + var(--drag)), -50%) scale(0.75); }
+            .swiper-slide.pos2 { transform: translate(calc(-50% - 175px + var(--drag)), -50%) scale(0.90); }
+            .swiper-slide.pos3 { transform: translate(calc(-50% + var(--drag)), -50%) scale(1.05); }
+            .swiper-slide.pos4 { transform: translate(calc(-50% + 175px + var(--drag)), -50%) scale(0.90); }
+            .swiper-slide.pos5 { transform: translate(calc(-50% + 350px + var(--drag)), -50%) scale(0.75); }
+
+            .slide-title {
+                font-size: 20px;
+            }
+
+            .slide-subtitle {
+                font-size: 12px;
+            }
+
+            .swiper {
+                padding-top: 30px;
+                padding-bottom: 30px;
+            }
+
+            .section-heading {
+                font-size: 32px;
+            }
+
+            .about-section {
+                grid-template-columns: 1fr;
+                padding: 60px 5%;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .newsletter-input {
+                min-width: 100%;
+            }
+
+            .legal-dialog { padding: 30px 22px; }
+
+            footer { display: block; }
+            .footer-brand-block { margin-bottom: 36px; }
+            .footer-content { margin-bottom: 30px; }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                padding: 12px 3%;
+                gap: 8px;
+            }
+
+            .logo {
+                font-size: 16px;
+                letter-spacing: 0.5px;
+            }
+
+            .hamburger {
+                width: 30px;
+                height: 30px;
+            }
+
+            .hamburger span {
+                width: 22px;
+                height: 2px;
+            }
+
+            .page-header {
+                padding: 80px 3% 35px;
+            }
+
+            .page-header h1 {
+                font-size: 32px;
+                letter-spacing: 1.5px;
+            }
+
+            .page-header p {
+                font-size: 12px;
+                letter-spacing: 0.5px;
+            }
+
+            nav.active {
+                max-height: 350px;
+            }
+
+            nav ul li a {
+                padding: 10px 16px;
+                font-size: 10px;
+            }
+
+            nav ul li a:hover,
+            nav ul li a.active {
+                padding-left: 13px;
+            }
+
+            .header-actions {
+                gap: 2px;
+            }
+
+            .search-icon,
+            .cart-icon {
+                min-width: 36px;
+                min-height: 36px;
+                padding: 6px;
+                font-size: 15px;
+            }
+
+            .shop-btn {
+                padding: 6px 12px;
+                font-size: 8px;
+                border-radius: 20px;
+            }
+
+            .swiper-slide {
+                width: 240px;
+                height: 360px;
+            }
+
+            .swiper {
+                height: 360px;
+                padding-top: 20px;
+                padding-bottom: 20px;
+            }
+
+            .swiper-slide.pos1 { transform: translate(calc(-50% - 300px + var(--drag)), -50%) scale(0.70); }
+            .swiper-slide.pos2 { transform: translate(calc(-50% - 150px + var(--drag)), -50%) scale(0.85); }
+            .swiper-slide.pos3 { transform: translate(calc(-50% + var(--drag)), -50%) scale(1.00); }
+            .swiper-slide.pos4 { transform: translate(calc(-50% + 150px + var(--drag)), -50%) scale(0.85); }
+            .swiper-slide.pos5 { transform: translate(calc(-50% + 300px + var(--drag)), -50%) scale(0.70); }
+
+            .slide-title {
+                font-size: 18px;
+                margin-bottom: 6px;
+            }
+
+            .slide-subtitle {
+                font-size: 11px;
+            }
+
+            .slide-overlay {
+                padding: 20px 18px;
+                height: 55%;
+            }
+
+            .swiper-button-next, .swiper-button-prev {
+                transform: scale(0.6);
+                width: 40px;
+                height: 40px;
+            }
+
+            .hero-section {
+                padding: 40px 3% 30px;
+                gap: 25px;
+                min-height: auto;
+            }
+
+            .page-header {
+                padding: 100px 4% 40px;
+            }
+
+            .page-header h1 {
+                font-size: 42px;
+                letter-spacing: 2px;
+            }
+
+            .page-header p {
+                font-size: 14px;
+                letter-spacing: 1px;
+            }
+
+            .hero-heading-container {
+                max-width: 95%;
+            }
+
+            .hero-main-heading {
+                font-size: 32px;
+                letter-spacing: 1.5px;
+                margin-bottom: 12px;
+            }
+
+            .hero-subheading {
+                font-size: 13px;
+                letter-spacing: 0.5px;
+            }
+
+            .section-heading {
+                font-size: 24px;
+            }
+
+            .section-subheading {
+                font-size: 12px;
+            }
+
+            .newsletter-heading {
+                font-size: 24px;
+            }
+
+            .paintings-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .categories-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Tablet Specific */
+        @media (max-width: 1024px) and (min-width: 769px) {
+            header {
+                padding: 20px 4%;
+            }
+
+            nav ul {
+                gap: 25px;
+            }
+
+            .swiper-slide {
+                width: 300px;
+                height: 450px;
+            }
+
+            .paintings-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .categories-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        /* Smooth scrolling & reduced motion support */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation: none !important;
+                transition: none !important;
+            }
+        }
+
+        /* Dark mode preference (already dark, but good for future light mode toggle) */
+        @media (prefers-color-scheme: light) {
+            body {
+                background-color: #f5f5f5;
+                color: #000000;
+            }
+
+            header {
+                border-bottom-color: rgba(0, 0, 0, 0.1);
+            }
+
+            nav ul li a {
+                color: #666666;
+            }
+
+            nav ul li a:hover, nav ul li a.active {
+                color: #000000;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <a href="#home" class="logo" onclick="navigateTo('home')">THE AVIARY COLLECTIVE</a>
+        <button class="hamburger" onclick="toggleMenu()" aria-label="Toggle navigation menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav>
+            <ul>
+                <li><a href="#home" class="active" onclick="navigateTo('home'); closeMenu(); return false;">Home</a></li>
+                <li><a href="#catalogue" onclick="navigateTo('catalogue'); closeMenu(); return false;">Catalogue</a></li>
+                <li><a href="#blog" onclick="navigateTo('blog'); closeMenu(); return false;">Blog</a></li>
+                <li><a href="#cart" onclick="navigateTo('cart'); closeMenu(); return false;">Cart</a></li>
+                <li><a href="#locations" onclick="navigateTo('locations'); closeMenu(); return false;">Locations</a></li>
+            </ul>
+        </nav>
+        <div class="header-actions">
+            <i class="fas fa-search search-icon"></i>
+            <div class="cart-icon" role="button" tabindex="0" onclick="navigateTo('cart')" onkeydown="if(event.key === 'Enter') navigateTo('cart')">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-badge">0</span>
+            </div>
+            <a href="#catalogue" class="shop-btn" onclick="navigateTo('catalogue'); return false;">Shop Now</a>
+        </div>
+    </header>
+
+    <!-- HOME PAGE -->
+    <div id="home" class="page-wrapper active">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-heading-container">
+                <h1 class="hero-main-heading">WALLS, REIMAGINED.</h1>
+                <p class="hero-subheading">Original art for spaces with character.</p>
+            </div>
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide" style="background-image: url('Images/PXL_20251111_074611687.RAW-02.ORIGINAL_1.webp')">
+                        <div class="slide-overlay">
+                            <h2 class="slide-title">Embracing<br>the spark</h2>
+                            <p class="slide-subtitle">26 * 24 inches</p>
+                            <p class="slide-price">KES 25,000</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide" style="background-image: url('Images/PXL_20251111_075255720.RAW-02.ORIGINAL.webp');">
+                        <div class="slide-overlay">
+                            <h2 class="slide-title"><br>Daydreams</h2>
+                            <p class="slide-subtitle">26 * 24 inches</p>
+                            <p class="slide-price">KES 16,500</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide" style="background-image: url('Images/PXL_20251111_081744067.RAW-02.ORIGINAL.webp');">
+                        <div class="slide-overlay">
+                            <h2 class="slide-title">Urban<br>Impressions</h2>
+                            <p class="slide-subtitle">Contemporary city scenes</p>
+                            <p class="slide-price">KES 1,950</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide" style="background-image: url('Images/PXL_20251111_075504005.RAW-02.ORIGINAL.webp');">
+                        <div class="slide-overlay">
+                            <h2 class="slide-title">Bended<br>Light</h2>
+                            <p class="slide-subtitle">20 * 30 inches</p>
+                            <p class="slide-price">KES 10,500</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide" style="background-image: url('Images/PXL_20251111_075734671.RAW-02.ORIGINAL.webp')">
+                        <div class="slide-overlay">
+                            <h2 class="slide-title">Timeless<br>Portraits</h2>
+                            <p class="slide-subtitle">Capturing human essence</p>
+                            <p class="slide-price">KES 3,100</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        </section>
+
+        <!-- Realistic Animated Clouds Transition -->
+        <div class="cloud-container">
+            <div class="cloud-item"></div>
+            <div class="cloud-item"></div>
+            <div class="cloud-item"></div>
+            <div class="cloud-item"></div>
+        </div>
+
+        <!-- Featured Paintings Section -->
+        <section class="featured-section">
+            <div>
+                <h2 class="section-heading">Featured Paintings</h2>
+                <p class="section-subheading">Discover our curated collection of contemporary art</p>
+                <div class="paintings-grid">
+                    <div class="painting-card">
+                        <img src="Images/PXL_20251111_081942305.RAW-02.ORIGINAL.webp" alt="Abstract Harmony - contemporary artwork" loading="lazy" width="400" height="300">
+                        <div class="painting-info">
+                            <p class="painting-artist">Contemporary Artist</p>
+                            <h3 class="painting-title">Abstract Harmony</h3>
+                            <p class="painting-price">KES 25,000</p>
+                            <button class="add-to-cart-btn">Add to Cart</button>
+                        </div>
+                    </div>
+                    <div class="painting-card">
+                        <img src="Images/PXL_20251114_071724544.RAW-02.ORIGINAL.webp" alt="Twilight Dreams - modern art piece" loading="lazy" width="400" height="300">
+                        <div class="painting-info">
+                            <p class="painting-artist">Modern Artisan</p>
+                            <h3 class="painting-title">Twilight Dreams</h3>
+                            <p class="painting-price">KES 32,000</p>
+                            <button class="add-to-cart-btn">Add to Cart</button>
+                        </div>
+                    </div>
+                    <div class="painting-card">
+                        <img src="Images/PXL_20251114_071346434.RAW-02.ORIGINAL.webp" alt="Urban Reflections - contemporary artwork" loading="lazy" width="400" height="300">
+                        <div class="painting-info">
+                            <p class="painting-artist">Visionary Creator</p>
+                            <h3 class="painting-title">Urban Reflections</h3>
+                            <p class="painting-price">KES 2,800</p>
+                            <button class="add-to-cart-btn">Add to Cart</button>
+                        </div>
+                    </div>
+                    <div class="painting-card">
+                        <img src="Images/PXL_20251114_072133511.RAW-02.ORIGINAL.webp" alt="Serenity Canvas - peaceful art composition" loading="lazy" width="400" height="300">
+                        <div class="painting-info">
+                            <p class="painting-artist">Inspired Visionary</p>
+                            <h3 class="painting-title">Serenity Canvas</h3>
+                            <p class="painting-price">KES 2,200</p>
+                            <button class="add-to-cart-btn">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <button class="view-all-btn" onclick="navigateTo('catalogue'); return false;">View All Paintings</button>
+            </div>
+        </section>
+
+        <!-- Categories Section -->
+        <section class="categories-section">
+            <h2 class="section-heading">Explore Categories</h2>
+            <p class="section-subheading">Browse our diverse collection of art styles</p>
+            <div class="categories-grid">
+                <div class="category-card" onclick="navigateTo('catalogue'); return false;">
+                    <i class="fas fa-palette category-icon"></i>
+                    <h3 class="category-name">Abstract</h3>
+                </div>
+                <div class="category-card" onclick="navigateTo('catalogue'); return false;">
+                    <i class="fas fa-image category-icon"></i>
+                    <h3 class="category-name">Landscape</h3>
+                </div>
+                <div class="category-card" onclick="navigateTo('catalogue'); return false;">
+                    <i class="fas fa-user category-icon"></i>
+                    <h3 class="category-name">Portrait</h3>
+                </div>
+                <div class="category-card" onclick="navigateTo('catalogue'); return false;">
+                    <i class="fas fa-shapes category-icon"></i>
+                    <h3 class="category-name">Modern</h3>
+                </div>
+                <div class="category-card" onclick="navigateTo('catalogue'); return false;">
+                    <i class="fas fa-brush category-icon"></i>
+                    <h3 class="category-name">Contemporary</h3>
+                </div>
+                <div class="category-card" onclick="navigateTo('catalogue'); return false;">
+                    <i class="fas fa-star category-icon"></i>
+                    <h3 class="category-name">Limited Edition</h3>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="about-section">
+            <div class="about-content">
+                <h2>About The Aviary Collective</h2>
+                <p>We are passionate about bringing exceptional art to collectors worldwide. Our curated selection features emerging and established artists, each piece telling its own unique story.</p>
+                <p>With decades of experience in the art world, we pride ourselves on authenticity, quality, and customer satisfaction.</p>
+                <div class="about-features">
+                    <div class="feature-item">
+                        <i class="fas fa-check-circle feature-icon"></i>
+                        <span class="feature-text">Authentic & Verified Artworks</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-check-circle feature-icon"></i>
+                        <span class="feature-text">Secure & Fast Delivery</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-check-circle feature-icon"></i>
+                        <span class="feature-text">Expert Curation & Support</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-check-circle feature-icon"></i>
+                        <span class="feature-text">Lifetime Authenticity Guarantee</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter Section -->
+        <section class="newsletter-section">
+            <h2 class="newsletter-heading">Stay Updated</h2>
+            <p class="newsletter-subheading">Subscribe to our newsletter for exclusive deals and new arrivals</p>
+            <form class="newsletter-form validate" action="https://aviancourthotel.us9.list-manage.com/subscribe/post?u=97d41f9ebe4e1f475a38001cf&amp;id=e178979681&amp;f_id=000553e1f0" method="post" target="_blank">
+                <label class="newsletter-label" for="mce-EMAIL">Email Address *</label>
+                <input type="email" class="newsletter-input" name="EMAIL" id="mce-EMAIL" placeholder="Enter your email" required>
+                <label class="newsletter-label" for="mce-FNAME">First Name</label>
+                <input type="text" class="newsletter-name" name="FNAME" id="mce-FNAME" placeholder="First name">
+                <div aria-hidden="true" style="position: absolute; left: -5000px;"><input type="text" name="b_97d41f9ebe4e1f475a38001cf_e178979681" tabindex="-1" value=""></div>
+                <button type="submit" class="newsletter-submit">Subscribe</button>
+            </form>
+        </section>
+    </div>
+
+    <!-- CATALOGUE PAGE -->
+    <div id="catalogue" class="page-wrapper">
+        <div class="page-header">
+            <h1>Art Catalogue</h1>
+            <p>Original work, thoughtfully selected for considered spaces</p>
+        </div>
+        <div class="page-content">
+            <h2 class="section-heading" style="text-align: center; margin-bottom: 35px;">All Paintings</h2>
+            <div class="paintings-grid">
+                <div class="painting-card">
+                    <img src="https://images.unsplash.com/photo-1579783902614-e3fb5141b0cb?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Painting" class="painting-image">
+                    <div class="painting-info">
+                        <p class="painting-artist">Artist Name</p>
+                        <h3 class="painting-title">Artwork Title</h3>
+                        <p class="painting-price">$2,500</p>
+                        <button class="add-to-cart-btn">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="painting-card">
+                    <img src="https://images.unsplash.com/photo-1549887534-7b7f9778f6ed?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Painting" class="painting-image">
+                    <div class="painting-info">
+                        <p class="painting-artist">Artist Name</p>
+                        <h3 class="painting-title">Artwork Title</h3>
+                        <p class="painting-price">$3,200</p>
+                        <button class="add-to-cart-btn">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="painting-card">
+                    <img src="https://images.unsplash.com/photo-1561214115-6d2f6c952406?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Painting" class="painting-image">
+                    <div class="painting-info">
+                        <p class="painting-artist">Artist Name</p>
+                        <h3 class="painting-title">Artwork Title</h3>
+                        <p class="painting-price">$2,800</p>
+                        <button class="add-to-cart-btn">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="painting-card">
+                    <img src="https://images.unsplash.com/photo-1561214115-6d2f6c952406?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Painting" class="painting-image">
+                    <div class="painting-info">
+                        <p class="painting-artist">Artist Name</p>
+                        <h3 class="painting-title">Artwork Title</h3>
+                        <p class="painting-price">$2,200</p>
+                        <button class="add-to-cart-btn">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="painting-card">
+                    <img src="https://images.unsplash.com/photo-1579783902614-e3fb5141b0cb?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Painting" class="painting-image">
+                    <div class="painting-info">
+                        <p class="painting-artist">Artist Name</p>
+                        <h3 class="painting-title">Artwork Title</h3>
+                        <p class="painting-price">$2,900</p>
+                        <button class="add-to-cart-btn">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="painting-card">
+                    <img src="https://images.unsplash.com/photo-1549887534-7b7f9778f6ed?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Painting" class="painting-image">
+                    <div class="painting-info">
+                        <p class="painting-artist">Artist Name</p>
+                        <h3 class="painting-title">Artwork Title</h3>
+                        <p class="painting-price">$3,500</p>
+                        <button class="add-to-cart-btn">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="painting-card">
+                    <img src="https://images.unsplash.com/photo-1561214115-6d2f6c952406?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Painting" class="painting-image">
+                    <div class="painting-info">
+                        <p class="painting-artist">Artist Name</p>
+                        <h3 class="painting-title">Artwork Title</h3>
+                        <p class="painting-price">$2,100</p>
+                        <button class="add-to-cart-btn">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="painting-card">
+                    <img src="https://images.unsplash.com/photo-1579783902614-e3fb5141b0cb?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Painting" class="painting-image">
+                    <div class="painting-info">
+                        <p class="painting-artist">Artist Name</p>
+                        <h3 class="painting-title">Artwork Title</h3>
+                        <p class="painting-price">$2,750</p>
+                        <button class="add-to-cart-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- BLOG PAGE -->
+    <div id="blog" class="page-wrapper">
+        <div class="page-header">
+            <h1>Art Blog</h1>
+            <p>Notes on looking, collecting, and making</p>
+        </div>
+        <div class="page-content">
+            <div style="max-width: 800px; margin: 0 auto;">
+                <article style="margin-bottom: 60px; border-bottom: 1px solid #333333; padding-bottom: 40px;">
+                    <h2 style="font-size: 28px; margin-bottom: 10px; color: #ffffff;">Understanding Contemporary Art Movements</h2>
+                    <p style="color: #F27A33; margin-bottom: 20px; font-size: 12px;">Posted on August 13, 2026 | By Art Curator</p>
+                    <p style="color: #a0a0a0; line-height: 1.8; margin-bottom: 15px;">Explore the fascinating world of contemporary art movements and their influence on modern artistic expression. From abstract expressionism to digital art, discover how artists are pushing boundaries and redefining what art means in today's world.</p>
+                    <p style="color: #F27A33; cursor: pointer;"><strong>Read More →</strong></p>
+                </article>
+
+                <article style="margin-bottom: 60px; border-bottom: 1px solid #333333; padding-bottom: 40px;">
+                    <h2 style="font-size: 28px; margin-bottom: 10px; color: #ffffff;">The Journey of Emerging Artists</h2>
+                    <p style="color: #F27A33; margin-bottom: 20px; font-size: 12px;">Posted on August 10, 2026 | By Art Correspondent</p>
+                    <p style="color: #a0a0a0; line-height: 1.8; margin-bottom: 15px;">Learn about the inspiring stories of emerging artists breaking into the art world. We interview talented creators and share their experiences, challenges, and triumphs on their artistic journey.</p>
+                    <p style="color: #F27A33; cursor: pointer;"><strong>Read More →</strong></p>
+                </article>
+
+                <article style="margin-bottom: 60px; border-bottom: 1px solid #333333; padding-bottom: 40px;">
+                    <h2 style="font-size: 28px; margin-bottom: 10px; color: #ffffff;">Collecting Art: A Beginner's Guide</h2>
+                    <p style="color: #F27A33; margin-bottom: 20px; font-size: 12px;">Posted on August 5, 2026 | By Collection Expert</p>
+                    <p style="color: #a0a0a0; line-height: 1.8; margin-bottom: 15px;">New to art collecting? This comprehensive guide covers everything you need to know about starting your art collection, from understanding authenticity to making informed investment decisions.</p>
+                    <p style="color: #F27A33; cursor: pointer;"><strong>Read More →</strong></p>
+                </article>
+
+                <article style="margin-bottom: 60px;">
+                    <h2 style="font-size: 28px; margin-bottom: 10px; color: #ffffff;">Digital Art Revolution</h2>
+                    <p style="color: #F27A33; margin-bottom: 20px; font-size: 12px;">Posted on July 30, 2026 | By Tech Art Analyst</p>
+                    <p style="color: #a0a0a0; line-height: 1.8; margin-bottom: 15px;">Discover how digital technology is transforming the art world. From NFTs to AI-generated art, explore the cutting-edge innovations reshaping how artists create and collectors appreciate art.</p>
+                    <p style="color: #F27A33; cursor: pointer;"><strong>Read More →</strong></p>
+                </article>
+            </div>
+        </div>
+    </div>
+
+    <!-- LOCATIONS PAGE -->
+    <div id="locations" class="page-wrapper">
+        <div class="page-header">
+            <h1>Our Locations</h1>
+            <p>Visit us at Avian Court Hotel</p>
+        </div>
+        <div class="page-content">
+            <div class="paintings-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+                <div class="painting-card">
+                    <div style="width: 100%; height: 300px; background-color: #0a0a0a; display: flex; align-items: center; justify-content: center; border-bottom: 1px solid #333333;">
+                        <i class="fas fa-map-marker-alt" style="font-size: 48px; color: #F27A33;"></i>
+                    </div>
+                    <div class="painting-info">
+                        <h3 class="painting-title">New York</h3>
+                        <p style="color: #a0a0a0; font-size: 12px; margin-bottom: 10px;">
+                            123 Art Avenue<br>
+                            Manhattan, NY 10001<br>
+                            <strong style="color: #F27A33;">+1 (212) 555-0123</strong>
+                        </p>
+                        <button class="add-to-cart-btn" style="background-color: #F27A33; color: #121212;">Get Directions</button>
+                    </div>
+                </div>
+
+                <div class="painting-card">
+                    <div style="width: 100%; height: 300px; background-color: #0a0a0a; display: flex; align-items: center; justify-content: center; border-bottom: 1px solid #333333;">
+                        <i class="fas fa-map-marker-alt" style="font-size: 48px; color: #F27A33;"></i>
+                    </div>
+                    <div class="painting-info">
+                        <h3 class="painting-title">Los Angeles</h3>
+                        <p style="color: #a0a0a0; font-size: 12px; margin-bottom: 10px;">
+                            456 Gallery Lane<br>
+                            Los Angeles, CA 90001<br>
+                            <strong style="color: #F27A33;">+1 (310) 555-0456</strong>
+                        </p>
+                        <button class="add-to-cart-btn" style="background-color: #F27A33; color: #121212;">Get Directions</button>
+                    </div>
+                </div>
+
+                <div class="painting-card">
+                    <div style="width: 100%; height: 300px; background-color: #0a0a0a; display: flex; align-items: center; justify-content: center; border-bottom: 1px solid #333333;">
+                        <i class="fas fa-map-marker-alt" style="font-size: 48px; color: #F27A33;"></i>
+                    </div>
+                    <div class="painting-info">
+                        <h3 class="painting-title">London</h3>
+                        <p style="color: #a0a0a0; font-size: 12px; margin-bottom: 10px;">
+                            789 Creative Street<br>
+                            London, UK W1A 1AA<br>
+                            <strong style="color: #F27A33;">+44 (20) 7555-0789</strong>
+                        </p>
+                        <button class="add-to-cart-btn" style="background-color: #F27A33; color: #121212;">Get Directions</button>
+                    </div>
+                </div>
+
+                <div class="painting-card">
+                    <div style="width: 100%; height: 300px; background-color: #0a0a0a; display: flex; align-items: center; justify-content: center; border-bottom: 1px solid #333333;">
+                        <i class="fas fa-map-marker-alt" style="font-size: 48px; color: #F27A33;"></i>
+                    </div>
+                    <div class="painting-info">
+                        <h3 class="painting-title">Paris</h3>
+                        <p style="color: #a0a0a0; font-size: 12px; margin-bottom: 10px;">
+                            321 Artiste Avenue<br>
+                            Paris, France 75001<br>
+                            <strong style="color: #F27A33;">+33 (1) 5555-0321</strong>
+                        </p>
+                        <button class="add-to-cart-btn" style="background-color: #F27A33; color: #121212;">Get Directions</button>
+                    </div>
+                </div>
+
+                <div class="painting-card">
+                    <div style="width: 100%; height: 300px; background-color: #0a0a0a; display: flex; align-items: center; justify-content: center; border-bottom: 1px solid #333333;">
+                        <i class="fas fa-map-marker-alt" style="font-size: 48px; color: #F27A33;"></i>
+                    </div>
+                    <div class="painting-info">
+                        <h3 class="painting-title">Tokyo</h3>
+                        <p style="color: #a0a0a0; font-size: 12px; margin-bottom: 10px;">
+                            654 Gallery Place<br>
+                            Tokyo, Japan 100-0001<br>
+                            <strong style="color: #F27A33;">+81 (3) 5555-0654</strong>
+                        </p>
+                        <button class="add-to-cart-btn" style="background-color: #F27A33; color: #121212;">Get Directions</button>
+                    </div>
+                </div>
+
+                <div class="painting-card">
+                    <div style="width: 100%; height: 300px; background-color: #0a0a0a; display: flex; align-items: center; justify-content: center; border-bottom: 1px solid #333333;">
+                        <i class="fas fa-map-marker-alt" style="font-size: 48px; color: #F27A33;"></i>
+                    </div>
+                    <div class="painting-info">
+                        <h3 class="painting-title">Dubai</h3>
+                        <p style="color: #a0a0a0; font-size: 12px; margin-bottom: 10px;">
+                            987 Art District<br>
+                            Dubai, UAE 00000<br>
+                            <strong style="color: #F27A33;">+971 (4) 5555-0987</strong>
+                        </p>
+                        <button class="add-to-cart-btn" style="background-color: #F27A33; color: #121212;">Get Directions</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-brand-block">
+            <div class="footer-brand">The Aviary Collective<span>Original Art. Inspired by Kenya.</span></div>
+            <p class="footer-description">Discover and collect original paintings by Kenyan artists, inspired by African heritage, Naivasha, nature, community, culture and contemporary African creativity.</p>
+            <p class="footer-contact"><strong>Curated in Naivasha, Kenya.</strong><br><a href="tel:0768711111">0768 711 111</a><br><a href="mailto:info@aviancourthotel.com">info@aviancourthotel.com</a></p>
+        </div>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>About</h3>
+                <ul>
+                    <li><a href="#" onclick="return false;" style="opacity: 0.5; cursor: not-allowed;">Our Story</a></li>
+                    <li><a href="#locations" onclick="navigateTo('locations'); return false;">Visit The Aviary</a></li>
+                    <li><a href="#" onclick="return false;" style="opacity: 0.5; cursor: not-allowed;">Work With Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Customer Care</h3>
+                <ul>
+                    <li><a href="#" onclick="return false;" style="opacity: 0.5; cursor: not-allowed;">How to Buy</a></li>
+                    <li><a href="#" onclick="return false;" style="opacity: 0.5; cursor: not-allowed;">Shipping &amp; Delivery</a></li>
+                    <li><a href="#" onclick="return false;" style="opacity: 0.5; cursor: not-allowed;">Returns &amp; Refunds</a></li>
+                    <li><a href="#" onclick="return false;" style="opacity: 0.5; cursor: not-allowed;">FAQs</a></li>
+                    <li><a href="#" onclick="return false;" style="opacity: 0.5; cursor: not-allowed;">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Legal</h3>
+                <ul>
+                    <li><a href="#" onclick="return false;" style="opacity: 0.5; cursor: not-allowed;">Privacy Policy</a></li>
+                    <li><a href="#" onclick="return false;" style="opacity: 0.5; cursor: not-allowed;">Terms &amp; Conditions</a></li>
+                    <li><a href="#" onclick="return false;" style="opacity: 0.5; cursor: not-allowed;">Cookie Policy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 THE AVIARY COLLECTIVE. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Swiper JS Library - Deferred for better performance -->
+    <script defer src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
+    <!-- Main Application Script - Deferred to improve initial page load -->
+    <script defer>
+        // Deferred initialization ensures DOM is fully loaded
+        const AUTO_PLAY_INTERVAL = 4200;
+        const TRANSITION_DURATION = 600;
+        const SNAP_THRESHOLD = 0.3;
+        const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        class FixedCarousel {
+            constructor(container, options = {}) {
+                this.container = container;
+                this.wrapper = container.closest('.swiper-wrapper') || container;
+                this.swiper = container.closest('.swiper') || container.parentElement;
+                this.slides = Array.from(container.querySelectorAll('.swiper-slide'));
+                this.positions = ['pos1', 'pos2', 'pos3', 'pos4', 'pos5'];
+                this.currentIndex = 2;
+                this.isDragging = false;
+                this.dragStart = 0;
+                this.dragCurrent = 0;
+                this.animationId = null;
+                this.autoplayTimeout = null;
+                this.autoplayActive = !reducedMotion;
+                
+                this.initializeSlides();
+                this.attachEventListeners();
+                this.updatePositions();
+                this.startAutoplay();
+            }
+
+            initializeSlides() {
+                this.slides.forEach((slide, idx) => {
+                    slide.style.position = 'absolute';
+                    slide.style.top = '50%';
+                    slide.style.left = '50%';
+                    slide.style.setProperty('--drag', '0px');
+                    slide.dataset.index = idx;
+                });
+            }
+
+            attachEventListeners() {
+                this.wrapper.addEventListener('pointerdown', e => this.onDragStart(e));
+                document.addEventListener('pointermove', e => this.onDragMove(e));
+                document.addEventListener('pointerup', e => this.onDragEnd(e));
+                document.addEventListener('pointercancel', e => this.onDragEnd(e));
+                this.wrapper.addEventListener('mouseleave', e => this.onDragEnd(e));
+                
+                const nextBtn = this.swiper.querySelector('.swiper-button-next');
+                const prevBtn = this.swiper.querySelector('.swiper-button-prev');
+                if (nextBtn) nextBtn.addEventListener('click', () => this.rotateLeft());
+                if (prevBtn) prevBtn.addEventListener('click', () => this.rotateRight());
+            }
+
+            updatePositions() {
+                this.slides.forEach((slide, idx) => {
+                    this.positions.forEach(pos => slide.classList.remove(pos));
+                    let posIndex = (idx - this.currentIndex + 2 + this.slides.length) % this.slides.length;
+                    slide.classList.add(this.positions[posIndex]);
+                    const zIndexMap = { pos1: 10, pos2: 20, pos3: 50, pos4: 20, pos5: 10 };
+                    slide.style.zIndex = zIndexMap[this.positions[posIndex]];
+                });
+            }
+
+            onDragStart(e) {
+                if (!e.target.closest('.swiper-slide')) return;
+                this.isDragging = true;
+                this.dragStart = e.clientX;
+                this.dragCurrent = 0;
+                this.stopAutoplay();
+                this.wrapper.classList.add('dragging');
+                this.wrapper.classList.add('no-transition');
+            }
+
+            onDragMove(e) {
+                if (!this.isDragging) return;
+                this.dragCurrent = e.clientX - this.dragStart;
+                this.applyDragOffset();
+            }
+
+            onDragEnd(e) {
+                if (!this.isDragging) return;
+                this.isDragging = false;
+                this.wrapper.classList.remove('dragging');
+                this.wrapper.classList.remove('no-transition');
+                
+                const slideWidth = this.slides[0]?.offsetWidth || 340;
+                const snapDistance = slideWidth * 0.25;
+                const dragAmount = this.dragCurrent;
+                
+                if (Math.abs(dragAmount) > snapDistance) {
+                    if (dragAmount > 0) {
+                        this.rotateLeft();
+                    } else {
+                        this.rotateRight();
+                    }
+                } else {
+                    this.updatePositions();
+                }
+                
+                this.dragCurrent = 0;
+                this.clearDragOffset();
+                this.startAutoplay();
+            }
+
+            applyDragOffset() {
+                this.slides.forEach(slide => {
+                    slide.style.setProperty('--drag', this.dragCurrent + 'px');
+                });
+            }
+
+            clearDragOffset() {
+                this.slides.forEach(slide => {
+                    slide.style.setProperty('--drag', '0px');
+                });
+            }
+
+            rotateLeft() {
+                this.currentIndex = (this.currentIndex - 1 + this.slides.length) % this.slides.length;
+                this.animateRotation();
+            }
+
+            rotateRight() {
+                this.currentIndex = (this.currentIndex + 1) % this.slides.length;
+                this.animateRotation();
+            }
+
+            animateRotation() {
+                this.updatePositions();
+            }
+
+            startAutoplay() {
+                if (!this.autoplayActive) return;
+                this.autoplayTimeout = setTimeout(() => {
+                    this.rotateRight();
+                    this.startAutoplay();
+                }, AUTO_PLAY_INTERVAL);
+            }
+
+            stopAutoplay() {
+                if (this.autoplayTimeout) {
+                    clearTimeout(this.autoplayTimeout);
+                    this.autoplayTimeout = null;
+                }
+            }
+
+            destroy() {
+                this.stopAutoplay();
+                if (this.animationId) cancelAnimationFrame(this.animationId);
+            }
+        }
+
+        // Initialize carousel when DOM is ready
+        function initializeCarousel() {
+            const wrapper = document.querySelector('.swiper-wrapper');
+            if (wrapper && !window.heroCarouselInitialized) {
+                window.heroCarouselInitialized = true;
+                window.heroCarousel = new FixedCarousel(wrapper, { autoPlay: !reducedMotion });
+            }
+        }
+
+        // Page Navigation Function
+        function navigateTo(page) {
+            document.querySelectorAll('.page-wrapper').forEach(el => {
+                el.classList.remove('active');
+            });
+            document.getElementById(page).classList.add('active');
+            document.querySelectorAll('nav a').forEach(link => {
+                link.classList.remove('active');
+            });
+            const activeLink = document.querySelector(`nav a[href="#${page}"]`);
+            if (activeLink) activeLink.classList.add('active');
+            window.scrollTo(0, 0);
+        }
+
+        // Mobile Menu Toggle Functions
+        function toggleMenu() {
+            const nav = document.querySelector('nav');
+            const hamburger = document.querySelector('.hamburger');
+            nav.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        }
+
+        function closeMenu() {
+            const nav = document.querySelector('nav');
+            const hamburger = document.querySelector('.hamburger');
+            nav.classList.remove('active');
+            hamburger.classList.remove('active');
+        }
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const nav = document.querySelector('nav');
+            const hamburger = document.querySelector('.hamburger');
+            const header = document.querySelector('header');
+            
+            if (!header.contains(event.target) && nav.classList.contains('active')) {
+                closeMenu();
+            }
+        });
+
+        // Initialize when DOM is loaded
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initializeCarousel);
+        } else {
+            initializeCarousel();
+        }
+    </script>
+
+    <!-- Data-driven content script - Deferred for better performance -->
+    <script defer>
+        const artworks = [
+            { id: 1, title: 'Abstract Harmony', artist: 'Mara K. Otieno', category: 'abstract', price: 25000, image: 'Images/PXL_20251111_081942305.RAW-02.ORIGINAL.webp' },
+            { id: 2, title: 'Daydreams', artist: 'Nia Wambui', category: 'portrait', price: 16500, image: 'Images/PXL_20251111_075255720.RAW-02.ORIGINAL.webp' },
+            { id: 3, title: 'Bended Light', artist: 'Eli Mwangi', category: 'landscape', price: 10500, image: 'Images/PXL_20251111_075504005.RAW-02.ORIGINAL.webp' },
+            { id: 4, title: 'Twilight Dreams', artist: 'Amina Noor', category: 'abstract', price: 32000, image: 'Images/PXL_20251114_071724544.RAW-02.ORIGINAL.webp' },
+            { id: 5, title: 'Embracing the Spark', artist: 'Laila Njeri', category: 'portrait', price: 25000, image: 'Images/PXL_20251111_074611687.RAW-02.ORIGINAL_1.webp' },
+            { id: 6, title: 'Serenity Canvas', artist: 'Jabali Studio', category: 'landscape', price: 22000, image: 'Images/PXL_20251114_072133511.RAW-02.ORIGINAL.webp' }
+        ];
+        const cart = [];
+        const money = value => `KES ${value.toLocaleString('en-KE')}`;
+
+        function initializeContent() {
+            const catalogueGrid = document.querySelector('#catalogue .paintings-grid');
+            if (catalogueGrid) {
+                catalogueGrid.innerHTML = artworks.map(artwork => `
+                    <div class="painting-card" data-category="${artwork.category}">
+                        <img src="${artwork.image}" alt="${artwork.title} artwork" class="painting-image" loading="lazy" width="400" height="300">
+                        <div class="painting-info"><p class="painting-artist">${artwork.artist} / ${artwork.category}</p><h3 class="painting-title">${artwork.title}</h3><p class="painting-price">${money(artwork.price)}</p><button class="add-to-cart-btn" data-artwork-id="${artwork.id}">Add to Cart</button></div>
+                    </div>`).join('');
+            }
+
+            const sectionHeading = document.querySelector('#catalogue .section-heading');
+            if (sectionHeading && !document.querySelector('.catalogue-toolbar')) {
+                sectionHeading.insertAdjacentHTML('afterend', '<div class="catalogue-toolbar"><p><strong>6 works</strong> / available to collect</p><div class="filter-controls"><button class="filter-btn active" data-filter="all">All works</button><button class="filter-btn" data-filter="abstract">Abstract</button><button class="filter-btn" data-filter="portrait">Portrait</button><button class="filter-btn" data-filter="landscape">Landscape</button></div></div>');
+            }
+
+            document.querySelectorAll('.filter-btn').forEach(button => button.addEventListener('click', () => {
+                document.querySelectorAll('.filter-btn').forEach(item => item.classList.remove('active'));
+                button.classList.add('active');
+                const filter = button.dataset.filter;
+                document.querySelectorAll('#catalogue .painting-card').forEach(card => {
+                    card.style.display = filter === 'all' || card.dataset.category === filter ? '' : 'none';
+                });
+            }));
+
+            const blogContent = document.querySelector('#blog .page-content');
+            if (blogContent && !document.querySelector('.blog-grid')) {
+                blogContent.innerHTML = `<div class="blog-grid">
+                    <article class="blog-card"><img src="Images/PXL_20251114_070537276.RAW-02.ORIGINAL.webp" alt="Artist working with color" loading="lazy"><div class="blog-card-content"><p class="blog-meta">Studio visit / Aug 13, 2026</p><h2>Where a painting begins</h2><p>A quiet look at the rituals, sketches, and unexpected marks behind a finished work.</p><a class="read-more" href="#">Read story</a></div></article>
+                    <article class="blog-card"><img src="Images/PXL_20251114_071918585.RAW-02.ORIGINAL.webp" alt="Textured contemporary artwork" loading="lazy"><div class="blog-card-content"><p class="blog-meta">Collecting / Aug 10, 2026</p><h2>How to live with art</h2><p>Five useful ways to choose a work that keeps revealing something new long after it arrives.</p><a class="read-more" href="#">Read story</a></div></article>
+                    <article class="blog-card"><img src="Images/PXL_20251111_083944562.RAW-02.ORIGINAL.webp" alt="Framed artwork in a gallery" loading="lazy"><div class="blog-card-content"><p class="blog-meta">Perspective / Aug 05, 2026</p><h2>The pleasure of looking slowly</h2><p>In a fast visual culture, attention becomes a generous and surprisingly radical collecting tool.</p><a class="read-more" href="#">Read story</a></div></article>
+                </div>`;
+            }
+
+            if (!document.querySelector('#cart')) {
+                document.querySelector('footer').insertAdjacentHTML('beforebegin', `<div id="cart" class="page-wrapper"><div class="page-header"><h1>Your Cart</h1><p>Review your selected works before checkout</p></div><div class="page-content"><div class="cart-layout"><div id="cart-items" class="cart-items"></div><aside class="cart-summary"><h2>Order summary</h2><div class="summary-row"><span>Subtotal</span><strong id="cart-subtotal">KES 0</strong></div><div class="summary-row"><span>Delivery</span><span>Calculated at checkout</span></div><div class="summary-row summary-total"><span>Total</span><strong id="cart-total">KES 0</strong></div><button class="shop-btn checkout-btn" onclick="alert('Checkout is ready for your delivery details.')">Proceed to Checkout</button></aside></div></div></div>`);
+            }
+
+            const locationsGrid = document.querySelector('#locations .paintings-grid');
+            if (locationsGrid && locationsGrid.children.length === 0) {
+                locationsGrid.innerHTML = `<div class="painting-card"><iframe class="map-preview" title="The Aviary Collective location map" src="https://www.google.com/maps?q=-0.8025256,36.4201877&amp;z=17&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe><div class="painting-info"><h3 class="painting-title">The Aviary Collective</h3><p style="color: #a0a0a0; font-size: 12px; margin-bottom: 10px;">Visit our gallery and experience the collection in person.</p><a class="add-to-cart-btn" style="background-color: #F27A33; color: #121212; display: block; text-align: center; text-decoration: none;" href="https://maps.app.goo.gl/4MoXkdVUYYd9YDJT7" target="_blank" rel="noopener">Open in Google Maps</a></div></div>`;
+            }
+        }
+
+        function renderCart() {
+            const items = document.querySelector('#cart-items');
+            const count = cart.reduce((total, item) => total + item.quantity, 0);
+            const subtotal = cart.reduce((total, item) => total + item.price * item.quantity, 0);
+            document.querySelector('.cart-badge').textContent = count;
+            document.querySelector('#cart-subtotal').textContent = money(subtotal);
+            document.querySelector('#cart-total').textContent = money(subtotal);
+            items.innerHTML = cart.length ? cart.map(item => `<article class="cart-item"><img src="${item.image}" alt="${item.title}" loading="lazy"><div><h3>${item.title}</h3><p>${item.artist}</p><div class="quantity-control"><button data-cart-action="decrease" data-id="${item.id}">-</button><span>${item.quantity}</span><button data-cart-action="increase" data-id="${item.id}">+</button></div><button class="remove-item" data-cart-action="remove" data-id="${item.id}">Remove</button></div><strong class="cart-item-total cart-item-price">${money(item.price * item.quantity)}</strong></article>`).join('') : '<div class="empty-cart"><i class="fas fa-feather-alt"></i><p>Your cart is waiting for a first edition.</p><button class="view-all-btn" onclick="navigateTo(\'catalogue\')">Explore the catalogue</button></div>';
+        }
+
+        document.addEventListener('click', event => {
+            const addButton = event.target.closest('[data-artwork-id]');
+            if (addButton) {
+                const artwork = artworks.find(item => item.id === Number(addButton.dataset.artworkId));
+                const existing = cart.find(item => item.id === artwork.id);
+                existing ? existing.quantity++ : cart.push({ ...artwork, quantity: 1 });
+                renderCart();
+                addButton.textContent = 'Added';
+                setTimeout(() => addButton.textContent = 'Add to Cart', 1200);
+            }
+            const cartAction = event.target.closest('[data-cart-action]');
+            if (cartAction) {
+                const item = cart.find(entry => entry.id === Number(cartAction.dataset.id));
+                if (cartAction.dataset.cartAction === 'remove') cart.splice(cart.indexOf(item), 1);
+                if (cartAction.dataset.cartAction === 'increase') item.quantity++;
+                if (cartAction.dataset.cartAction === 'decrease') item.quantity > 1 ? item.quantity-- : cart.splice(cart.indexOf(item), 1);
+                renderCart();
+            }
+        });
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', () => {
+                initializeContent();
+                renderCart();
+            });
+        } else {
+            initializeContent();
+            renderCart();
+        }
+    </script>
+
+    <!-- Legal modal and support pages script -->
+    <script defer>
+        const supportPages = {
+            'our-story': { title: 'Our Story', subtitle: 'Art with a sense of place', content: `<div class="support-intro"><p>The Aviary Collective is a curated art gallery and online destination for original paintings inspired by Kenya, its people, landscapes, cultures and stories.</p><p>Born in Naivasha, The Aviary Collective brings together contemporary creativity and the character of one of Kenya's most distinctive destinations.</p></div><h2>Art With a Sense of Place</h2><p>Our collection features genuine artworks created by local artists whose work reflects African heritage, everyday life, wildlife, tourism, community and the limitless imagination of the African creative spirit.</p><p>We believe art should do more than fill a wall. It should create a feeling, tell a story, start a conversation and mean something to the person who takes it home.</p>` },
+            'visit-aviary': { title: 'Visit The Aviary', subtitle: 'See the art. Feel the space. Find your piece.', content: `<div class="support-intro"><p>The Aviary Collective is more than an online gallery. Our collection comes to life within the surroundings of Avian Court Hotel in Naivasha, where original artworks are displayed throughout selected hotel spaces.</p></div><h2>Art You Can Experience in Person</h2><p>Walk through the property and discover paintings in their natural setting. Take your time with a piece. Notice the details. Experience the scale and texture. Imagine it in your own space.</p>` },
+            'how-to-buy': { title: 'How to Buy', subtitle: 'Discover and collect original art', content: `<div class="support-intro"><p>Explore original paintings inspired by Kenya, African heritage, nature, community, culture and contemporary creativity.</p></div><h2>Finding Your Artwork</h2><p>Each artwork should have product information including title, artist, medium, dimensions, price, availability, framing information, year of creation and description, where available.</p>` }
+        };
+
+        const legalPages = {
+            privacy: `<h2>Privacy Policy</h2><p><strong>Last Updated: 23 August 2026</strong></p><p>The Aviary Collective respects your privacy. This policy explains how information may be collected, used, stored, shared and protected.</p>`,
+            terms: `<h2>Terms & Conditions</h2><p><strong>Last Updated: 23 August 2026</strong></p><p>These Terms govern use of The Aviary Collective website and purchases of artworks.</p>`,
+            cookies: `<h2>Cookie Policy</h2><p><strong>Last Updated: 23 August 2026</strong></p><p>The Aviary Collective uses cookies and similar technologies where needed to operate, secure and improve the website.</p>`
+        };
+
+        function initializeLegalPages() {
+            Object.entries(supportPages).forEach(([id, page]) => {
+                if (!document.querySelector(`#${id}`)) {
+                    document.querySelector('footer').insertAdjacentHTML('beforebegin', `<div id="${id}" class="page-wrapper support-page"><div class="page-header"><h1>${page.title}</h1><p>${page.subtitle}</p></div><div class="page-content">${page.content}</div></div>`);
+                }
+            });
+
+            if (!document.querySelector('#legal-modal')) {
+                document.body.insertAdjacentHTML('beforeend', `<div class="legal-modal" id="legal-modal" role="dialog" aria-modal="true" aria-label="Legal document"><div class="legal-dialog"><button class="modal-close" type="button" aria-label="Close legal document">&times;</button><div id="legal-modal-content"></div></div></div>`);
+
+                document.querySelectorAll('[data-legal]').forEach(link => link.addEventListener('click', event => {
+                    event.preventDefault();
+                    document.querySelector('#legal-modal-content').innerHTML = legalPages[link.dataset.legal];
+                    document.querySelector('#legal-modal').classList.add('active');
+                    document.querySelector('.modal-close').focus();
+                }));
+
+                const legalModal = document.querySelector('#legal-modal');
+                legalModal.querySelector('.modal-close').addEventListener('click', () => legalModal.classList.remove('active'));
+                legalModal.addEventListener('click', event => { if (event.target === legalModal) legalModal.classList.remove('active'); });
+                document.addEventListener('keydown', event => { if (event.key === 'Escape') legalModal.classList.remove('active'); });
+            }
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initializeLegalPages);
+        } else {
+            initializeLegalPages();
+        }
+    </script>
+            constructor(container, options = {}) {
+                this.container = container;
+                this.wrapper = container.closest('.swiper-wrapper') || container;
+                this.swiper = container.closest('.swiper') || container.parentElement;
+                this.slides = Array.from(container.querySelectorAll('.swiper-slide'));
+                this.positions = ['pos1', 'pos2', 'pos3', 'pos4', 'pos5'];
+                this.currentIndex = 2; // Start with center slide (index 2)
+                this.isDragging = false;
+                this.dragStart = 0;
+                this.dragCurrent = 0;
+                this.animationId = null;
+                this.autoplayTimeout = null;
+                this.autoplayActive = !reducedMotion;
+                
+                // Convert slides to use position system
+                this.initializeSlides();
+                this.attachEventListeners();
+                this.updatePositions();
+                this.startAutoplay();
+            }
+
+            initializeSlides() {
+                this.slides.forEach((slide, idx) => {
+                    slide.style.position = 'absolute';
+                    slide.style.top = '50%';
+                    slide.style.left = '50%';
+                    slide.style.setProperty('--drag', '0px');
+                    slide.dataset.index = idx;
+                });
+            }
+
+            attachEventListeners() {
+                // Pointer events for drag
+                this.wrapper.addEventListener('pointerdown', e => this.onDragStart(e));
+                document.addEventListener('pointermove', e => this.onDragMove(e));
+                document.addEventListener('pointerup', e => this.onDragEnd(e));
+                document.addEventListener('pointercancel', e => this.onDragEnd(e));
+                this.wrapper.addEventListener('mouseleave', e => this.onDragEnd(e));
+                
+                // Navigation buttons
+                const nextBtn = this.swiper.querySelector('.swiper-button-next');
+                const prevBtn = this.swiper.querySelector('.swiper-button-prev');
+                if (nextBtn) nextBtn.addEventListener('click', () => this.rotateLeft());
+                if (prevBtn) prevBtn.addEventListener('click', () => this.rotateRight());
+            }
+
+            updatePositions() {
+                this.slides.forEach((slide, idx) => {
+                    // Remove all position classes
+                    this.positions.forEach(pos => slide.classList.remove(pos));
+                    
+                    // Calculate position index: map slide index to visual position
+                    // Slide at currentIndex should be in pos3 (center, position index 2)
+                    // Slide at currentIndex-1 should be in pos2, currentIndex-2 in pos1, etc.
+                    let posIndex = (idx - this.currentIndex + 2 + this.slides.length) % this.slides.length;
+                    
+                    // Assign position class
+                    slide.classList.add(this.positions[posIndex]);
+                    
+                    // Update z-index based on position for proper layering
+                    const zIndexMap = { pos1: 10, pos2: 20, pos3: 50, pos4: 20, pos5: 10 };
+                    slide.style.zIndex = zIndexMap[this.positions[posIndex]];
+                });
+            }
+
+            onDragStart(e) {
+                if (!e.target.closest('.swiper-slide')) return;
+                this.isDragging = true;
+                this.dragStart = e.clientX;
+                this.dragCurrent = 0;
+                this.stopAutoplay();
+                this.wrapper.classList.add('dragging');
+                this.wrapper.classList.add('no-transition');
+            }
+
+            onDragMove(e) {
+                if (!this.isDragging) return;
+                this.dragCurrent = e.clientX - this.dragStart;
+                this.applyDragOffset();
+            }
+
+            onDragEnd(e) {
+                if (!this.isDragging) return;
+                this.isDragging = false;
+                this.wrapper.classList.remove('dragging');
+                this.wrapper.classList.remove('no-transition');
+                
+                // Determine snap based on drag amount
+                const slideWidth = this.slides[0]?.offsetWidth || 340;
+                const snapDistance = slideWidth * 0.25;
+                const dragAmount = this.dragCurrent;
+                
+                if (Math.abs(dragAmount) > snapDistance) {
+                    if (dragAmount > 0) {
+                        // Dragged right - rotate left (show previous)
+                        this.rotateLeft();
+                    } else {
+                        // Dragged left - rotate right (show next)
+                        this.rotateRight();
+                    }
+                } else {
+                    // Snap back to current position
+                    this.updatePositions();
+                }
+                
+                this.dragCurrent = 0;
+                this.clearDragOffset();
+                this.startAutoplay();
+            }
+
+            applyDragOffset() {
+                this.slides.forEach(slide => {
+                    slide.style.setProperty('--drag', this.dragCurrent + 'px');
+                });
+            }
+
+            clearDragOffset() {
+                this.slides.forEach(slide => {
+                    slide.style.setProperty('--drag', '0px');
+                });
+            }
+
+            rotateLeft() {
+                // Leftward rotation: artwork moves from right to left visually
+                // Previous artwork in sequence moves to center
+                this.currentIndex = (this.currentIndex - 1 + this.slides.length) % this.slides.length;
+                this.animateRotation();
+            }
+
+            rotateRight() {
+                // Rightward rotation: artwork moves from left to right visually
+                // Next artwork in sequence moves to center
+                this.currentIndex = (this.currentIndex + 1) % this.slides.length;
+                this.animateRotation();
+            }
+
+            animateRotation() {
+                this.updatePositions();
+                // Animation is handled by CSS transitions
+            }
+
+            startAutoplay() {
+                if (!this.autoplayActive) return;
+                this.autoplayTimeout = setTimeout(() => {
+                    this.rotateRight();
+                    this.startAutoplay();
+                }, AUTO_PLAY_INTERVAL);
+            }
+
+            stopAutoplay() {
+                if (this.autoplayTimeout) {
+                    clearTimeout(this.autoplayTimeout);
+                    this.autoplayTimeout = null;
+                }
+            }
+
+            destroy() {
+                this.stopAutoplay();
+                if (this.animationId) cancelAnimationFrame(this.animationId);
+            }
+        }
+
+        // Initialize carousel when DOM is ready
+        document.addEventListener('DOMContentLoaded', () => {
+            const wrapper = document.querySelector('.swiper-wrapper');
+            if (wrapper) {
+                const heroCarousel = new FixedCarousel(wrapper, { autoPlay: !reducedMotion });
+            }
+        });
+
+        // Fallback initialization if DOMContentLoaded already fired
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', () => {
+                if (!window.heroCarouselInitialized) {
+                    const wrapper = document.querySelector('.swiper-wrapper');
+                    if (wrapper) {
+                        window.heroCarouselInitialized = true;
+                        window.heroCarousel = new FixedCarousel(wrapper, { autoPlay: !reducedMotion });
+                    }
+                }
+            });
+        } else {
+            if (!window.heroCarouselInitialized) {
+                const wrapper = document.querySelector('.swiper-wrapper');
+                if (wrapper) {
+                    window.heroCarouselInitialized = true;
+                    window.heroCarousel = new FixedCarousel(wrapper, { autoPlay: !reducedMotion });
+                }
+            }
+        }
+
+        // Page Navigation Function
+        function navigateTo(page) {
+            // Hide all pages
+            document.querySelectorAll('.page-wrapper').forEach(el => {
+                el.classList.remove('active');
+            });
+
+            // Show selected page
+            document.getElementById(page).classList.add('active');
+
+            // Update active nav link
+            document.querySelectorAll('nav a').forEach(link => {
+                link.classList.remove('active');
+            });
+            const activeLink = document.querySelector(`nav a[href="#${page}"]`);
+            if (activeLink) activeLink.classList.add('active');
+
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+
+        // Mobile Menu Toggle Functions
+        function toggleMenu() {
+            const nav = document.querySelector('nav');
+            const hamburger = document.querySelector('.hamburger');
+            nav.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        }
+
+        function closeMenu() {
+            const nav = document.querySelector('nav');
+            const hamburger = document.querySelector('.hamburger');
+            nav.classList.remove('active');
+            hamburger.classList.remove('active');
+        }
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const nav = document.querySelector('nav');
+            const hamburger = document.querySelector('.hamburger');
+            const header = document.querySelector('header');
+            
+            if (!header.contains(event.target) && nav.classList.contains('active')) {
+                closeMenu();
+            }
+        });
+
+        // Add to Cart functionality
+        document.querySelectorAll('.add-to-cart-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const cartBadge = document.querySelector('.cart-badge');
+                const currentCount = parseInt(cartBadge.textContent);
+                cartBadge.textContent = currentCount + 1;
+                
+                // Visual feedback
+                btn.textContent = 'Added!';
+                setTimeout(() => {
+                    btn.textContent = 'Add to Cart';
+                }, 1500);
+            });
+        });
+    </script>
+    <script>
+        const artworks = [
+            { id: 1, title: 'Abstract Harmony', artist: 'Mara K. Otieno', category: 'abstract', price: 25000, image: 'Images/PXL_20251111_081942305.RAW-02.ORIGINAL.png' },
+            { id: 2, title: 'Daydreams', artist: 'Nia Wambui', category: 'portrait', price: 16500, image: 'Images/PXL_20251111_075255720.RAW-02.ORIGINAL.png' },
+            { id: 3, title: 'Bended Light', artist: 'Eli Mwangi', category: 'landscape', price: 10500, image: 'Images/PXL_20251111_075504005.RAW-02.ORIGINAL.png' },
+            { id: 4, title: 'Twilight Dreams', artist: 'Amina Noor', category: 'abstract', price: 32000, image: 'Images/PXL_20251114_071724544.RAW-02.ORIGINAL.png' },
+            { id: 5, title: 'Embracing the Spark', artist: 'Laila Njeri', category: 'portrait', price: 25000, image: 'Images/PXL_20251111_074611687.RAW-02.ORIGINAL_1.png' },
+            { id: 6, title: 'Serenity Canvas', artist: 'Jabali Studio', category: 'landscape', price: 22000, image: 'Images/PXL_20251114_072133511.RAW-02.ORIGINAL.png' }
+        ];
+        const cart = [];
+        const money = value => `KES ${value.toLocaleString('en-KE')}`;
+
+        document.querySelector('#catalogue .paintings-grid').innerHTML = artworks.map(artwork => `
+            <div class="painting-card" data-category="${artwork.category}">
+                <img src="${artwork.image}" alt="${artwork.title} artwork" class="painting-image">
+                <div class="painting-info"><p class="painting-artist">${artwork.artist} / ${artwork.category}</p><h3 class="painting-title">${artwork.title}</h3><p class="painting-price">${money(artwork.price)}</p><button class="add-to-cart-btn" data-artwork-id="${artwork.id}">Add to Cart</button></div>
+            </div>`).join('');
+
+        document.querySelector('#catalogue .section-heading').insertAdjacentHTML('afterend', '<div class="catalogue-toolbar"><p><strong>6 works</strong> / available to collect</p><div class="filter-controls"><button class="filter-btn active" data-filter="all">All works</button><button class="filter-btn" data-filter="abstract">Abstract</button><button class="filter-btn" data-filter="portrait">Portrait</button><button class="filter-btn" data-filter="landscape">Landscape</button></div></div>');
+
+        document.querySelectorAll('.filter-btn').forEach(button => button.addEventListener('click', () => {
+            document.querySelectorAll('.filter-btn').forEach(item => item.classList.remove('active'));
+            button.classList.add('active');
+            const filter = button.dataset.filter;
+            document.querySelectorAll('#catalogue .painting-card').forEach(card => {
+                card.style.display = filter === 'all' || card.dataset.category === filter ? '' : 'none';
+            });
+        }));
+
+        document.querySelector('#blog .page-content').innerHTML = `<div class="blog-grid">
+            <article class="blog-card"><img src="Images/PXL_20251114_070537276.RAW-02.ORIGINAL.webp" alt="Artist working with color"><div class="blog-card-content"><p class="blog-meta">Studio visit / Aug 13, 2026</p><h2>Where a painting begins</h2><p>A quiet look at the rituals, sketches, and unexpected marks behind a finished work.</p><a class="read-more" href="#">Read story</a></div></article>
+            <article class="blog-card"><img src="Images/PXL_20251114_071918585.RAW-02.ORIGINAL.webp" alt="Textured contemporary artwork"><div class="blog-card-content"><p class="blog-meta">Collecting / Aug 10, 2026</p><h2>How to live with art</h2><p>Five useful ways to choose a work that keeps revealing something new long after it arrives.</p><a class="read-more" href="#">Read story</a></div></article>
+            <article class="blog-card"><img src="Images/PXL_20251111_083944562.RAW-02.ORIGINAL.webp" alt="Framed artwork in a gallery"><div class="blog-card-content"><p class="blog-meta">Perspective / Aug 05, 2026</p><h2>The pleasure of looking slowly</h2><p>In a fast visual culture, attention becomes a generous and surprisingly radical collecting tool.</p><a class="read-more" href="#">Read story</a></div></article>
+        </div>`;
+
+        document.querySelector('footer').insertAdjacentHTML('beforebegin', `<div id="cart" class="page-wrapper"><div class="page-header"><h1>Your Cart</h1><p>Review your selected works before checkout</p></div><div class="page-content"><div class="cart-layout"><div id="cart-items" class="cart-items"></div><aside class="cart-summary"><h2>Order summary</h2><div class="summary-row"><span>Subtotal</span><strong id="cart-subtotal">KES 0</strong></div><div class="summary-row"><span>Delivery</span><span>Calculated at checkout</span></div><div class="summary-row summary-total"><span>Total</span><strong id="cart-total">KES 0</strong></div><button class="shop-btn checkout-btn" onclick="alert('Checkout is ready for your delivery details.')">Proceed to Checkout</button></aside></div></div></div>`);
+
+        function renderCart() {
+            const items = document.querySelector('#cart-items');
+            const count = cart.reduce((total, item) => total + item.quantity, 0);
+            const subtotal = cart.reduce((total, item) => total + item.price * item.quantity, 0);
+            document.querySelector('.cart-badge').textContent = count;
+            document.querySelector('#cart-subtotal').textContent = money(subtotal);
+            document.querySelector('#cart-total').textContent = money(subtotal);
+            items.innerHTML = cart.length ? cart.map(item => `<article class="cart-item"><img src="${item.image}" alt="${item.title}"><div><h3>${item.title}</h3><p>${item.artist}</p><div class="quantity-control"><button data-cart-action="decrease" data-id="${item.id}">-</button><span>${item.quantity}</span><button data-cart-action="increase" data-id="${item.id}">+</button></div><button class="remove-item" data-cart-action="remove" data-id="${item.id}">Remove</button></div><strong class="cart-item-total cart-item-price">${money(item.price * item.quantity)}</strong></article>`).join('') : '<div class="empty-cart"><i class="fas fa-feather-alt"></i><p>Your cart is waiting for a first edition.</p><button class="view-all-btn" onclick="navigateTo(\'catalogue\')">Explore the catalogue</button></div>';
+        }
+
+        document.addEventListener('click', event => {
+            const addButton = event.target.closest('[data-artwork-id]');
+            if (addButton) {
+                const artwork = artworks.find(item => item.id === Number(addButton.dataset.artworkId));
+                const existing = cart.find(item => item.id === artwork.id);
+                existing ? existing.quantity++ : cart.push({ ...artwork, quantity: 1 });
+                renderCart();
+                addButton.textContent = 'Added';
+                setTimeout(() => addButton.textContent = 'Add to Cart', 1200);
+            }
+            const cartAction = event.target.closest('[data-cart-action]');
+            if (cartAction) {
+                const item = cart.find(entry => entry.id === Number(cartAction.dataset.id));
+                if (cartAction.dataset.cartAction === 'remove') cart.splice(cart.indexOf(item), 1);
+                if (cartAction.dataset.cartAction === 'increase') item.quantity++;
+                if (cartAction.dataset.cartAction === 'decrease') item.quantity > 1 ? item.quantity-- : cart.splice(cart.indexOf(item), 1);
+                renderCart();
+            }
+        });
+        renderCart();
+
+        document.querySelector('#locations .paintings-grid').innerHTML = `<div class="painting-card"><iframe class="map-preview" title="The Aviary Collective location map" src="https://www.google.com/maps?q=-0.8025256,36.4201877&amp;z=17&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe><div class="painting-info"><h3 class="painting-title">The Aviary Collective</h3><p style="color: #a0a0a0; font-size: 12px; margin-bottom: 10px;">Visit our gallery and experience the collection in person.</p><a class="add-to-cart-btn" style="background-color: #F27A33; color: #121212; display: block; text-align: center; text-decoration: none;" href="https://maps.app.goo.gl/4MoXkdVUYYd9YDJT7" target="_blank" rel="noopener">Open in Google Maps</a></div></div>`;
+
+        const supportPages = {
+            'our-story': { title: 'Our Story', subtitle: 'Art with a sense of place', content: `<div class="support-intro"><p>The Aviary Collective is a curated art gallery and online destination for original paintings inspired by Kenya, its people, landscapes, cultures and stories.</p><p>Born in Naivasha, The Aviary Collective brings together contemporary creativity and the character of one of Kenya's most distinctive destinations.</p></div><h2>Art With a Sense of Place</h2><p>Our collection features genuine artworks created by local artists whose work reflects African heritage, everyday life, wildlife, tourism, community and the limitless imagination of the African creative spirit.</p><p>We believe art should do more than fill a wall. It should create a feeling, tell a story, start a conversation and mean something to the person who takes it home.</p><p>Every artwork has its own character, perspective and story. Some pieces draw inspiration from the landscapes of the Rift Valley. Others explore African identity, community, wildlife, tradition, contemporary life or pure artistic expression.</p><h2>How The Aviary Collective Began</h2><p>The Aviary Collective grew from a simple idea: <strong>the walls around us should tell stories.</strong></p><p>Within the hospitality environment of Avian Court Hotel in Naivasha, art became more than decoration. Paintings became part of the guest experience. They caught the eye, invited conversation and gave visitors another way to experience Kenya.</p><p>Original artworks were carefully selected and displayed throughout the hotel environment, creating a living collection where guests could experience the art in context before choosing a piece for their own home, office or collection.</p><h2>Why Naivasha?</h2><p>Naivasha is more than our location. It is part of our inspiration. Surrounded by dramatic landscapes, wildlife, tourism, farming communities and a rich cultural landscape, it sits at an intersection of nature, people and movement.</p><p>The landscapes, people, colours, experiences and cultural character of the region provide an endless source of creative inspiration.</p><h2>What We Believe</h2><h3>Originality Matters</h3><p>We focus on genuine original artworks created by artists rather than mass-produced decorative prints.</p><h3>Stories Matter</h3><p>Every artwork has a perspective behind it. We aim to preserve and communicate its story and context wherever appropriate.</p><h3>Local Creativity Matters</h3><p>We believe Kenyan artists deserve platforms through which their creativity can be discovered, appreciated and collected.</p><h3>Art Belongs Everywhere</h3><p>Art belongs in homes, offices, hotels, restaurants, hospitality spaces and everyday environments.</p><h3>Collect What Speaks to You</h3><p>You do not need to be an established collector or an art expert to own original art. If a piece moves you, inspires you or connects with something in you, it may already have found its place.</p><h2>Our Promise</h2><p>We curate art with intention, seeking works that demonstrate creativity, character, originality and a meaningful connection to the diverse visual language of Kenya. We aim to make discovering and collecting art personal, accessible and memorable.</p>` },
+            'visit-aviary': { title: 'Visit The Aviary', subtitle: 'See the art. Feel the space. Find your piece.', content: `<div class="support-intro"><p>The Aviary Collective is more than an online gallery. Our collection comes to life within the surroundings of Avian Court Hotel in Naivasha, where original artworks are displayed throughout selected hotel spaces.</p></div><h2>Art You Can Experience in Person</h2><p>Walk through the property and discover paintings in their natural setting. Take your time with a piece. Notice the details. Experience the scale and texture. Imagine it in your own space.</p><p>A screen can show you an image, but an original artwork in person allows you to appreciate details photographs cannot always capture: scale, texture, brushwork and colour in natural surroundings.</p><h2>A Gallery Within a Destination</h2><p>Located in Naivasha, The Aviary Collective offers an art experience connected to one of Kenya's most distinctive destinations. The collection exists alongside the atmosphere of Avian Court Hotel, where hospitality, travel and art meet.</p><h2>Visiting</h2><div class="support-contact"><p><strong>Location</strong><br><a href="https://maps.app.goo.gl/4MoXkdVUYYd9YDJT7" target="_blank" rel="noopener">Avian Court Hotel, Naivasha, Kenya</a></p><p><strong>Phone / WhatsApp</strong><br><a href="tel:0768711111">0768 711 111</a></p><p><strong>Email</strong><br><a href="mailto:info@aviancourthotel.com">info@aviancourthotel.com</a></p></div><p>Before travelling specifically to view a particular artwork, contact us to confirm that it is currently available and on display. Some pieces may be sold, moved, reserved or undergoing delivery arrangements.</p><h2>Come Discover the Collection</h2><p><strong>See the art. Feel the space. Find your piece.</strong></p>` },
+            'work-with-us': { title: 'Work With Us', subtitle: "Let's create something meaningful", content: `<div class="support-intro"><p>The Aviary Collective is open to meaningful collaborations with people and organisations who share an appreciation for original art, Kenyan creativity and thoughtfully designed spaces.</p></div><h2>We Welcome Enquiries From</h2><ul><li>Artists and art professionals</li><li>Interior designers, architects and property developers</li><li>Hospitality businesses, restaurants and lifestyle spaces</li><li>Corporate organisations and event organisers</li><li>Creative and cultural organisations</li><li>Collectors and art enthusiasts</li></ul><h2>Artist &amp; Creative Collaborations</h2><p>We are interested in discovering creative voices and exploring opportunities to showcase original artwork that aligns with our character and vision.</p><p>Artists should contact us with their name, location, biography, artistic practice, preferred medium, portfolio or examples of work, website or social-media portfolio and contact information. Submission does not guarantee representation, exhibition or sale.</p><h2>Interior &amp; Hospitality Collaborations</h2><p>We can explore curated artwork solutions for hotels, restaurants, offices, residential developments, private homes, hospitality properties and lifestyle spaces. For larger projects, contact our team to discuss artwork requirements, dimensions, themes and budgets.</p><h2>Corporate &amp; Private Collectors</h2><p>Our team can assist in identifying pieces that complement a corporate environment, private residence, hospitality property or special occasion.</p><div class="support-contact"><h2>Get In Touch</h2><p><strong>Phone / WhatsApp:</strong> <a href="tel:0768711111">0768 711 111</a></p><p><strong>Email:</strong> <a href="mailto:info@aviancourthotel.com?subject=Collaboration%20Enquiry%20%E2%80%94%20The%20Aviary%20Collective">info@aviancourthotel.com</a></p><p><strong>Subject line:</strong> Collaboration Enquiry — The Aviary Collective</p></div>` },
+            'how-to-buy': { title: 'How to Buy', subtitle: 'Discover and collect original art', content: `<div class="support-intro"><p>Explore original paintings inspired by Kenya, African heritage, nature, community, culture and contemporary creativity.</p></div><h2>Finding Your Artwork</h2><p>Each artwork should have product information including title, artist, medium, dimensions, price, availability, framing information, year of creation and description, where available.</p><h2>Step 1 — Discover</h2><p>Browse the collection and use the website's existing filters and categories where available.</p><h2>Step 2 — Explore the Artwork</h2><p>Review photographs, description, dimensions, price and other available information. Because every original artwork is unique, take time to review the details before purchasing.</p><h2>Step 3 — Ask Questions</h2><p>Ask about dimensions, framing, materials, availability, viewing, delivery, artwork details or commission possibilities.</p><div class="support-contact"><p><a href="tel:0768711111">0768 711 111</a> · <a href="mailto:info@aviancourthotel.com">info@aviancourthotel.com</a></p></div><h2>Step 4 — Place Your Order</h2><p>Add the artwork to your cart and follow the existing checkout process. Provide accurate contact and delivery information.</p><h2>Step 5 — Payment</h2><p>Complete payment using the options provided during checkout. Do not send payment to unofficial numbers or accounts. If uncertain, contact <a href="tel:0768711111">0768 711 111</a>.</p><h2>Step 6 — Confirmation</h2><p>Once payment and order details are verified, you will receive an order confirmation.</p><h2>Step 7 — Preparation &amp; Delivery</h2><p>The artwork will be prepared according to its size, material, framing and destination, with reasonable care taken for transportation.</p><h2>Important Information About Original Art</h2><p>Every original artwork is unique. Colours may appear slightly different depending on your device. Natural variations in paint texture, brushwork and surface appearance are characteristics of original artwork and are not automatically defects.</p>` },
+            'shipping-delivery': { title: 'Shipping & Delivery', subtitle: 'Delivering art with care', content: `<div class="support-intro"><p>Original artwork requires careful handling. We prepare purchased artworks with attention to packaging, protection and destination requirements.</p></div><h2>Delivery Within Kenya</h2><p>We deliver artworks from Naivasha to destinations within Kenya. Delivery times and costs depend on destination, artwork dimensions and weight, framing, packaging requirements, transport method and accessibility.</p><p>The applicable delivery cost should be communicated before or during checkout where possible. For oversized, fragile or high-value pieces, our team may contact you directly.</p><h2>International Delivery</h2><p>International delivery may be available for selected artworks. Contact us before purchasing to confirm availability and estimated costs.</p><h2>Customs &amp; Import Charges</h2><p>International orders may be subject to customs duties, taxes, import charges, clearance fees or other charges imposed by the destination country. Unless expressly stated otherwise, these charges are the buyer's responsibility.</p><h2>Delivery Address</h2><p>Customers are responsible for providing full name, telephone number, delivery address, town or city, relevant building, estate or landmark information and any details required for delivery.</p><h2>Receiving Your Artwork</h2><p>Inspect the package and artwork as soon as reasonably possible. If damaged, photograph the artwork and packaging before disposal and contact us immediately.</p><div class="support-contact"><p><a href="tel:0768711111">0768 711 111</a><br><a href="mailto:info@aviancourthotel.com">info@aviancourthotel.com</a></p></div><h2>Delivery Delays</h2><p>Delivery estimates may change due to circumstances beyond our reasonable control, including transport disruptions, weather, public holidays, customs processing, security restrictions and unforeseen circumstances.</p>` },
+            'returns-refunds': { title: 'Returns & Refunds', subtitle: 'Handled carefully and fairly', content: `<div class="support-intro"><p>Original artwork is unique, valuable and often fragile. Returns and refunds are handled according to the circumstances of each order and nothing in this policy limits consumer rights that cannot lawfully be excluded under Kenyan law.</p></div><h2>Damaged Artwork</h2><p>If artwork arrives damaged, contact us as soon as possible with your order number, photographs of the artwork and packaging, a clear description of the damage, and keep the original packaging until advised otherwise.</p><p>Depending on the circumstances, the resolution may include repair, replacement where reasonably possible, return, refund or another appropriate remedy.</p><h2>Incorrect Artwork</h2><p>If you receive different artwork from what you ordered, contact us promptly. Do not alter, frame, repair, clean or modify it before contacting us.</p><h2>Change of Mind</h2><p>Because original artworks are unique and may be prepared specifically for delivery, change-of-mind returns may be subject to specific conditions. Review dimensions, medium, framing, images, price and delivery requirements before purchasing.</p><h2>Commissioned Artwork</h2><p>Commissioned or personalised artworks may have different return and refund conditions, agreed before the commission begins.</p><h2>Refunds</h2><p>Where approved, refunds will normally use the original payment method where reasonably possible. Processing time may depend on the payment provider or financial institution.</p><div class="support-contact"><p><strong>Phone / WhatsApp:</strong> <a href="tel:0768711111">0768 711 111</a></p><p><strong>Email:</strong> <a href="mailto:info@aviancourthotel.com">info@aviancourthotel.com</a></p></div>` },
+            'faqs': { title: 'Frequently Asked Questions', subtitle: 'Helpful answers for collectors', content: `<h2>What is The Aviary Collective?</h2><p>A curated art gallery and online destination based in Naivasha, Kenya, offering original artworks inspired by Kenya, African heritage, nature, community, culture and contemporary creativity.</p><h2>Are the artworks original?</h2><p>The collection focuses on genuine original artworks. Product listings should indicate whether a work is an original painting or another type of artwork.</p><h2>Can I see an artwork before buying it?</h2><p>Selected artworks are displayed at Avian Court Hotel. Contact us before visiting to confirm availability and location.</p><h2>Are artworks framed?</h2><p>Framing varies. Individual listings should indicate whether an artwork is framed. Contact us if the information is unclear.</p><h2>Do you deliver within Kenya?</h2><p>Yes, subject to the artwork, destination and delivery requirements.</p><h2>Do you ship internationally?</h2><p>International delivery may be available for selected artworks. Contact us before purchasing.</p><h2>Can I commission an artwork?</h2><p>Selected artists may be available for commissions. Contact us with your preferred subject, style, dimensions and budget.</p><h2>Do you offer corporate artwork?</h2><p>Yes. We can explore artwork solutions for offices, hotels, restaurants, residences, developments and other spaces.</p><div class="support-contact"><h2>How can I contact The Aviary Collective?</h2><p><a href="tel:0768711111">0768 711 111</a><br><a href="mailto:info@aviancourthotel.com">info@aviancourthotel.com</a></p></div>` },
+            'contact-us': { title: 'Contact The Aviary Collective', subtitle: "We'd love to hear from you", content: `<div class="support-intro"><p>Whether you have found a piece you love, need help choosing artwork, want to arrange a viewing or have a question about an existing order, our team is here to help.</p></div><h2>Contact Details</h2><div class="support-contact"><p><strong>Phone / WhatsApp</strong><br><a href="tel:0768711111">0768 711 111</a></p><p><strong>Email</strong><br><a href="mailto:info@aviancourthotel.com">info@aviancourthotel.com</a></p><p><strong>Location</strong><br><a href="https://maps.app.goo.gl/4MoXkdVUYYd9YDJT7" target="_blank" rel="noopener">Naivasha, Kenya</a></p></div><h2>Artwork Enquiries</h2><p>Include the artwork title or product reference where available.</p><h2>Order Support</h2><p>For an existing order, include your order number so our team can assist efficiently.</p><h2>Gallery Visits</h2><p>Contact us in advance to confirm availability if you would like to view a specific artwork at Avian Court Hotel.</p>` }
+        };
+
+        Object.entries(supportPages).forEach(([id, page]) => {
+            document.querySelector('footer').insertAdjacentHTML('beforebegin', `<div id="${id}" class="page-wrapper support-page"><div class="page-header"><h1>${page.title}</h1><p>${page.subtitle}</p></div><div class="page-content">${page.content}</div></div>`);
+        });
+
+        const legalPages = {
+            privacy: `<h2>Privacy Policy</h2><p><strong>Last Updated: 23 August 2026</strong></p><p>The Aviary Collective respects your privacy. This policy explains how information may be collected, used, stored, shared and protected when you visit the website, purchase artwork, contact us or otherwise interact with us.</p><h3>1. Information We Collect</h3><p>We may collect names, email addresses, telephone or WhatsApp details, billing and delivery information, order details, artwork preferences, enquiry details and information submitted through forms. We may also receive technical information such as IP address, browser and device type, pages visited, referral information, cookie information and security information.</p><h3>2. How We Use Information</h3><p>We may use information to process orders, arrange payment and delivery, provide support, respond to enquiries, process returns, arrange viewings, respond to commissions, improve security and the website, prevent misuse, communicate service information, send marketing where permitted, and meet legal, accounting or regulatory requirements.</p><h3>3. Lawful Basis</h3><p>Depending on the circumstances, processing may rely on consent, performance of a contract, steps before a contract, legal obligation, legitimate interests where permitted, or another lawful ground recognised under Kenyan law.</p><h3>4. Marketing and Newsletter</h3><p>Newsletter subscriptions are submitted to Mailchimp through the form provided on this website. You can unsubscribe from marketing communications at any time using the available unsubscribe option or by contacting us.</p><h3>5. Sharing and Retention</h3><p>Relevant information may be shared with providers needed to operate the website, including Mailchimp for newsletter subscriptions, hosting or IT providers, payment or delivery providers when used for an order, professional advisers and authorities where legally required. We retain information only as reasonably necessary or as required by law.</p><h3>6. Your Rights</h3><p>Subject to applicable law, you may request access, correction, deletion where applicable, restriction, objection or withdrawal of consent. Requests may be sent to <a href="mailto:info@aviancourthotel.com">info@aviancourthotel.com</a>.</p><h3>7. Kenyan Framework</h3><p>This policy is intended to be read with applicable Kenyan requirements, including the Data Protection Act, 2019; the Data Protection (General) Regulations, 2021; the Data Protection (Registration of Data Controllers and Data Processors) Regulations, 2021; and the Data Protection (Complaints Handling Procedure and Enforcement) Regulations, 2021. We do not claim registration with the Office of the Data Protection Commissioner.</p><h3>8. Contact</h3><p>The Aviary Collective, Naivasha, Kenya<br><a href="tel:0768711111">0768 711 111</a><br><a href="mailto:info@aviancourthotel.com">info@aviancourthotel.com</a></p>`,
+            terms: `<h2>Terms &amp; Conditions</h2><p><strong>Last Updated: 23 August 2026</strong></p><p>These Terms govern use of The Aviary Collective website and purchases of artworks. By using the website or placing an order, you agree to these Terms.</p><h3>1. Original Artwork</h3><p>Original artworks are unique. Natural variation in brushwork, paint texture, measurements and colour reproduction between screens does not necessarily constitute a defect.</p><h3>2. Ownership and Copyright</h3><p>Purchase of a physical artwork transfers ownership of the physical object subject to payment and applicable terms. It does not automatically transfer copyright or reproduction rights. The artist or applicable copyright owner retains those rights unless agreed otherwise in writing.</p><h3>3. Images, Prices and Orders</h3><p>Website photographs, descriptions, branding and graphics are protected by applicable law. Prices are displayed in Kenyan Shillings unless stated otherwise and may change. An order is accepted when we confirm it and verify availability; because artworks are unique, availability may change before confirmation.</p><h3>4. Payment, Delivery and Returns</h3><p>Use only approved payment instructions provided during checkout. Do not pay unofficial numbers or accounts. Delivery depends on the artwork and destination, and international orders may incur buyer-responsible customs charges. Returns and refunds are handled under the Returns &amp; Refunds policy and applicable Kenyan consumer law.</p><h3>5. Website Use</h3><p>You must not use the website unlawfully, attempt unauthorised access, interfere with security, upload malicious code, fraudulently place orders, copy substantial content, reproduce artwork without permission or misuse artist information.</p><h3>6. Governing Law</h3><p>These Terms are governed by the laws of the Republic of Kenya, including applicable consumer, electronic-commerce, tax, commercial and intellectual-property requirements. The Copyright Act, 2001, as amended, protects artistic works including paintings.</p><h3>7. Contact</h3><p>Questions may be sent to <a href="tel:0768711111">0768 711 111</a> or <a href="mailto:info@aviancourthotel.com">info@aviancourthotel.com</a>.</p>`,
+            cookies: `<h2>Cookie Policy</h2><p><strong>Last Updated: 23 August 2026</strong></p><p>The Aviary Collective uses cookies and similar technologies where needed to operate, secure and improve the website.</p><h3>1. What Are Cookies?</h3><p>Cookies are small text files stored on your device. They can help websites remember information, maintain sessions and provide functionality.</p><h3>2. Technologies Present on This Website</h3><p>The website currently includes third-party resources for Google Fonts, Font Awesome, Swiper and a Google Maps embed. The newsletter form submits to Mailchimp. These providers may process requests or use technologies according to their own policies. We do not claim that Google Analytics, Meta Pixel, a specific payment gateway or courier is in use.</p><h3>3. Types of Cookies</h3><p>Essential technologies may support website functionality, shopping cart functionality, security and session management. Preference, analytics or marketing technologies may be used only where enabled and legally permitted.</p><h3>4. Managing Cookies</h3><p>You can manage cookies through browser or device settings. Disabling essential technologies may affect website functionality, including shopping and checkout.</p><h3>5. Consent and Changes</h3><p>Where consent is required, it will be sought before relevant non-essential technologies are used. This policy may be updated when technologies or legal obligations change.</p><h3>6. Contact</h3><p>Questions may be sent to <a href="tel:0768711111">0768 711 111</a> or <a href="mailto:info@aviancourthotel.com">info@aviancourthotel.com</a>.</p>`
+        };
+        document.body.insertAdjacentHTML('beforeend', `<div class="legal-modal" id="legal-modal" role="dialog" aria-modal="true" aria-label="Legal document"><div class="legal-dialog"><button class="modal-close" type="button" aria-label="Close legal document">&times;</button><div id="legal-modal-content"></div></div></div>`);
+        document.querySelectorAll('[data-legal]').forEach(link => link.addEventListener('click', event => {
+            event.preventDefault();
+            document.querySelector('#legal-modal-content').innerHTML = legalPages[link.dataset.legal];
+            document.querySelector('#legal-modal').classList.add('active');
+            document.querySelector('.modal-close').focus();
+        }));
+        const legalModal = document.querySelector('#legal-modal');
+        legalModal.querySelector('.modal-close').addEventListener('click', () => legalModal.classList.remove('active'));
+        legalModal.addEventListener('click', event => { if (event.target === legalModal) legalModal.classList.remove('active'); });
+        document.addEventListener('keydown', event => { if (event.key === 'Escape') legalModal.classList.remove('active'); });
+    </script>
+</body>
+</html>
