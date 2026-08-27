@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="description" content="The Aviary Collective - Original art for spaces with character. Discover contemporary paintings inspired by Kenya, African heritage, nature and culture.">
-    <meta name="theme-color" content="#F27A33">
-    <title>THE AVIARY COLLECTIVE | Original Art Inspired by Kenya</title>
+    <meta name="description" content="AURA GALLERY by The Avian Collective - Contemporary Kenyan art presented in a premium gallery experience.">
+    <meta name="theme-color" content="#f4efe8">
+    <title>AURA GALLERY | by The Avian Collective</title>
     
     <!-- Resource Hints for Performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,8 +14,8 @@
     <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
     
     <!-- Google Fonts - Optimized with swap strategy -->
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Swiper CSS -->
     <link rel="preload" as="style" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
@@ -33,20 +33,34 @@
 
     <style>
         /* Critical CSS - Performance optimized */
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+        :root {
+            --gallery-ivory: #f7f3ee;
+            --gallery-stone: #eae2d7;
+            --gallery-charcoal: #1b1b1b;
+            --gallery-soft: #50463f;
+            --gallery-line: rgba(27, 27, 27, 0.12);
+            --gallery-ink: #141414;
+            --gallery-accent: #b77c45;
+            --gallery-muted: #6b625e;
+            --gallery-panel: #faf8f6;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
         html, body { height: 100%; width: 100%; }
-        body { background-color: #ffffff; color: #111111; overflow-x: hidden; font-size: 16px; line-height: 1.5; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+        body { background-color: #ffffff; color: var(--gallery-ink); overflow-x: hidden; font-size: 16px; line-height: 1.5; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+        h1, h2, h3, h4, .logo-mark, .hero-main-heading, .section-heading, .page-header h1 { font-family: 'Playfair Display', Georgia, serif; }
 
         /* Header */
-        header { display: flex; justify-content: space-between; align-items: center; padding: 18px 5%; position: absolute; top: 0; width: 100%; z-index: 100; border-bottom: 1px solid rgba(255,255,255,0.1); background: rgba(18,18,18,0.4); backdrop-filter: blur(8px); contain: layout; }
-        .logo { font-size: 22px; font-weight: 700; letter-spacing: 1.5px; color: #fff; text-decoration: none; min-width: fit-content; flex-shrink: 0; transition: all 0.3s ease; backface-visibility: hidden; }
-        .logo:hover { transform: scale(1.05); color: #F27A33; }
+        header { display: flex; justify-content: space-between; align-items: center; padding: 18px 5%; position: absolute; top: 0; width: 100%; z-index: 100; border-bottom: 1px solid rgba(255,255,255,0.12); background: rgba(18,18,18,0.45); backdrop-filter: blur(8px); contain: layout; }
+        .logo { text-decoration: none; min-width: fit-content; flex-shrink: 0; transition: all 0.3s ease; backface-visibility: hidden; display: inline-flex; align-items: center; justify-content: center; }
+        .logo img { display: block; height: clamp(36px, 3vw, 58px); width: auto; max-width: min(26vw, 350px); object-fit: contain; filter: drop-shadow(0 2px 8px rgba(0,0,0,0.12)); }
+        .logo:hover img { opacity: 0.92; }
         nav { display: flex; align-items: center; flex: 1; }
-        nav ul { display: flex; list-style: none; gap: 40px; flex-wrap: nowrap; }
-        nav ul li a { color: #a0a0a0; text-decoration: none; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; position: relative; padding: 8px 0; display: inline-block; transition: color 0.3s ease; }
-        nav ul li a:hover, nav ul li a.active { color: #fff; border-bottom: 2px solid #F27A33; }
+        nav ul { display: flex; list-style: none; gap: 32px; flex-wrap: nowrap; }
+        nav ul li a { color: rgba(255,255,255,0.8); text-decoration: none; font-size: 0.72rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.14em; position: relative; padding: 8px 0; display: inline-block; transition: color 0.3s ease; }
+        nav ul li a:hover, nav ul li a.active { color: #fff; border-bottom: 2px solid var(--gallery-accent); }
         .hamburger { display: none; flex-direction: column; background: none; border: none; color: #fff; cursor: pointer; width: 32px; height: 32px; gap: 6px; padding: 0; justify-content: center; align-items: center; transition: color 0.3s ease; }
-        .hamburger:hover, .hamburger.active { color: #F27A33; }
+        .hamburger:hover, .hamburger.active { color: var(--gallery-accent); }
         .hamburger span { width: 24px; height: 2.5px; background-color: currentColor; border-radius: 2px; transition: all 0.3s ease; }
         .hamburger.active span:nth-child(1) { transform: rotate(45deg) translateY(10px); }
         .hamburger.active span:nth-child(2) { opacity: 0; }
@@ -54,7 +68,7 @@
         
         .header-actions { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
         .search-icon, .cart-icon { color: #fff; cursor: pointer; font-size: 18px; padding: 10px; border-radius: 50%; display: flex; align-items: center; justify-content: center; min-width: 44px; min-height: 44px; transition: all 0.3s ease; backface-visibility: hidden; }
-        .search-icon:hover { color: #F27A33; transform: scale(1.15) rotate(15deg); background-color: rgba(242,122,51,0.15); }
+        .search-icon:hover { color: var(--gallery-accent); transform: scale(1.15) rotate(15deg); background-color: rgba(183,124,69,0.12); }
         .cart-icon { position: relative; }
         .cart-icon:hover { color: #F27A33; transform: scale(1.15); background-color: rgba(242,122,51,0.15); }
         .cart-badge { position: absolute; top: 4px; right: 4px; background-color: #F27A33; color: #121212; border-radius: 50%; width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; }
@@ -62,11 +76,11 @@
         .shop-btn:hover { background-color: #d96826; border-color: #d96826; transform: translateY(-2px); box-shadow: 0 8px 16px rgba(242,122,51,0.3); }
 
         /* Hero Section */
-        .hero-section { position: relative; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 80px 5% 60px; gap: 50px; background: radial-gradient(circle at center, #2a2a2a 0%, #121212 70%); contain: layout style; }
+        .hero-section { position: relative; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 80px 5% 60px; gap: 50px; background: #ffffff; contain: layout style; }
         .hero-heading-container { text-align: center; z-index: 50; width: 100%; max-width: 800px; animation: fadeInDown 0.8s ease-out; }
         @keyframes fadeInDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
-        .hero-main-heading { font-size: 64px; font-weight: 700; text-transform: uppercase; letter-spacing: 3px; color: #fff; margin-bottom: 16px; text-shadow: 0 4px 12px rgba(0,0,0,0.6); line-height: 1.2; }
-        .hero-subheading { font-size: 20px; font-weight: 400; color: #e8e8e8; letter-spacing: 1.2px; text-shadow: 0 2px 6px rgba(0,0,0,0.5); line-height: 1.6; }
+        .hero-main-heading { font-size: clamp(2.4rem, 5vw, 4rem); font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--gallery-ink); margin-bottom: 16px; text-shadow: none; line-height: 1.15; }
+        .hero-subheading { font-size: 1.1rem; font-weight: 400; color: var(--gallery-muted); letter-spacing: 0.08em; text-shadow: none; line-height: 1.6; }
 
         /* Carousel */
         .swiper { width: 100%; max-width: 1380px; touch-action: pan-y; user-select: none; position: relative; height: 540px; display: flex; align-items: center; justify-content: center; margin: 0 auto; contain: strict; }
@@ -79,49 +93,61 @@
         .swiper-wrapper.dragging .swiper-slide { transition: none !important; }
         .swiper-wrapper.no-transition .swiper-slide { transition: none !important; }
         .slide-overlay { position: absolute; bottom: 0; left: 0; width: 100%; height: 60%; background: linear-gradient(to top, rgba(20,20,20,0.95) 0%, rgba(0,0,0,0) 100%); display: flex; flex-direction: column; justify-content: flex-end; padding: 30px 25px; transition: all 600ms ease; }
-        .slide-title { font-size: 26px; font-weight: 700; margin-bottom: 8px; text-transform: uppercase; line-height: 1.2; letter-spacing: 1px; transition: all 600ms ease; }
+        .slide-title { font-family: 'Poppins', sans-serif; font-size: 26px; font-weight: 700; margin-bottom: 8px; text-transform: uppercase; line-height: 1.2; letter-spacing: 1px; transition: all 600ms ease; }
         .slide-subtitle { font-size: 13px; color: #e6e5e5; font-weight: 400; transition: all 600ms ease; }
         .slide-price { font-size: 16px; font-weight: 700; color: #F27A33; margin-top: 8px; }
         .swiper-button-next, .swiper-button-prev { color: rgba(255,255,255,0.4); background-color: rgba(0,0,0,0.3); width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; transform: scale(0.7); transition: all 0.3s ease; cursor: pointer; border: none; z-index: 60; }
-        .swiper-button-next:hover, .swiper-button-prev:hover { color: #F27A33; background-color: rgba(242,122,51,0.2); transform: scale(0.85); }
+        .swiper-button-next:hover, .swiper-button-prev:hover { color: #fff; background-color: rgba(255,255,255,0.22); transform: scale(0.85); }
 
         /* Content Sections */
         .featured-section { padding: 80px 5%; background: #fff; text-align: center; contain: layout; }
-        .section-heading { font-size: 42px; font-weight: 700; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 2px; color: #111; }
-        .section-subheading { font-size: 14px; color: #555; margin-bottom: 60px; font-weight: 400; letter-spacing: 1px; }
-        .paintings-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-bottom: 50px; }
-        .painting-card { background-color: #f7f7f7; border: 1px solid #e5e5e5; border-radius: 12px; overflow: hidden; transition: all 0.3s ease; cursor: pointer; display: flex; flex-direction: column; contain: content; }
-        .painting-card:hover { border-color: #F27A33; box-shadow: 0 15px 40px rgba(242,122,51,0.2); transform: translateY(-8px); }
-        .painting-image { display: block; width: 100%; aspect-ratio: 3/4; background-color: #0a0a0a; object-fit: cover; object-position: center; transition: transform 0.3s ease; backface-visibility: hidden; will-change: transform; }
-        .painting-card:hover .painting-image { transform: scale(1.05) translateZ(0); }
-        .painting-info { padding: 20px; }
-        .painting-title { font-size: 16px; font-weight: 700; margin-bottom: 8px; color: #111; text-transform: uppercase; letter-spacing: 1px; }
-        .painting-artist { font-size: 12px; color: #F27A33; margin-bottom: 10px; font-weight: 600; }
-        .painting-price { font-size: 18px; font-weight: 700; color: #F27A33; margin-bottom: 12px; }
-        .add-to-cart-btn { background-color: transparent; color: #F27A33; border: 1px solid #F27A33; padding: 8px 16px; border-radius: 20px; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; transition: all 0.3s ease; width: 100%; }
-        .add-to-cart-btn:hover { background-color: #F27A33; color: #121212; }
+        .section-heading { font-size: clamp(2.3rem, 3vw, 3.3rem); font-weight: 700; margin-bottom: 15px; text-transform: none; letter-spacing: 0; color: var(--gallery-ink); line-height: 1.1; }
+        .section-subheading { font-size: 0.95rem; color: var(--gallery-muted); margin-bottom: 60px; font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase; }
+        .paintings-grid { display: grid; grid-template-columns: repeat(4, 1fr); column-gap: 32px; row-gap: 48px; margin-bottom: 50px; text-align: left; }
+        .painting-card { background: transparent; border: none; border-radius: 0; overflow: visible; box-shadow: none; transition: opacity 0.3s ease; cursor: pointer; display: flex; flex-direction: column; contain: content; }
+        .painting-card:hover { opacity: 0.85; }
+        .painting-image { display: block; width: 100%; height: auto; aspect-ratio: auto; background-color: #f2f0ec; object-fit: contain; object-position: center; transition: none; }
+        .painting-card:hover .painting-image { transform: none; }
+        .painting-info { padding: 14px 0 0; }
+        .painting-artist { font-size: 13px; font-weight: 600; color: #1b1b1b; margin-bottom: 3px; text-transform: none; letter-spacing: 0; }
+        .painting-title { font-size: 13px; font-weight: 400; font-style: italic; color: #3d3d3d; margin-bottom: 3px; text-transform: none; letter-spacing: 0; }
+        .painting-gallery { font-size: 12px; color: #8a8a8a; margin-bottom: 8px; }
+        .painting-price { display: block; font-size: 14px; font-weight: 700; color: #1b1b1b; margin-bottom: 12px; }
+        .add-to-cart-btn { background: transparent; border: 1px solid #1b1b1b; color: #1b1b1b; padding: 8px 18px; border-radius: 0; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; text-align: center; width: auto; transition: all 0.2s ease; }
+        .add-to-cart-btn:hover { background: #1b1b1b; color: #fff; }
         .view-all-btn { background-color: #F27A33; color: #fff; border: 2px solid #F27A33; padding: 12px 36px; border-radius: 25px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; transition: all 0.3s ease; }
         .view-all-btn:hover { background-color: #d96826; border-color: #d96826; transform: translateY(-2px); box-shadow: 0 8px 16px rgba(242,122,51,0.3); }
 
-        /* Categories */
-        .categories-section { padding: 80px 5%; background-color: #fff; text-align: center; }
-        .categories-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 25px; margin-bottom: 50px; }
-        .category-card { background: linear-gradient(135deg, #faf8f8 0%, #c4c3c3 100%); border: 1px solid #333; border-radius: 12px; padding: 40px 20px; transition: all 0.3s ease; cursor: pointer; position: relative; overflow: hidden; contain: paint; }
-        .category-card::before { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background-color: rgba(241,240,238,0.1); transition: left 0.3s ease; }
-        .category-card:hover::before { left: 0; }
-        .category-icon { font-size: 36px; color: #F27A33; margin-bottom: 15px; transition: transform 0.3s ease; }
-        .category-card:hover .category-icon { transform: scale(1.2); }
-        .category-name { font-size: 16px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #111; transition: color 0.3s ease; }
-        .category-card:hover .category-name { color: #F27A33; }
+        /* Gallery toolbar (filters) */
+        .toolbar-filters { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+        .filter-select { appearance: none; -webkit-appearance: none; border: 1px solid #d6d6d6; background-color: #fff; background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'><path d='M0 0l5 6 5-6z' fill='%23444'/></svg>"); background-repeat: no-repeat; background-position: right 14px center; background-size: 10px 6px; color: #444; padding: 9px 32px 9px 15px; border-radius: 20px; cursor: pointer; font-size: 11px; text-transform: uppercase; letter-spacing: .8px; transition: all 0.3s ease; }
+        .filter-select:hover, .filter-select:focus { border-color: #111; }
+        .toolbar-links { display: flex; gap: 26px; align-items: center; flex-wrap: wrap; }
+        .toolbar-links a { font-size: 11px; text-transform: uppercase; letter-spacing: .08em; color: #444; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; transition: color 0.3s ease; }
+        .toolbar-links a:hover { color: var(--gallery-accent); }
+        .catalogue-count-row { max-width: 1180px; margin: 18px auto 30px; padding-bottom: 16px; border-bottom: 1px solid var(--gallery-line); font-size: 12px; color: #777; text-transform: uppercase; letter-spacing: .08em; }
 
-        /* About */
-        .about-section { padding: 80px 5%; background: #fff; display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; contain: layout; }
-        .about-content h2 { font-size: 36px; font-weight: 700; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 2px; color: #111; }
-        .about-content p { font-size: 14px; line-height: 1.8; color: #444; margin-bottom: 20px; }
-        .about-features { display: flex; flex-direction: column; gap: 15px; margin-top: 30px; }
-        .feature-item { display: flex; align-items: flex-start; gap: 15px; }
-        .feature-icon { color: #F27A33; font-size: 20px; margin-top: 3px; flex-shrink: 0; }
-        .feature-text { font-size: 13px; color: #333; font-weight: 500; }
+
+        /* Editorial content blocks */
+        .artist-directory, .editorial-page, .support-layout { max-width: 1180px; margin: 0 auto; }
+        .artist-directory { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 24px; }
+        .artist-card { background: var(--gallery-panel); border: 1px solid var(--gallery-line); padding: 0; overflow: hidden; }
+        .artist-card img { display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
+        .artist-card-content { padding: 1.25rem 1.25rem 1.5rem; }
+        .artist-card h3 { font-size: 1.6rem; margin-bottom: 0.35rem; }
+        .artist-card p { color: var(--gallery-muted); font-size: 0.94rem; line-height: 1.7; }
+        .editorial-page { padding: 2.5rem 0 0; }
+        .editorial-page .content-block { max-width: 780px; margin: 0 auto; }
+        .editorial-page p { font-size: 1.06rem; line-height: 1.8; color: var(--gallery-soft); margin-bottom: 1.3rem; }
+        .editorial-page h3 { font-size: clamp(1.8rem, 2vw, 2.4rem); margin: 2.5rem 0 1rem; }
+        .editorial-page .content-block h2 { font-size: clamp(1.3rem, 1.6vw, 1.7rem); margin: 2rem 0 0.85rem; color: var(--gallery-ink); }
+        .editorial-page .content-block h2:first-child { margin-top: 0; }
+        .editorial-page .cta-box { margin-top: 2rem; padding: 1.5rem 1.75rem; border: 1px solid var(--gallery-line); background: var(--gallery-panel); }
+        .editorial-page .cta-box a { color: var(--gallery-ink); font-weight: 600; }
+
+        .residence-section { margin-top: 4rem; padding-top: 2.5rem; border-top: 1px solid var(--gallery-line); }
+        .residence-section h3 { font-size: clamp(2rem, 2.5vw, 2.8rem); margin-bottom: 1rem; }
+        .residence-section p { font-size: 1.05rem; line-height: 1.9; color: var(--gallery-soft); }
 
         /* Newsletter */
         .newsletter-section { padding: 60px 5%; background: linear-gradient(135deg, #F27A33 0%, #d96826 100%); text-align: center; contain: layout; }
@@ -134,27 +160,33 @@
         .newsletter-submit:hover { background-color: rgba(0,0,0,0.8); transform: translateY(-2px); box-shadow: 0 8px 16px rgba(0,0,0,0.3); }
 
         /* Footer */
-        footer { background-color: #0a0a0a; border-top: 1px solid #333; padding: 50px 5%; display: grid; grid-template-columns: minmax(240px, .8fr) minmax(0, 2fr); gap: 40px; contain: layout; }
+        footer { background-color: #f8f5f1; border-top: 1px solid var(--gallery-line); padding: 50px 5% 30px; display: grid; grid-template-columns: minmax(240px, .8fr) minmax(0, 2fr); gap: 40px; contain: layout; }
         .footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-bottom: 30px; }
-        .footer-column h3 { font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 20px; color: #F27A33; }
+        .footer-column h3 { font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; margin-bottom: 20px; color: var(--gallery-charcoal); }
         .footer-column ul { list-style: none; }
         .footer-column ul li { margin-bottom: 12px; }
-        .footer-column ul li a { color: #a0a0a0; text-decoration: none; font-size: 12px; transition: color 0.3s ease; }
-        .footer-column ul li a:hover { color: #F27A33; }
-        .footer-bottom { border-top: 1px solid #333; padding-top: 30px; text-align: center; grid-column: 1 / -1; }
-        .footer-bottom p { font-size: 12px; color: #666; }
-        .footer-brand { color: #fff; font-size: 18px; font-weight: 700; letter-spacing: 1px; margin-bottom: 14px; }
-        .footer-brand span { display: block; color: #F27A33; font-size: 12px; margin-top: 8px; }
-        .footer-description { color: #a0a0a0; font-size: 12px; line-height: 1.7; max-width: 310px; margin-bottom: 12px; }
+        .footer-column ul li a { color: var(--gallery-soft); text-decoration: none; font-size: 0.8rem; transition: color 0.3s ease; }
+        .footer-column ul li a:hover { color: var(--gallery-accent); }
+        .footer-bottom { border-top: 1px solid var(--gallery-line); padding-top: 30px; text-align: center; grid-column: 1 / -1; }
+        .footer-bottom p { font-size: 0.74rem; color: var(--gallery-soft); letter-spacing: 0.08em; text-transform: uppercase; }
+        .footer-brand { color: var(--gallery-charcoal); margin-bottom: 14px; }
+        .footer-brand .brand-main { display: block; font-size: clamp(1.25rem, 1.4vw, 1.55rem); font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; font-family: 'Playfair Display', Georgia, serif; }
+        .footer-brand .brand-sub { display: block; margin-top: 0.35rem; font-size: 0.54rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--gallery-muted); font-style: italic; font-family: 'Playfair Display', Georgia, serif; }
+        .footer-description { color: var(--gallery-soft); font-size: 0.82rem; line-height: 1.8; max-width: 320px; margin-bottom: 18px; }
+        .footer-contact { color: var(--gallery-charcoal); font-size: 0.82rem; line-height: 1.8; }
+        .footer-contact a { color: var(--gallery-charcoal); text-decoration: none; }
+        .footer-contact a:hover { color: var(--gallery-accent); }
+        .location-link { background: none; border: none; padding: 0; margin: 0; font-family: inherit; color: var(--gallery-soft); font-size: 0.8rem; text-align: left; cursor: pointer; transition: color 0.3s ease; }
+        .location-link:hover { color: var(--gallery-accent); }
 
         /* Page Wrapper */
         .page-wrapper { min-height: 100vh; display: none; contain: layout; }
         .page-wrapper.active { display: block; }
-        .page-header { position: relative; padding: 140px 5% 60px; text-align: center; border-bottom: 1px solid #333; overflow: hidden; background: linear-gradient(135deg, rgba(18,18,18,0.92) 0%, rgba(42,42,42,0.92) 100%), linear-gradient(to bottom, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.4) 100%); backdrop-filter: blur(10px); }
-        .page-header::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(ellipse at center, rgba(242,122,51,0.08) 0%, rgba(0,0,0,0.3) 100%); pointer-events: none; z-index: 0; }
+        .page-header { position: relative; padding: 140px 5% 60px; text-align: center; border-bottom: 1px solid var(--gallery-line); overflow: hidden; background: linear-gradient(135deg, rgba(247,243,238,0.94) 0%, rgba(255,255,255,0.96) 100%); }
+        .page-header::before { content: ''; position: absolute; inset: 0; background: linear-gradient(120deg, rgba(183,124,69,0.05), rgba(27,27,27,0.02)); pointer-events: none; }
         .page-header h1, .page-header p { position: relative; z-index: 1; }
-        .page-header h1 { font-size: 56px; font-weight: 700; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 16px; color: #fff; text-shadow: 0 4px 16px rgba(0,0,0,0.6); line-height: 1.2; }
-        .page-header p { font-size: 18px; color: #e8e8e8; letter-spacing: 1.5px; text-shadow: 0 2px 8px rgba(0,0,0,0.5); font-weight: 400; }
+        .page-header h1 { font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 700; letter-spacing: 0.05em; margin-bottom: 16px; color: var(--gallery-ink); line-height: 1.1; }
+        .page-header p { font-size: 1rem; color: var(--gallery-soft); letter-spacing: 0.12em; text-transform: uppercase; font-weight: 500; }
         .page-content { padding: 80px 5%; }
 
         /* Utilities */
@@ -165,13 +197,20 @@
         .blog-card { border: 1px solid #e1e1e1; background: #fff; overflow: hidden; contain: content; }
         .blog-card img { display: block; width: 100%; aspect-ratio: 16/10; object-fit: cover; background-color: #0a0a0a; }
         .blog-card-content { padding: 22px; }
-        .blog-meta { color: #F27A33; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 13px; }
+        .blog-meta { color: var(--gallery-accent); font-size: 11px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 13px; }
         .blog-card h2 { font-size: 21px; line-height: 1.25; margin-bottom: 12px; }
         .blog-card p { color: #666; font-size: 13px; line-height: 1.7; margin-bottom: 18px; }
-        .read-more { color: #111; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; text-decoration: none; border-bottom: 2px solid #F27A33; padding-bottom: 4px; }
+        .read-more { color: #111; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; text-decoration: none; border-bottom: 2px solid var(--gallery-accent); padding-bottom: 4px; }
         .cart-layout { max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: 1.5fr .8fr; gap: 40px; align-items: start; }
         .cart-items { border-top: 1px solid #ddd; }
         .cart-item { display: grid; grid-template-columns: 110px 1fr auto; gap: 20px; align-items: center; padding: 20px 0; border-bottom: 1px solid #ddd; contain: content; }
+        .cart-item img { width: 100%; aspect-ratio: 3/4; object-fit: cover; border-radius: 6px; background: #f2f0ec; }
+        .quantity-control { display: flex; align-items: center; gap: 10px; margin: 8px 0; }
+        .quantity-control button { width: 26px; height: 26px; border: 1px solid #ccc; background: #fff; cursor: pointer; font-size: 14px; line-height: 1; border-radius: 4px; }
+        .quantity-control button:hover { border-color: #F27A33; color: #F27A33; }
+        .remove-item { background: none; border: none; color: #999; font-size: 11px; text-transform: uppercase; letter-spacing: .05em; cursor: pointer; text-decoration: underline; padding: 0; }
+        .remove-item:hover { color: #c0392b; }
+        .cart-item-price { font-weight: 700; color: #111; white-space: nowrap; }
         .cart-summary { background: #f7f7f7; padding: 28px; border-top: 3px solid #F27A33; border-radius: 8px; position: sticky; top: 120px; }
         .summary-row { display: flex; justify-content: space-between; margin-bottom: 14px; color: #555; font-size: 13px; gap: 12px; }
         .summary-total { border-top: 1px solid #ddd; padding-top: 14px; margin-top: 14px; color: #111; font-size: 17px; font-weight: 700; display: flex; justify-content: space-between; }
@@ -183,28 +222,58 @@
         .image-popup-content { position: relative; width: min(96vw, 1200px); max-height: 92vh; display: flex; flex-direction: column; align-items: center; gap: 12px; }
         .image-popup-img { width: 100%; max-height: calc(92vh - 70px); object-fit: contain; border-radius: 10px; background: #0a0a0a; }
         .image-popup-caption { color: #f5f5f5; font-size: 14px; letter-spacing: 0.5px; text-align: center; }
-        .image-popup-close { position: absolute; top: -10px; right: -10px; width: 40px; height: 40px; border: 0; border-radius: 50%; background: #F27A33; color: #111; font-size: 24px; line-height: 1; cursor: pointer; font-weight: 700; }
+        .image-popup-close { position: absolute; top: -10px; right: -10px; width: 40px; height: 40px; border: 0; border-radius: 50%; background: #1b1b1b; color: #fff; font-size: 24px; line-height: 1; cursor: pointer; font-weight: 700; }
 
         .painting-image { cursor: zoom-in; }
+
+        /* Legal document modal */
+        .legal-modal { position: fixed; inset: 0; background: rgba(20,20,20,0.75); display: none; align-items: center; justify-content: center; padding: 20px; z-index: 2100; }
+        .legal-modal.active { display: flex; }
+        .legal-dialog { background: #fff; max-width: 720px; width: 100%; max-height: 85vh; overflow-y: auto; position: relative; padding: 50px 40px 40px; border-radius: 4px; box-shadow: 0 20px 60px rgba(0,0,0,0.25); }
+        .legal-dialog h2 { font-size: 1.6rem; margin-bottom: 14px; color: var(--gallery-ink); }
+        .legal-dialog h3 { font-size: 1.05rem; margin: 22px 0 8px; color: var(--gallery-ink); }
+        .legal-dialog p { font-size: 0.85rem; line-height: 1.75; color: var(--gallery-soft); margin-bottom: 10px; }
+        .legal-dialog a { color: var(--gallery-accent); }
+        .modal-close { position: absolute; top: 14px; right: 14px; width: 36px; height: 36px; border: 1px solid var(--gallery-line); background: #fff; font-size: 20px; cursor: pointer; border-radius: 50%; line-height: 1; }
+        .modal-close:hover { border-color: var(--gallery-accent); color: var(--gallery-accent); }
+
+        .location-modal { position: fixed; inset: 0; display: none; align-items: center; justify-content: center; background: rgba(20,20,20,0.7); padding: 1.5rem; z-index: 2000; }
+        .location-modal[aria-hidden='false'] { display: flex; }
+        .location-modal-panel { width: min(92vw, 900px); background: #fff; border: 1px solid var(--gallery-line); box-shadow: 0 20px 60px rgba(20,20,20,0.18); position: relative; }
+        .location-modal-header { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1rem 1.25rem; border-bottom: 1px solid var(--gallery-line); }
+        .location-modal-header h3 { font-size: 1.3rem; }
+        .location-modal-close { border: 1px solid var(--gallery-line); background: #fff; color: var(--gallery-ink); width: 42px; height: 42px; font-size: 1.8rem; cursor: pointer; }
+        .location-modal-body { padding: 0; }
+        .location-map-embed { width: 100%; min-height: 420px; border: 0; display: block; }
+        .location-modal-meta { padding: 1.1rem 1.25rem 1.4rem; }
+        .location-modal-meta h4 { font-size: 1.05rem; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.35rem; }
+        .location-modal-meta p { font-size: 0.85rem; color: var(--gallery-soft); line-height: 1.7; }
+        .location-modal-meta a { color: var(--gallery-charcoal); text-decoration: none; }
+        .location-modal-meta a:hover { color: var(--gallery-accent); }
+
+        @media (min-width: 1100px) {
+            header nav { position: absolute; left: 50%; transform: translateX(-50%); }
+        }
 
         /* Responsive */
         @media (max-width: 1024px) {
             header { padding: 16px 4%; }
-            .logo { font-size: 20px; }
+            .logo img { height: clamp(32px, 4vw, 52px); max-width: min(32vw, 260px); }
             nav ul { gap: 30px; }
             nav ul li a { font-size: 10px; }
             .shop-btn { padding: 8px 16px; font-size: 10px; }
+            .paintings-grid { grid-template-columns: repeat(3, 1fr); }
         }
 
         @media (max-width: 768px) {
             header { padding: 12px 3%; }
-            .logo { font-size: 16px; }
+            .logo img { height: clamp(28px, 7vw, 42px); max-width: min(38vw, 200px); }
             .hamburger { display: flex; order: -1; }
             nav { position: fixed; top: 60px; left: 0; right: 0; max-height: 0; overflow: hidden; flex-direction: column; background: rgba(18,18,18,0.98); border-bottom: 1px solid rgba(255,255,255,0.1); transition: max-height 0.4s ease; z-index: 99; }
             nav.active { max-height: 400px; }
             nav ul { flex-direction: column; gap: 0; width: 100%; padding: 12px 0; }
             nav ul li a { display: block; padding: 12px 20px; border: none; }
-            nav ul li a:hover, nav ul li a.active { background-color: rgba(242,122,51,0.1); color: #F27A33; border-left: 3px solid #F27A33; padding-left: 17px; }
+            nav ul li a:hover, nav ul li a.active { background-color: rgba(183,124,69,0.12); color: var(--gallery-accent); border-left: 3px solid var(--gallery-accent); padding-left: 17px; }
             .hero-section { padding: 60px 5% 40px; gap: 35px; }
             .hero-main-heading { font-size: 42px; }
             .swiper { height: 420px; }
@@ -222,11 +291,13 @@
             .cart-summary { position: static; }
             .cart-layout, .blog-grid { grid-template-columns: 1fr; }
             footer { display: block; }
+            .paintings-grid { grid-template-columns: repeat(2, 1fr); }
+            .toolbar-links { gap: 16px; }
         }
 
         @media (max-width: 480px) {
             header { padding: 10px 2%; gap: 6px; }
-            .logo { font-size: 12px; letter-spacing: 0.5px; min-width: fit-content; }
+            .logo img { height: 28px; max-width: min(44vw, 170px); }
             .hamburger { width: 28px; height: 28px; gap: 5px; }
             .hamburger span { width: 20px; height: 2px; }
             .search-icon, .cart-icon { min-width: 36px; min-height: 36px; padding: 6px; font-size: 16px; }
@@ -235,9 +306,10 @@
             .swiper { height: 360px; }
             .hero-main-heading { font-size: 32px; }
             .page-header h1 { font-size: 32px; }
-            .paintings-grid { grid-template-columns: 1fr; }
+            .paintings-grid { grid-template-columns: repeat(2, 1fr); column-gap: 18px; row-gap: 32px; }
             .categories-grid { grid-template-columns: repeat(2, 1fr); }
             .blog-grid { grid-template-columns: 1fr; }
+            .catalogue-toolbar { flex-direction: column; align-items: flex-start; }
         }
 
         @media (prefers-reduced-motion: reduce) {
@@ -248,26 +320,28 @@
 <body>
     <!-- Header Navigation -->
     <header>
-        <a href="#home" class="logo" onclick="navigateTo('home')">THE AVIARY COLLECTIVE</a>
+        <a href="#home" class="logo" onclick="navigateTo('home')" aria-label="AURA GALLERY home page">
+            <img src="Images/Aura%20Gallery%20Logo.png" alt="Aura Gallery Logo" />
+        </a>
         <button class="hamburger" onclick="toggleMenu()" aria-label="Toggle navigation">
             <span></span><span></span><span></span>
         </button>
         <nav>
             <ul>
                 <li><a href="#home" class="active" onclick="navigateTo('home'); closeMenu(); return false;">Home</a></li>
-                <li><a href="#catalogue" onclick="navigateTo('catalogue'); closeMenu(); return false;">Catalogue</a></li>
-                <li><a href="#blog" onclick="navigateTo('blog'); closeMenu(); return false;">Blog</a></li>
-                <li><a href="#cart" onclick="navigateTo('cart'); closeMenu(); return false;">Cart</a></li>
-                <li><a href="#locations" onclick="navigateTo('locations'); closeMenu(); return false;">Locations</a></li>
+                <li><a href="#catalogue" onclick="navigateTo('catalogue'); closeMenu(); return false;">Gallery</a></li>
+                <li><a href="#artists" onclick="navigateTo('artists'); closeMenu(); return false;">Artists</a></li>
+                <li><a href="#about" onclick="navigateTo('about'); closeMenu(); return false;">About Aura Gallery</a></li>
+                <li><a href="#work-with-us" onclick="navigateTo('work-with-us'); closeMenu(); return false;">Work With Us</a></li>
             </ul>
         </nav>
         <div class="header-actions">
-            <i class="fas fa-search search-icon"></i>
+            <i class="fas fa-search search-icon" aria-hidden="true"></i>
             <div class="cart-icon" role="button" tabindex="0" onclick="navigateTo('cart')" onkeydown="if(event.key==='Enter')navigateTo('cart')">
-                <i class="fas fa-shopping-cart"></i>
+                <i class="fas fa-shopping-cart" aria-hidden="true"></i>
                 <span class="cart-badge">0</span>
             </div>
-            <a href="#catalogue" class="shop-btn" onclick="navigateTo('catalogue'); return false;">Shop Now</a>
+            <a href="#cart" class="shop-btn" onclick="navigateTo('cart'); return false;">Shop Now</a>
         </div>
     </header>
 
@@ -276,9 +350,9 @@
         <section class="hero-section">
             <div class="hero-heading-container">
                 <h1 class="hero-main-heading">WALLS, REIMAGINED</h1>
-                <p class="hero-subheading">Original art for spaces with character</p>
+                <p class="hero-subheading">Original paintings for spaces with character</p>
             </div>
-            <div class="swiper mySwiper">
+            <div class="swiper mySwiper" aria-label="Featured artwork carousel">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide" style="background-image: url('Images/PXL_20251111_074611687.RAW-02.ORIGINAL_1.webp')">
                         <div class="slide-overlay">
@@ -297,130 +371,92 @@
                     <div class="swiper-slide" style="background-image: url('Images/PXL_20251111_081744067.RAW-02.ORIGINAL.webp')">
                         <div class="slide-overlay">
                             <h2 class="slide-title">Urban<br>Impressions</h2>
-                            <p class="slide-subtitle">Contemporary city scenes</p>
-                            <p class="slide-price">KES 1,950</p>
+                            <p class="slide-subtitle">36 * 24 inches</p>
+                            <p class="slide-price">KES 19,500</p>
                         </div>
                     </div>
                     <div class="swiper-slide" style="background-image: url('Images/PXL_20251111_075504005.RAW-02.ORIGINAL.webp')">
                         <div class="slide-overlay">
-                            <h2 class="slide-title">Bended<br>Light</h2>
-                            <p class="slide-subtitle">20 * 30 inches</p>
+                            <h2 class="slide-title">Bended Light</h2>
+                            <p class="slide-subtitle">30 * 20 inches</p>
                             <p class="slide-price">KES 10,500</p>
                         </div>
                     </div>
                     <div class="swiper-slide" style="background-image: url('Images/PXL_20251111_075734671.RAW-02.ORIGINAL.webp')">
                         <div class="slide-overlay">
                             <h2 class="slide-title">Timeless<br>Portraits</h2>
-                            <p class="slide-subtitle">Capturing human essence</p>
-                            <p class="slide-price">KES 3,100</p>
+                            <p class="slide-subtitle">48 * 36 inches</p>
+                            <p class="slide-price">KES 32,100</p>
                         </div>
                     </div>
                 </div>
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next" aria-label="Next artwork"></div>
+                <div class="swiper-button-prev" aria-label="Previous artwork"></div>
             </div>
         </section>
 
         <section class="featured-section">
             <h2 class="section-heading">Featured Paintings</h2>
-            <p class="section-subheading">Discover our curated collection of contemporary art</p>
+            <p class="section-subheading">Original paintings for considered spaces</p>
             <div class="paintings-grid">
                 <div class="painting-card">
                     <img class="painting-image" src="Images/PXL_20251111_081942305.RAW-02.ORIGINAL.webp" alt="Abstract Harmony" loading="lazy" width="400" height="300">
                     <div class="painting-info">
-                        <p class="painting-artist">Contemporary Artist</p>
-                        <h3 class="painting-title">Abstract Harmony</h3>
+                        <p class="painting-artist">Mara K. Otieno</p>
+                        <h3 class="painting-title">Abstract Harmony, 2025</h3>
+                        <p class="painting-gallery">Aura Gallery</p>
                         <p class="painting-price">KES 25,000</p>
-                        <button class="add-to-cart-btn">Add to Cart</button>
+                        <button class="add-to-cart-btn" data-id="1">Add to Cart</button>
                     </div>
                 </div>
                 <div class="painting-card">
                     <img class="painting-image" src="Images/PXL_20251114_071724544.RAW-02.ORIGINAL.webp" alt="Twilight Dreams" loading="lazy" width="400" height="300">
                     <div class="painting-info">
-                        <p class="painting-artist">Modern Artisan</p>
-                        <h3 class="painting-title">Twilight Dreams</h3>
+                        <p class="painting-artist">Amina Noor</p>
+                        <h3 class="painting-title">Twilight Dreams, 2025</h3>
+                        <p class="painting-gallery">Aura Gallery</p>
                         <p class="painting-price">KES 32,000</p>
-                        <button class="add-to-cart-btn">Add to Cart</button>
+                        <button class="add-to-cart-btn" data-id="4">Add to Cart</button>
                     </div>
                 </div>
                 <div class="painting-card">
                     <img class="painting-image" src="Images/PXL_20251114_071346434.RAW-02.ORIGINAL.webp" alt="Urban Reflections" loading="lazy" width="400" height="300">
                     <div class="painting-info">
-                        <p class="painting-artist">Visionary Creator</p>
-                        <h3 class="painting-title">Urban Reflections</h3>
-                        <p class="painting-price">KES 2,800</p>
-                        <button class="add-to-cart-btn">Add to Cart</button>
+                        <p class="painting-artist">Eli Mwangi</p>
+                        <h3 class="painting-title">Urban Reflections, 2025</h3>
+                        <p class="painting-gallery">Aura Gallery</p>
+                        <p class="painting-price">KES 10,500</p>
+                        <button class="add-to-cart-btn" data-id="3">Add to Cart</button>
                     </div>
                 </div>
                 <div class="painting-card">
                     <img class="painting-image" src="Images/PXL_20251114_072133511.RAW-02.ORIGINAL.webp" alt="Serenity Canvas" loading="lazy" width="400" height="300">
                     <div class="painting-info">
-                        <p class="painting-artist">Inspired Visionary</p>
-                        <h3 class="painting-title">Serenity Canvas</h3>
-                        <p class="painting-price">KES 2,200</p>
-                        <button class="add-to-cart-btn">Add to Cart</button>
+                        <p class="painting-artist">Laila Njeri</p>
+                        <h3 class="painting-title">Serenity Canvas, 2025</h3>
+                        <p class="painting-gallery">Aura Gallery</p>
+                        <p class="painting-price">KES 25,000</p>
+                        <button class="add-to-cart-btn" data-id="5">Add to Cart</button>
                     </div>
                 </div>
             </div>
             <button class="view-all-btn" onclick="navigateTo('catalogue'); return false;">View All Paintings</button>
         </section>
 
-        <section class="categories-section">
-            <h2 class="section-heading">Explore Categories</h2>
-            <p class="section-subheading">Browse our diverse collection of art styles</p>
-            <div class="categories-grid">
-                <div class="category-card" onclick="navigateTo('catalogue'); return false;">
-                    <i class="fas fa-palette category-icon"></i>
-                    <h3 class="category-name">Abstract</h3>
-                </div>
-                <div class="category-card" onclick="navigateTo('catalogue'); return false;">
-                    <i class="fas fa-image category-icon"></i>
-                    <h3 class="category-name">Landscape</h3>
-                </div>
-                <div class="category-card" onclick="navigateTo('catalogue'); return false;">
-                    <i class="fas fa-user category-icon"></i>
-                    <h3 class="category-name">Portrait</h3>
-                </div>
-                <div class="category-card" onclick="navigateTo('catalogue'); return false;">
-                    <i class="fas fa-shapes category-icon"></i>
-                    <h3 class="category-name">Modern</h3>
-                </div>
-                <div class="category-card" onclick="navigateTo('catalogue'); return false;">
-                    <i class="fas fa-brush category-icon"></i>
-                    <h3 class="category-name">Contemporary</h3>
-                </div>
-                <div class="category-card" onclick="navigateTo('catalogue'); return false;">
-                    <i class="fas fa-star category-icon"></i>
-                    <h3 class="category-name">Limited Edition</h3>
-                </div>
-            </div>
-        </section>
-
-        <section class="about-section">
-            <div class="about-content">
-                <h2>About The Aviary Collective</h2>
-                <p>We are passionate about bringing exceptional art to collectors worldwide. Our curated selection features emerging and established artists, each piece telling its own unique story.</p>
-                <p>With decades of experience in the art world, we pride ourselves on authenticity, quality, and customer satisfaction.</p>
-                <div class="about-features">
-                    <div class="feature-item">
-                        <i class="fas fa-check-circle feature-icon"></i>
-                        <span class="feature-text">Authentic & Verified Artworks</span>
-                    </div>
-                    <div class="feature-item">
-                        <i class="fas fa-check-circle feature-icon"></i>
-                        <span class="feature-text">Secure & Fast Delivery</span>
-                    </div>
-                    <div class="feature-item">
-                        <i class="fas fa-check-circle feature-icon"></i>
-                        <span class="feature-text">Expert Curation & Support</span>
-                    </div>
+        <section class="featured-section" style="padding-top: 0;">
+            <div class="editorial-page" style="max-width: 900px; text-align: left;">
+                <div class="content-block">
+                    <p style="font-size: 0.82rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gallery-muted); margin-bottom: 1rem;">Naivasha, Kenya</p>
+                    <h2 class="section-heading" style="text-align: left;">Curated for hospitality, culture, and everyday life.</h2>
+                    <p>Selected works by Aura Gallery artists are displayed throughout Avian Court Hotel, creating an immersive experience for guests and collectors. The collection reflects Kenya’s landscapes, communities, and shifting contemporary narratives.</p>
+                    <p><a href="#artists" onclick="navigateTo('artists'); return false;" style="color: var(--gallery-ink); text-decoration: none; border-bottom: 2px solid var(--gallery-accent); font-weight: 600;">Meet the artists</a></p>
                 </div>
             </div>
         </section>
 
         <section class="newsletter-section">
             <h2 class="newsletter-heading">Stay Updated</h2>
-            <p class="newsletter-subheading">Subscribe to our newsletter for exclusive deals and new arrivals</p>
+            <p class="newsletter-subheading">For collecting updates, new arrivals, and artist stories</p>
             <form class="newsletter-form" action="https://aviancourthotel.us9.list-manage.com/subscribe/post?u=97d41f9ebe4e1f475a38001cf&id=e178979681" method="post" target="_blank">
                 <input type="email" class="newsletter-input" name="EMAIL" placeholder="Enter your email" required>
                 <button type="submit" class="newsletter-submit">Subscribe</button>
@@ -428,25 +464,176 @@
         </section>
     </div>
 
-    <!-- CATALOGUE PAGE -->
+    <!-- GALLERY PAGE -->
     <div id="catalogue" class="page-wrapper">
         <div class="page-header">
-            <h1>Art Catalogue</h1>
+            <h1>Gallery</h1>
             <p>Original work, thoughtfully selected for considered spaces</p>
         </div>
         <div class="page-content">
-            <h2 class="section-heading" style="text-align: center; margin-bottom: 35px;">All Paintings</h2>
+            <div class="catalogue-toolbar">
+                <div class="toolbar-filters">
+                    <button class="filter-btn" type="button" onclick="resetFilters()">All Filters</button>
+                    <select class="filter-select" id="priceFilter" onchange="applyFilters()" aria-label="Filter by price range">
+                        <option value="">Price Range</option>
+                        <option value="0-10000">Under KES 10,000</option>
+                        <option value="10000-25000">KES 10,000 - 25,000</option>
+                        <option value="25000-999999999">KES 25,000+</option>
+                    </select>
+                    <select class="filter-select" id="sizeFilter" onchange="applyFilters()" aria-label="Filter by size">
+                        <option value="">Size</option>
+                        <option value="small">Small</option>
+                        <option value="medium">Medium</option>
+                        <option value="large">Large</option>
+                    </select>
+                </div>
+                <div class="toolbar-links">
+                    <a href="#" onclick="return false;"><i class="fas fa-eye" aria-hidden="true"></i> Reservation View</a>
+                    <a href="mailto:aura@aviancourthotel.com">Book Gallery Curator</a>
+                </div>
+            </div>
+            <div class="catalogue-count-row"><span id="artworkCount">Artworks</span></div>
             <div class="paintings-grid"></div>
         </div>
     </div>
 
-    <!-- BLOG PAGE -->
-    <div id="blog" class="page-wrapper">
+    <!-- ARTISTS PAGE -->
+    <div id="artists" class="page-wrapper">
         <div class="page-header">
-            <h1>Art Blog</h1>
-            <p>Notes on looking, collecting, and making</p>
+            <h1>Artists</h1>
+            <p>Voices shaping contemporary Kenyan art</p>
         </div>
-        <div class="page-content"></div>
+        <div class="page-content editorial-page">
+            <div class="artist-directory" id="artistDirectory"></div>
+            <div class="residence-section content-block">
+                <h3>Residence at Avian Court</h3>
+                <p>Selected works by Aura Gallery artists are displayed throughout Avian Court Hotel, including hallways and guest rooms. The collection offers hotel guests the opportunity to experience Kenyan art in a deeply local and lived setting, while also introducing local and international visitors to the energy and character of contemporary Kenyan practice.</p>
+                <p>For artists, this setting creates visibility in a meaningful cultural space. For collectors, it offers the chance to discover original work in an authentic hospitality environment and to connect with the stories behind each piece. Aura Gallery remains the focus: a platform for artists, a home for Kenyan creativity, and a place where art can be encountered, collected, and appreciated.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ABOUT PAGE -->
+    <div id="about" class="page-wrapper">
+        <div class="page-header">
+            <h1>About Aura Gallery</h1>
+            <p>Art, community, and place</p>
+        </div>
+        <div class="page-content editorial-page">
+            <div class="content-block">
+                <p>Aura Gallery was born from a passion for art, community, and the remarkable beauty of the place we call home.</p>
+                <p>Our vision is to share the spirit of Naivasha, its landscapes, its people, and its stories, while celebrating the richness and diversity of Kenya through art. Displayed throughout the hallways and guest rooms of Avian Court Hotel, each painting offers our guests a deeper connection to the destination and the creative voices that bring it to life.</p>
+                <p>The gallery provides talented local artists with a platform to present their work to Avian Court’s broad and diverse clientele. By connecting these artists with guests from Kenya and around the world, we hope to expand their visibility, create meaningful opportunities, and ensure that local creativity receives the recognition it deserves.</p>
+                <p>Every painting is available for purchase, allowing our guests to take home more than a beautiful work of art—they carry with them a piece of Naivasha, a story of Kenya, and a lasting connection to the artist who created it.</p>
+                <p>Aura Gallery is where hospitality, culture, and creativity come together—creating space for local art to be seen, appreciated, and shared with the world.</p>
+                <p>To be considered for the Aura Gallery collection, please contact our team with a brief introduction, examples of your artwork, pricing, and the inspiration behind your work.</p>
+                <p>Let us work together to give Kenyan artists a wider platform and share the beauty, stories, and creative spirit of Kenya with the world.</p>
+                <div class="cta-box">
+                    <a href="mailto:aura@aviancourthotel.com">aura@aviancourthotel.com</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- WORK WITH US PAGE -->
+    <div id="work-with-us" class="page-wrapper">
+        <div class="page-header">
+            <h1>Calling Artists Across Kenya</h1>
+            <p>Open call for Kenyan artists</p>
+        </div>
+        <div class="page-content editorial-page">
+            <div class="content-block">
+                <p>Are you a Kenyan artist with a story to share through your work?</p>
+                <p>Aura Gallery at Avian Court Hotel welcomes emerging and established artists from across Kenya whose work reflects the country’s landscapes, people, cultures, experiences, and creative spirit.</p>
+                <p>We are passionate about providing local artists with a platform to showcase their work to Avian Court’s diverse local and international guests. Selected artwork is displayed throughout the hotel’s hallways and guest rooms, creating opportunities for artists to gain visibility, connect with potential collectors, and offer their work for purchase.</p>
+                <p>We are looking for original, thoughtfully created pieces that celebrate Kenya’s identity in all its richness and diversity. Whether your inspiration comes from a particular community, landscape, tradition, memory, or contemporary experience, we would love to discover the story behind your art.</p>
+                <div class="cta-box">
+                    <a href="mailto:aura@aviancourthotel.com">aura@aviancourthotel.com</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- HOW TO BUY PAGE -->
+    <div id="how-to-buy" class="page-wrapper">
+        <div class="page-header">
+            <h1>How to Buy</h1>
+            <p>Discover and collect original art</p>
+        </div>
+        <div class="page-content editorial-page">
+            <div class="content-block">
+                <p>Explore original paintings inspired by Kenya, African heritage, nature, community, culture and contemporary creativity.</p>
+                <h2>Step 1 — Discover</h2>
+                <p>Browse the collection and use the Gallery page's filters to narrow works by price range and size.</p>
+                <h2>Step 2 — Explore the Artwork</h2>
+                <p>Review photographs, artist, dimensions, price and other available information. Because every original artwork is unique, take time to review the details before purchasing.</p>
+                <h2>Step 3 — Ask Questions</h2>
+                <p>Ask about dimensions, framing, materials, availability, viewing, delivery, artwork details or commission possibilities.</p>
+                <h2>Step 4 — Place Your Order</h2>
+                <p>Add the artwork to your cart and follow the checkout process. Provide accurate contact and delivery information.</p>
+                <h2>Step 5 — Payment</h2>
+                <p>Complete payment using the options provided during checkout. Do not send payment to unofficial numbers or accounts.</p>
+                <h2>Step 6 — Confirmation</h2>
+                <p>Once payment and order details are verified, you will receive an order confirmation.</p>
+                <h2>Step 7 — Preparation &amp; Delivery</h2>
+                <p>The artwork will be prepared according to its size, material, framing and destination, with reasonable care taken for transportation.</p>
+                <div class="cta-box">
+                    <a href="mailto:aura@aviancourthotel.com">aura@aviancourthotel.com</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SHIPPING & DELIVERY PAGE -->
+    <div id="shipping-returns" class="page-wrapper">
+        <div class="page-header">
+            <h1>Shipping &amp; Returns</h1>
+            <p>Delivering art with care, handled fairly</p>
+        </div>
+        <div class="page-content editorial-page">
+            <div class="content-block">
+                <p>Original artwork requires careful handling. We prepare purchased artworks with attention to packaging, protection and destination requirements.</p>
+                <h2>Delivery Within Kenya</h2>
+                <p>We deliver artworks from Naivasha to destinations within Kenya. Delivery times and costs depend on destination, artwork dimensions and weight, framing, packaging requirements, transport method and accessibility.</p>
+                <h2>International Delivery &amp; Customs</h2>
+                <p>International delivery may be available for selected artworks; contact us before purchasing to confirm availability and estimated costs. International orders may be subject to customs duties, taxes or import charges, which are the buyer's responsibility unless expressly stated otherwise.</p>
+                <h2>Receiving Your Artwork</h2>
+                <p>Inspect the package and artwork as soon as reasonably possible. If damaged, photograph the artwork and packaging before disposal and contact us immediately with your order number and a description of the damage.</p>
+                <h2>Returns &amp; Refunds</h2>
+                <p>Returns and refunds are handled according to the circumstances of each order, and nothing in this policy limits consumer rights that cannot lawfully be excluded under Kenyan law. If you receive damaged or incorrect artwork, contact us before altering, framing or cleaning it. Because original artworks are unique and may be prepared specifically for delivery, change-of-mind returns may be subject to specific conditions.</p>
+                <p>Where a refund is approved, it will normally use the original payment method where reasonably possible; processing time may depend on the payment provider or financial institution.</p>
+                <div class="cta-box">
+                    <a href="mailto:aura@aviancourthotel.com">aura@aviancourthotel.com</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQS PAGE -->
+    <div id="faqs" class="page-wrapper">
+        <div class="page-header">
+            <h1>Frequently Asked Questions</h1>
+            <p>Helpful answers for collectors</p>
+        </div>
+        <div class="page-content editorial-page">
+            <div class="content-block">
+                <h2>What is Aura Gallery?</h2>
+                <p>A curated art gallery based in Naivasha, Kenya, offering original artworks inspired by Kenya, African heritage, nature, community, culture and contemporary creativity.</p>
+                <h2>Are the artworks original?</h2>
+                <p>Yes. The collection focuses on genuine original artworks created by Kenyan artists.</p>
+                <h2>Can I see an artwork before buying it?</h2>
+                <p>Selected artworks are displayed at Avian Court Hotel. Contact us before visiting to confirm availability and location.</p>
+                <h2>Do you deliver within Kenya?</h2>
+                <p>Yes, subject to the artwork, destination and delivery requirements.</p>
+                <h2>Do you ship internationally?</h2>
+                <p>International delivery may be available for selected artworks. Contact us before purchasing.</p>
+                <h2>Can I commission an artwork?</h2>
+                <p>Selected artists may be available for commissions. Contact us with your preferred subject, style, dimensions and budget.</p>
+                <div class="cta-box">
+                    <a href="mailto:aura@aviancourthotel.com">aura@aviancourthotel.com</a>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- CART PAGE -->
@@ -459,7 +646,7 @@
             <div class="cart-layout">
                 <div class="cart-items">
                     <div class="empty-cart" style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 300px;">
-                        <i class="fas fa-shopping-cart" style="font-size: 48px; color: #F27A33; margin-bottom: 20px;"></i>
+                        <i class="fas fa-shopping-cart" style="font-size: 48px; color: #b77c45; margin-bottom: 20px;"></i>
                         <p style="font-size: 18px; color: #666; font-weight: 600; margin-bottom: 10px;">Your cart is empty</p>
                         <p style="color: #999; margin-bottom: 20px;">Start adding beautiful artworks to your collection</p>
                         <a href="#catalogue" onclick="navigateTo('catalogue'); return false;" class="view-all-btn">Browse Gallery</a>
@@ -480,21 +667,10 @@
                             <span>Total</span>
                             <span id="total">KES 0</span>
                         </div>
-                        <button class="view-all-btn" style="width: 100%; margin-top: 20px; border: none;">Proceed to Checkout</button>
+                        <button class="view-all-btn" id="checkoutBtn" type="button" style="width: 100%; margin-top: 20px; border: none;" onclick="proceedToCheckout()">Proceed to Checkout</button>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-
-    <!-- LOCATIONS PAGE -->
-    <div id="locations" class="page-wrapper">
-        <div class="page-header">
-            <h1>Our Locations</h1>
-            <p>Visit us at Avian Court Hotel</p>
-        </div>
-        <div class="page-content">
-            <div class="paintings-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));"></div>
         </div>
     </div>
 
@@ -507,38 +683,65 @@
         </div>
     </div>
 
+    <div id="locationModal" class="location-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="locationModalTitle">
+        <div class="location-modal-panel">
+            <div class="location-modal-header">
+                <h3 id="locationModalTitle">Avian Court Hotel</h3>
+                <button class="location-modal-close" type="button" aria-label="Close location map">&times;</button>
+            </div>
+            <div class="location-modal-body">
+                <iframe class="location-map-embed" title="Avian Court Hotel map" src="https://www.google.com/maps?q=Avian%20Court%20Hotel%20Naivasha%20Kenya&z=13&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <div class="location-modal-meta">
+                    <h4>Avian Court Hotel</h4>
+                    <p>Naivasha, Kenya</p>
+                    <p><a href="https://maps.google.com/?q=Avian%20Court%20Hotel%20Naivasha%20Kenya" target="_blank" rel="noreferrer">Open in Google Maps</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="legal-modal" class="legal-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Legal document">
+        <div class="legal-dialog">
+            <button class="modal-close" type="button" aria-label="Close legal document">&times;</button>
+            <div id="legal-modal-content"></div>
+        </div>
+    </div>
+
     <footer>
         <div>
-            <div class="footer-brand">The Aviary Collective<span>Original Art. Inspired by Kenya.</span></div>
-            <p class="footer-description">Discover and collect original paintings by Kenyan artists, inspired by African heritage, Naivasha, nature, community, culture and contemporary African creativity.</p>
-            <p class="footer-contact"><strong>Curated in Naivasha, Kenya.</strong><br><a href="tel:0768711111">0768 711 111</a><br><a href="mailto:info@aviancourthotel.com">info@aviancourthotel.com</a></p>
+            <div class="footer-brand">
+                <img src="Images/Aura%20Gallery%20Logo%20black.png" alt="Aura Gallery Logo" style="height: 44px; width: auto; display: block; margin-bottom: 10px;">
+            </div>
+            <p class="footer-description">Original Art. Inspired by Kenya.<br>Discover and collect original paintings by Kenyan artists, inspired by African heritage, nature, community, culture and contemporary African creativity.</p>
         </div>
         <div class="footer-content">
             <div class="footer-column">
-                <h3>About</h3>
+                <h3>Contact Us</h3>
                 <ul>
-                    <li><a href="#" onclick="return false;">Our Story</a></li>
-                    <li><a href="#locations" onclick="navigateTo('locations'); return false;">Visit The Aviary</a></li>
+                    <li><a href="tel:0768711111">0768711111</a></li>
+                    <li><a href="mailto:aura@aviancourthotel.com">aura@aviancourthotel.com</a></li>
+                    <li><button class="location-link" type="button" aria-label="Open Avian Court Hotel location map">Location</button></li>
                 </ul>
             </div>
             <div class="footer-column">
-                <h3>Customer Care</h3>
+                <h3>Support</h3>
                 <ul>
-                    <li><a href="#" onclick="return false;">How to Buy</a></li>
-                    <li><a href="#" onclick="return false;">Shipping & Delivery</a></li>
-                    <li><a href="#" onclick="return false;">Returns & Refunds</a></li>
+                    <li><a href="#how-to-buy" onclick="navigateTo('how-to-buy'); return false;">How to Buy</a></li>
+                    <li><a href="#shipping-returns" onclick="navigateTo('shipping-returns'); return false;">Shipping &amp; Returns</a></li>
+                    <li><a href="#faqs" onclick="navigateTo('faqs'); return false;">FAQs</a></li>
                 </ul>
             </div>
             <div class="footer-column">
                 <h3>Legal</h3>
                 <ul>
-                    <li><a href="#" onclick="return false;">Privacy Policy</a></li>
-                    <li><a href="#" onclick="return false;">Terms & Conditions</a></li>
+                    <li><a href="#" data-legal="privacy">Privacy Policy</a></li>
+                    <li><a href="#" data-legal="terms">Terms &amp; Conditions</a></li>
+                    <li><a href="#" data-legal="cookies">Cookie Policy</a></li>
                 </ul>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 THE AVIARY COLLECTIVE. All rights reserved.</p>
+            <p>&copy; 2026 AURA GALLERY. All rights reserved.</p>
         </div>
     </footer>
 
@@ -701,14 +904,49 @@
 
         // Core functionality
         const artworks = [
-            { id: 1, title: 'Abstract Harmony', artist: 'Mara K. Otieno', category: 'abstract', price: 25000, image: 'Images/PXL_20251111_081942305.RAW-02.ORIGINAL.webp' },
-            { id: 2, title: 'Daydreams', artist: 'Nia Wambui', category: 'portrait', price: 16500, image: 'Images/PXL_20251111_075255720.RAW-02.ORIGINAL.webp' },
-            { id: 3, title: 'Bended Light', artist: 'Eli Mwangi', category: 'landscape', price: 10500, image: 'Images/PXL_20251111_075504005.RAW-02.ORIGINAL.webp' },
-            { id: 4, title: 'Twilight Dreams', artist: 'Amina Noor', category: 'abstract', price: 32000, image: 'Images/PXL_20251114_071724544.RAW-02.ORIGINAL.webp' },
-            { id: 5, title: 'Embracing the Spark', artist: 'Laila Njeri', category: 'portrait', price: 25000, image: 'Images/PXL_20251111_074611687.RAW-02.ORIGINAL_1.webp' }
+            { id: 1, title: 'Abstract Harmony', artist: 'Mara K. Otieno', category: 'abstract', size: 'medium', price: 25000, image: 'Images/PXL_20251111_081942305.RAW-02.ORIGINAL.webp' },
+            { id: 2, title: 'Daydreams', artist: 'Nia Wambui', category: 'portrait', size: 'medium', price: 16500, image: 'Images/PXL_20251111_075255720.RAW-02.ORIGINAL.webp' },
+            { id: 3, title: 'Bended Light', artist: 'Eli Mwangi', category: 'landscape', size: 'medium', price: 10500, image: 'Images/PXL_20251111_075504005.RAW-02.ORIGINAL.webp' },
+            { id: 4, title: 'Twilight Dreams', artist: 'Amina Noor', category: 'abstract', size: 'large', price: 32000, image: 'Images/PXL_20251114_071724544.RAW-02.ORIGINAL.webp' },
+            { id: 5, title: 'Embracing the Spark', artist: 'Laila Njeri', category: 'portrait', size: 'small', price: 25000, image: 'Images/PXL_20251111_074611687.RAW-02.ORIGINAL_1.webp' }
+        ];
+        const artists = [
+            { name: 'Mara K. Otieno', image: 'Images/PXL_20251111_081942305.RAW-02.ORIGINAL.webp', focus: 'Abstract and experimental compositions shaped by memory, rhythm, and place.' },
+            { name: 'Amina Noor', image: 'Images/PXL_20251114_071724544.RAW-02.ORIGINAL.webp', focus: 'Textural landscapes and atmospheric studies exploring light, movement, and stillness.' },
+            { name: 'Eli Mwangi', image: 'Images/PXL_20251111_075504005.RAW-02.ORIGINAL.webp', focus: 'Urban silhouettes and everyday scenes that connect Nairobian energy with Naivasha calm.' },
+            { name: 'Laila Njeri', image: 'Images/PXL_20251111_074611687.RAW-02.ORIGINAL_1.webp', focus: 'Portrait-led works centred on identity, belonging, and the women who shape Kenya.' }
         ];
         const cart = [];
         const money = v => `KES ${v.toLocaleString('en-KE')}`;
+
+        function renderCatalogue(list) {
+            const grid = document.querySelector('#catalogue .paintings-grid');
+            const countEl = document.getElementById('artworkCount');
+            if (!grid) return;
+            grid.innerHTML = list.map(a => `<div class="painting-card" data-cat="${a.category}"><img class="painting-image" src="${a.image}" alt="${a.title}" loading="eager" decoding="async" width="400" height="300"><div class="painting-info"><p class="painting-artist">${a.artist}</p><h3 class="painting-title">${a.title}</h3><p class="painting-gallery">Aura Gallery</p><p class="painting-price">${money(a.price)}</p><button class="add-to-cart-btn" data-id="${a.id}">Add to Cart</button></div></div>`).join('');
+            if (countEl) countEl.textContent = `${list.length} Artwork${list.length === 1 ? '' : 's'}`;
+            if (window.bindArtworkImage) document.querySelectorAll('#catalogue .painting-image').forEach(window.bindArtworkImage);
+        }
+
+        function applyFilters() {
+            const priceRange = document.getElementById('priceFilter')?.value || '';
+            const size = document.getElementById('sizeFilter')?.value || '';
+            let filtered = artworks;
+            if (priceRange) {
+                const [min, max] = priceRange.split('-').map(Number);
+                filtered = filtered.filter(a => a.price >= min && a.price <= max);
+            }
+            if (size) filtered = filtered.filter(a => a.size === size);
+            renderCatalogue(filtered);
+        }
+
+        function resetFilters() {
+            ['priceFilter', 'sizeFilter'].forEach(id => {
+                const el = document.getElementById(id);
+                if (el) el.value = '';
+            });
+            renderCatalogue(artworks);
+        }
 
         function navigateTo(page) {
             document.querySelectorAll('.page-wrapper').forEach(el => el.classList.remove('active'));
@@ -745,6 +983,127 @@
             const totalEl = document.getElementById('total');
             if (subtotalEl) subtotalEl.textContent = money(subtotal);
             if (totalEl) totalEl.textContent = money(subtotal);
+
+            const itemsContainer = document.querySelector('#cart .cart-items');
+            if (itemsContainer) {
+                itemsContainer.innerHTML = cart.length ? cart.map(item => `
+                    <div class="cart-item">
+                        <img src="${item.image}" alt="${item.title}">
+                        <div>
+                            <h3 style="font-size: 15px; margin-bottom: 4px; color: #111;">${item.title}</h3>
+                            <p style="font-size: 12px; color: #888; margin-bottom: 6px;">${item.artist}</p>
+                            <div class="quantity-control">
+                                <button type="button" data-cart-action="decrease" data-id="${item.id}" aria-label="Decrease quantity">-</button>
+                                <span>${item.qty}</span>
+                                <button type="button" data-cart-action="increase" data-id="${item.id}" aria-label="Increase quantity">+</button>
+                            </div>
+                            <button type="button" class="remove-item" data-cart-action="remove" data-id="${item.id}">Remove</button>
+                        </div>
+                        <strong class="cart-item-price">${money(item.price * item.qty)}</strong>
+                    </div>
+                `).join('') : `<div class="empty-cart" style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 300px;">
+                        <i class="fas fa-shopping-cart" style="font-size: 48px; color: #b77c45; margin-bottom: 20px;"></i>
+                        <p style="font-size: 18px; color: #666; font-weight: 600; margin-bottom: 10px;">Your cart is empty</p>
+                        <p style="color: #999; margin-bottom: 20px;">Start adding beautiful artworks to your collection</p>
+                        <a href="#catalogue" onclick="navigateTo('catalogue'); return false;" class="view-all-btn">Browse Gallery</a>
+                    </div>`;
+            }
+        }
+
+        function proceedToCheckout() {
+            if (!cart.length) {
+                navigateTo('catalogue');
+                return;
+            }
+            const subtotal = cart.reduce((t, i) => t + i.price * i.qty, 0);
+            alert(`Thank you for your order! Your total of ${money(subtotal)} will be confirmed by our team via email or phone to arrange payment and delivery.`);
+        }
+
+        const legalPages = {
+            privacy: `<h2>Privacy Policy</h2><p><strong>Last Updated: 27 August 2026</strong></p><p>Aura Gallery respects your privacy. This policy explains how information may be collected, used, stored, shared and protected when you visit the website, purchase artwork, contact us or otherwise interact with us.</p><h3>1. Information We Collect</h3><p>We may collect names, email addresses, telephone details, billing and delivery information, order details, artwork preferences, enquiry details and information submitted through forms. We may also receive technical information such as IP address, browser and device type, pages visited, referral information and cookie information.</p><h3>2. How We Use Information</h3><p>We may use information to process orders, arrange payment and delivery, provide support, respond to enquiries, process returns, arrange viewings, improve security and the website, prevent misuse, communicate service information, send marketing where permitted, and meet legal or regulatory requirements.</p><h3>3. Marketing and Newsletter</h3><p>Newsletter subscriptions are submitted to Mailchimp through the form provided on this website. You can unsubscribe from marketing communications at any time using the available unsubscribe option or by contacting us.</p><h3>4. Sharing and Retention</h3><p>Relevant information may be shared with providers needed to operate the website, including Mailchimp for newsletter subscriptions, hosting providers, payment or delivery providers when used for an order, and authorities where legally required. We retain information only as long as reasonably necessary.</p><h3>5. Contact</h3><p>Questions may be sent to <a href="tel:0768711111">0768 711 111</a> or <a href="mailto:aura@aviancourthotel.com">aura@aviancourthotel.com</a>.</p>`,
+            terms: `<h2>Terms &amp; Conditions</h2><p><strong>Last Updated: 27 August 2026</strong></p><p>These Terms govern use of the Aura Gallery website and purchases of artworks. By using the website or placing an order, you agree to these Terms.</p><h3>1. Original Artwork</h3><p>Original artworks are unique. Natural variation in brushwork, paint texture, measurements and colour reproduction between screens does not necessarily constitute a defect.</p><h3>2. Ownership and Copyright</h3><p>Purchase of a physical artwork transfers ownership of the physical object, subject to payment and applicable terms. It does not automatically transfer copyright or reproduction rights, which remain with the artist unless agreed otherwise in writing.</p><h3>3. Images, Prices and Orders</h3><p>Prices are displayed in Kenyan Shillings unless stated otherwise and may change. An order is accepted when we confirm it and verify availability; because artworks are unique, availability may change before confirmation.</p><h3>4. Payment, Delivery and Returns</h3><p>Use only approved payment instructions provided during checkout. Delivery depends on the artwork and destination, and international orders may incur buyer-responsible customs charges. Returns and refunds are handled under the Returns &amp; Refunds policy and applicable Kenyan consumer law.</p><h3>5. Governing Law</h3><p>These Terms are governed by the laws of the Republic of Kenya.</p><h3>6. Contact</h3><p>Questions may be sent to <a href="tel:0768711111">0768 711 111</a> or <a href="mailto:aura@aviancourthotel.com">aura@aviancourthotel.com</a>.</p>`,
+            cookies: `<h2>Cookie Policy</h2><p><strong>Last Updated: 27 August 2026</strong></p><p>Aura Gallery uses cookies and similar technologies where needed to operate, secure and improve the website.</p><h3>1. What Are Cookies?</h3><p>Cookies are small text files stored on your device that help websites remember information, maintain sessions and provide functionality.</p><h3>2. Technologies Present on This Website</h3><p>The website includes third-party resources for Google Fonts, Font Awesome, Swiper and a Google Maps embed. The newsletter form submits to Mailchimp. These providers may process requests according to their own policies.</p><h3>3. Types of Cookies</h3><p>Essential technologies support website functionality, shopping cart functionality, security and session management. Preference, analytics or marketing technologies are used only where enabled and legally permitted.</p><h3>4. Managing Cookies</h3><p>You can manage cookies through your browser or device settings. Disabling essential technologies may affect website functionality, including shopping and checkout.</p><h3>5. Contact</h3><p>Questions may be sent to <a href="tel:0768711111">0768 711 111</a> or <a href="mailto:aura@aviancourthotel.com">aura@aviancourthotel.com</a>.</p>`
+        };
+
+        function setupLegalModal() {
+            const modal = document.getElementById('legal-modal');
+            const content = document.getElementById('legal-modal-content');
+            const closeBtn = modal?.querySelector('.modal-close');
+            const links = document.querySelectorAll('[data-legal]');
+            if (!modal || !content || !closeBtn || !links.length) return;
+
+            let lastFocused = null;
+            const setModalState = (isOpen) => {
+                modal.classList.toggle('active', isOpen);
+                modal.setAttribute('aria-hidden', String(!isOpen));
+                if (isOpen) {
+                    lastFocused = document.activeElement;
+                    closeBtn.focus();
+                } else if (lastFocused) {
+                    lastFocused.focus();
+                }
+            };
+
+            links.forEach(link => {
+                link.addEventListener('click', event => {
+                    event.preventDefault();
+                    content.innerHTML = legalPages[link.dataset.legal] || '';
+                    setModalState(true);
+                });
+            });
+
+            closeBtn.addEventListener('click', () => setModalState(false));
+            modal.addEventListener('click', event => { if (event.target === modal) setModalState(false); });
+            document.addEventListener('keydown', event => {
+                if (event.key === 'Escape' && modal.classList.contains('active')) setModalState(false);
+            });
+        }
+
+        function setupLocationModal() {
+            const modal = document.getElementById('locationModal');
+            const closeBtn = modal?.querySelector('.location-modal-close');
+            const openers = document.querySelectorAll('.location-link');
+            if (!modal || !closeBtn || !openers.length) return;
+
+            let lastFocused = null;
+
+            const setModalState = (isOpen) => {
+                modal.setAttribute('aria-hidden', String(!isOpen));
+                modal.style.display = isOpen ? 'flex' : 'none';
+                if (isOpen) {
+                    lastFocused = document.activeElement;
+                    const firstFocusable = modal.querySelector('button, a, iframe');
+                    firstFocusable?.focus();
+                } else if (lastFocused) {
+                    lastFocused.focus();
+                }
+            };
+
+            openers.forEach(button => {
+                button.addEventListener('click', () => setModalState(true));
+            });
+
+            closeBtn.addEventListener('click', () => setModalState(false));
+            modal.addEventListener('click', (event) => {
+                if (event.target === modal) setModalState(false);
+            });
+            document.addEventListener('keydown', (event) => {
+                if (event.key === 'Escape' && modal.getAttribute('aria-hidden') === 'false') {
+                    setModalState(false);
+                }
+                if (event.key === 'Tab' && modal.getAttribute('aria-hidden') === 'false') {
+                    const focusable = modal.querySelectorAll('button, [href], iframe');
+                    const first = focusable[0];
+                    const last = focusable[focusable.length - 1];
+                    if (event.shiftKey && document.activeElement === first) {
+                        event.preventDefault();
+                        last.focus();
+                    } else if (!event.shiftKey && document.activeElement === last) {
+                        event.preventDefault();
+                        first.focus();
+                    }
+                }
+            });
         }
 
         function setupImagePopup() {
@@ -815,6 +1174,7 @@
             };
 
             document.querySelectorAll('#home .painting-image, #catalogue .painting-image').forEach(bindImage);
+            window.bindArtworkImage = bindImage;
 
             closeBtn.addEventListener('click', closePopup);
             popup.addEventListener('click', e => {
@@ -828,9 +1188,19 @@
         document.addEventListener('DOMContentLoaded', () => {
             initializeCarousel();
             
-            const catGrid = document.querySelector('#catalogue .paintings-grid');
-            if (catGrid) {
-                catGrid.innerHTML = artworks.map(a => `<div class="painting-card" data-cat="${a.category}"><img class="painting-image" src="${a.image}" alt="${a.title}" loading="eager" decoding="async" width="400" height="300"><div class="painting-info"><p class="painting-artist">${a.artist}</p><h3 class="painting-title">${a.title}</h3><p class="painting-price">${money(a.price)}</p><button class="add-to-cart-btn" data-id="${a.id}">Add to Cart</button></div></div>`).join('');
+            renderCatalogue(artworks);
+
+            const artistGrid = document.getElementById('artistDirectory');
+            if (artistGrid) {
+                artistGrid.innerHTML = artists.map(artist => `
+                    <article class="artist-card">
+                        <img src="${artist.image}" alt="${artist.name}" loading="lazy" width="400" height="500">
+                        <div class="artist-card-content">
+                            <h3>${artist.name}</h3>
+                            <p>${artist.focus}</p>
+                        </div>
+                    </article>
+                `).join('');
             }
             
             const blogContent = document.querySelector('#blog .page-content');
@@ -838,24 +1208,36 @@
                 blogContent.innerHTML = `<div class="blog-grid"><article class="blog-card"><img src="Images/PXL_20251114_070537276.RAW-02.ORIGINAL.webp" alt="Blog" loading="lazy"><div class="blog-card-content"><p class="blog-meta">Studio visit / Aug 13</p><h2>Where a painting begins</h2><p>A look at the rituals and sketches behind finished work.</p></div></article></div>`;
             }
             
-            const locGrid = document.querySelector('#locations .paintings-grid');
-            if (locGrid) {
-                locGrid.innerHTML = `<div class="painting-card"><iframe class="map-preview" title="Location Map" src="https://www.google.com/maps?q=-0.8025256,36.4201877&z=17&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe><div class="painting-info"><h3 class="painting-title">The Aviary Collective</h3><p style="color: #a0a0a0; font-size: 12px;">Visit our gallery in Naivasha.</p><a class="add-to-cart-btn" style="background-color: #F27A33; color: #121212; display: block; text-align: center; text-decoration: none;" href="https://maps.app.goo.gl/4MoXkdVUYYd9YDJT7" target="_blank">Open in Maps</a></div></div>`;
-            }
-            
-            document.querySelectorAll('.add-to-cart-btn').forEach(btn => {
-                btn.addEventListener('click', function() {
-                    const id = Number(this.dataset.id);
-                    const artwork = artworks.find(a => a.id === id);
-                    const existing = cart.find(i => i.id === id);
-                    if (existing) existing.qty++;
-                    else cart.push({...artwork, qty: 1});
-                    renderCart();
-                    this.textContent = 'Added!';
-                    setTimeout(() => this.textContent = 'Add to Cart', 1200);
-                });
+            document.addEventListener('click', function(e) {
+                const btn = e.target.closest('.add-to-cart-btn');
+                if (!btn) return;
+                const id = Number(btn.dataset.id);
+                const artwork = artworks.find(a => a.id === id);
+                if (!artwork) return;
+                const existing = cart.find(i => i.id === id);
+                if (existing) existing.qty++;
+                else cart.push({...artwork, qty: 1});
+                renderCart();
+                const originalText = btn.textContent;
+                btn.textContent = 'Added \u2713';
+                setTimeout(() => btn.textContent = originalText, 1200);
+            });
+
+            document.addEventListener('click', function(e) {
+                const actionBtn = e.target.closest('[data-cart-action]');
+                if (!actionBtn) return;
+                const id = Number(actionBtn.dataset.id);
+                const item = cart.find(i => i.id === id);
+                if (!item) return;
+                const action = actionBtn.dataset.cartAction;
+                if (action === 'remove') cart.splice(cart.indexOf(item), 1);
+                if (action === 'increase') item.qty++;
+                if (action === 'decrease') item.qty > 1 ? item.qty-- : cart.splice(cart.indexOf(item), 1);
+                renderCart();
             });
             setupImagePopup();
+            setupLocationModal();
+            setupLegalModal();
             renderCart();
         });
         
