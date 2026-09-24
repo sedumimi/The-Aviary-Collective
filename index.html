@@ -103,16 +103,21 @@
         .featured-section { padding: 80px 5%; background: #fff; text-align: center; contain: layout; }
         .section-heading { font-size: clamp(2.3rem, 3vw, 3.3rem); font-weight: 700; margin-bottom: 15px; text-transform: none; letter-spacing: 0; color: var(--gallery-ink); line-height: 1.1; }
         .section-subheading { font-size: 0.95rem; color: var(--gallery-muted); margin-bottom: 60px; font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase; }
-        .paintings-grid { display: grid; grid-template-columns: repeat(4, 1fr); column-gap: 32px; row-gap: 48px; margin-bottom: 50px; text-align: left; }
+        .paintings-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); column-gap: 32px; row-gap: 48px; margin-bottom: 50px; text-align: left; align-items: stretch; }
         .painting-card { background: transparent; border: none; border-radius: 0; overflow: visible; box-shadow: none; transition: opacity 0.3s ease; cursor: pointer; display: flex; flex-direction: column; contain: content; }
         .painting-card:hover { opacity: 0.85; }
-        .painting-image { display: block; width: 100%; height: auto; aspect-ratio: auto; background-color: #f2f0ec; object-fit: contain; object-position: center; transition: none; }
+        .painting-image { display: block; width: 100%; height: 280px; aspect-ratio: 4 / 3; background-color: #f2f0ec; object-fit: cover; object-position: center; transition: none; }
+        .painting-image.is-portrait { aspect-ratio: 3 / 4; height: auto; }
+        .painting-image.is-landscape { aspect-ratio: 4 / 3; height: auto; }
         .painting-card:hover .painting-image { transform: none; }
-        .painting-info { padding: 14px 0 0; }
-        .painting-artist { font-size: 13px; font-weight: 600; color: #1b1b1b; margin-bottom: 3px; text-transform: none; letter-spacing: 0; }
-        .painting-title { font-size: 13px; font-weight: 400; font-style: italic; color: #3d3d3d; margin-bottom: 3px; text-transform: none; letter-spacing: 0; }
-        .painting-gallery { font-size: 12px; color: #8a8a8a; margin-bottom: 8px; }
-        .painting-price { display: block; font-size: 14px; font-weight: 700; color: #1b1b1b; margin-bottom: 12px; }
+        #home-featured .paintings-grid .painting-card:nth-child(n+5) { display: none; }
+        #home-featured .paintings-grid .painting-card:has(.painting-artist) { display: none; }
+        .painting-info { padding: 14px 0 0; min-height: 148px; display: flex; flex-direction: column; align-items: flex-start; }
+        .painting-title { font-size: 13px; font-weight: 400; font-style: italic; color: #3d3d3d; margin-bottom: 7px; text-transform: none; letter-spacing: 0; }
+        .painting-summary { color: var(--gallery-muted); font-size: 11px; line-height: 1.55; margin: 0 0 10px; }
+        .painting-description { display: flex; flex-direction: column; gap: 3px; min-height: 68px; margin: 0 0 14px; color: #777; font-size: 11px; line-height: 1.45; letter-spacing: .08em; text-transform: uppercase; }
+        .painting-description .description-dimensions { color: #8a8a8a; }
+        .painting-description .description-price { margin-top: 5px; color: var(--gallery-accent); font-size: 12px; font-weight: 700; letter-spacing: .1em; }
         .add-to-cart-btn { background: transparent; border: 1px solid #1b1b1b; color: #1b1b1b; padding: 8px 18px; border-radius: 0; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; text-align: center; width: auto; transition: all 0.2s ease; }
         .add-to-cart-btn:hover { background: #1b1b1b; color: #fff; }
         .view-all-btn { background-color: #F27A33; color: #fff; border: 2px solid #F27A33; padding: 12px 36px; border-radius: 25px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; transition: all 0.3s ease; }
@@ -126,6 +131,7 @@
         .toolbar-links a { font-size: 11px; text-transform: uppercase; letter-spacing: .08em; color: #444; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; transition: color 0.3s ease; }
         .toolbar-links a:hover { color: var(--gallery-accent); }
         .catalogue-count-row { max-width: 1180px; margin: 18px auto 30px; padding-bottom: 16px; border-bottom: 1px solid var(--gallery-line); font-size: 12px; color: #777; text-transform: uppercase; letter-spacing: .08em; }
+        @media (max-width: 480px) { .painting-image { height: 220px; } }
 
 
         /* Editorial content blocks */
@@ -395,40 +401,133 @@
             </div>
         </section>
 
-        <section class="featured-section">
+        <section id="home-featured" class="featured-section">
             <h2 class="section-heading">Featured Paintings</h2>
             <p class="section-subheading">Original paintings for considered spaces</p>
             <div class="paintings-grid">
+                <!-- Featured cards are rendered from the current catalogue data on DOM ready. -->
+                <!--
                 <div class="painting-card">
                     <img class="painting-image" src="Images/PXL_20251111_081942305.RAW-02.ORIGINAL.webp" alt="Abstract Harmony" loading="lazy" width="400" height="300">
                     <div class="painting-info">
-                        <p class="painting-artist">Mara K. Otieno</p>
-                        <h3 class="painting-title">Abstract Harmony, 2025</h3>
-                        <p class="painting-gallery">Aura Gallery</p>
-                        <p class="painting-price">KES 25,000</p>
+                        <h3 class="painting-title">Abstract Harmony</h3>
+                        <p class="painting-description"><span class="description-dimensions">30 x 20 inches</span><span class="description-price">KES 25,000</span></p>
                         <button class="add-to-cart-btn" data-id="1">Add to Cart</button>
                     </div>
                 </div>
                 <div class="painting-card">
                     <img class="painting-image" src="Images/PXL_20251114_071724544.RAW-02.ORIGINAL.webp" alt="Twilight Dreams" loading="lazy" width="400" height="300">
                     <div class="painting-info">
-                        <p class="painting-artist">Amina Noor</p>
-                        <h3 class="painting-title">Twilight Dreams, 2025</h3>
-                        <p class="painting-gallery">Aura Gallery</p>
-                        <p class="painting-price">KES 32,000</p>
+                        <h3 class="painting-title">Twilight Dreams</h3>
+                        <p class="painting-description"><span class="description-dimensions">48 x 36 inches</span><span class="description-price">KES 32,000</span></p>
                         <button class="add-to-cart-btn" data-id="4">Add to Cart</button>
                     </div>
                 </div>
                 <div class="painting-card">
                     <img class="painting-image" src="Images/PXL_20251114_071346434.RAW-02.ORIGINAL.webp" alt="Urban Reflections" loading="lazy" width="400" height="300">
                     <div class="painting-info">
-                        <p class="painting-artist">Eli Mwangi</p>
-                        <h3 class="painting-title">Urban Reflections, 2025</h3>
-                        <p class="painting-gallery">Aura Gallery</p>
-                        <p class="painting-price">KES 10,500</p>
+                        <h3 class="painting-title">Urban Reflections</h3>
+                        <p class="painting-description"><span class="description-dimensions">36 x 24 inches</span><span class="description-price">KES 10,500</span></p>
                         <button class="add-to-cart-btn" data-id="3">Add to Cart</button>
                     </div>
-                </div>
+                </div<div class="painting-card">
+                    <img class="painting-image" src="Images/PXL_20251114_072133511.RAW-02.ORIGINAL.webp" alt="Serenity Canvas" loading="lazy" width="400" height="300">
+                    <div class="painting-info">
+                        <h3 class="painting-title">Serenity Canvas</h3>
+                        <p class="painting-description"><span class="description-dimensions">30 x 24 inches</span><span class="description-price">KES 25,000</span></p>
+                        <button class="add-to-cart-btn" data-id="5">Add to Cart</button>
+                    </div>
+                </div><div class="painting-card">
+                    <img class="painting-image" src="Images/PXL_20251114_072133511.RAW-02.ORIGINAL.webp" alt="Serenity Canvas" loading="lazy" width="400" height="300">
+                    <div class="painting-info">
+                        <p class="painting-artist">Laila Njeri</p>
+                        <h3 class="painting-title">Serenity Canvas, 2025</h3>
+                        <p class="painting-gallery">Aura Gallery</p>
+                        <p class="painting-price">KES 25,000</p>
+                        <button class="add-to-cart-btn" data-id="5">Add to Cart</button>
+                    </div>
+                </div><div class="painting-card">
+                    <img class="painting-image" src="Images/PXL_20251114_072133511.RAW-02.ORIGINAL.webp" alt="Serenity Canvas" loading="lazy" width="400" height="300">
+                    <div class="painting-info">
+                        <p class="painting-artist">Laila Njeri</p>
+                        <h3 class="painting-title">Serenity Canvas, 2025</h3>
+                        <p class="painting-gallery">Aura Gallery</p>
+                        <p class="painting-price">KES 25,000</p>
+                        <button class="add-to-cart-btn" data-id="5">Add to Cart</button>
+                    </div>
+                </div><div class="painting-card">
+                    <img class="painting-image" src="Images/PXL_20251114_072133511.RAW-02.ORIGINAL.webp" alt="Serenity Canvas" loading="lazy" width="400" height="300">
+                    <div class="painting-info">
+                        <p class="painting-artist">Laila Njeri</p>
+                        <h3 class="painting-title">Serenity Canvas, 2025</h3>
+                        <p class="painting-gallery">Aura Gallery</p>
+                        <p class="painting-price">KES 25,000</p>
+                        <button class="add-to-cart-btn" data-id="5">Add to Cart</button>
+                    </div>
+                </div><div class="painting-card">
+                    <img class="painting-image" src="Images/PXL_20251114_072133511.RAW-02.ORIGINAL.webp" alt="Serenity Canvas" loading="lazy" width="400" height="300">
+                    <div class="painting-info">
+                        <p class="painting-artist">Laila Njeri</p>
+                        <h3 class="painting-title">Serenity Canvas, 2025</h3>
+                        <p class="painting-gallery">Aura Gallery</p>
+                        <p class="painting-price">KES 25,000</p>
+                        <button class="add-to-cart-btn" data-id="5">Add to Cart</button>
+                    </div>
+                </div><div class="painting-card">
+                    <img class="painting-image" src="Images/PXL_20251114_072133511.RAW-02.ORIGINAL.webp" alt="Serenity Canvas" loading="lazy" width="400" height="300">
+                    <div class="painting-info">
+                        <p class="painting-artist">Laila Njeri</p>
+                        <h3 class="painting-title">Serenity Canvas, 2025</h3>
+                        <p class="painting-gallery">Aura Gallery</p>
+                        <p class="painting-price">KES 25,000</p>
+                        <button class="add-to-cart-btn" data-id="5">Add to Cart</button>
+                    </div>
+                </div><div class="painting-card">
+                    <img class="painting-image" src="Images/PXL_20251114_072133511.RAW-02.ORIGINAL.webp" alt="Serenity Canvas" loading="lazy" width="400" height="300">
+                    <div class="painting-info">
+                        <p class="painting-artist">Laila Njeri</p>
+                        <h3 class="painting-title">Serenity Canvas, 2025</h3>
+                        <p class="painting-gallery">Aura Gallery</p>
+                        <p class="painting-price">KES 25,000</p>
+                        <button class="add-to-cart-btn" data-id="5">Add to Cart</button>
+                    </div>
+                </div><div class="painting-card">
+                    <img class="painting-image" src="Images/PXL_20251114_072133511.RAW-02.ORIGINAL.webp" alt="Serenity Canvas" loading="lazy" width="400" height="300">
+                    <div class="painting-info">
+                        <p class="painting-artist">Laila Njeri</p>
+                        <h3 class="painting-title">Serenity Canvas, 2025</h3>
+                        <p class="painting-gallery">Aura Gallery</p>
+                        <p class="painting-price">KES 25,000</p>
+                        <button class="add-to-cart-btn" data-id="5">Add to Cart</button>
+                    </div>
+                </div><div class="painting-card">
+                    <img class="painting-image" src="Images/PXL_20251114_072133511.RAW-02.ORIGINAL.webp" alt="Serenity Canvas" loading="lazy" width="400" height="300">
+                    <div class="painting-info">
+                        <p class="painting-artist">Laila Njeri</p>
+                        <h3 class="painting-title">Serenity Canvas, 2025</h3>
+                        <p class="painting-gallery">Aura Gallery</p>
+                        <p class="painting-price">KES 25,000</p>
+                        <button class="add-to-cart-btn" data-id="5">Add to Cart</button>
+                    </div>
+                </div><div class="painting-card">
+                    <img class="painting-image" src="Images/PXL_20251114_072133511.RAW-02.ORIGINAL.webp" alt="Serenity Canvas" loading="lazy" width="400" height="300">
+                    <div class="painting-info">
+                        <p class="painting-artist">Laila Njeri</p>
+                        <h3 class="painting-title">Serenity Canvas, 2025</h3>
+                        <p class="painting-gallery">Aura Gallery</p>
+                        <p class="painting-price">KES 25,000</p>
+                        <button class="add-to-cart-btn" data-id="5">Add to Cart</button>
+                    </div>
+                </div><div class="painting-card">
+                    <img class="painting-image" src="Images/PXL_20251114_072133511.RAW-02.ORIGINAL.webp" alt="Serenity Canvas" loading="lazy" width="400" height="300">
+                    <div class="painting-info">
+                        <p class="painting-artist">Laila Njeri</p>
+                        <h3 class="painting-title">Serenity Canvas, 2025</h3>
+                        <p class="painting-gallery">Aura Gallery</p>
+                        <p class="painting-price">KES 25,000</p>
+                        <button class="add-to-cart-btn" data-id="5">Add to Cart</button>
+                    </div>
+                </div>>
                 <div class="painting-card">
                     <img class="painting-image" src="Images/PXL_20251114_072133511.RAW-02.ORIGINAL.webp" alt="Serenity Canvas" loading="lazy" width="400" height="300">
                     <div class="painting-info">
@@ -439,6 +538,7 @@
                         <button class="add-to-cart-btn" data-id="5">Add to Cart</button>
                     </div>
                 </div>
+                -->
             </div>
             <button class="view-all-btn" onclick="navigateTo('catalogue'); return false;">View All Paintings</button>
         </section>
@@ -482,9 +582,9 @@
                     </select>
                     <select class="filter-select" id="sizeFilter" onchange="applyFilters()" aria-label="Filter by size">
                         <option value="">Size</option>
-                        <option value="small">Small</option>
-                        <option value="medium">Medium</option>
-                        <option value="large">Large</option>
+                        <option value="small">Small (12 x 18 in)</option>
+                        <option value="medium">Medium (30 x 20 or 36 x 24 in)</option>
+                        <option value="large">Large (24 x 48 or 48 x 36 in)</option>
                     </select>
                 </div>
                 <div class="toolbar-links">
@@ -524,8 +624,8 @@
                 <p>Aura Gallery was born from a passion for art, community, and the remarkable beauty of the place we call home.</p>
                 <p>Our vision is to share the spirit of Naivasha, its landscapes, its people, and its stories, while celebrating the richness and diversity of Kenya through art. Displayed throughout the hallways and guest rooms of Avian Court Hotel, each painting offers our guests a deeper connection to the destination and the creative voices that bring it to life.</p>
                 <p>The gallery provides talented local artists with a platform to present their work to Avian Court’s broad and diverse clientele. By connecting these artists with guests from Kenya and around the world, we hope to expand their visibility, create meaningful opportunities, and ensure that local creativity receives the recognition it deserves.</p>
-                <p>Every painting is available for purchase, allowing our guests to take home more than a beautiful work of art—they carry with them a piece of Naivasha, a story of Kenya, and a lasting connection to the artist who created it.</p>
-                <p>Aura Gallery is where hospitality, culture, and creativity come together—creating space for local art to be seen, appreciated, and shared with the world.</p>
+                <p>Every painting is available for purchase, allowing our guests to take home more than a beautiful work of art, they carry with them a piece of Naivasha, a story of Kenya, and a lasting connection to the artist who created it.</p>
+                <p>Aura Gallery is where hospitality, culture, and creativity come together, creating space for local art to be seen, appreciated, and shared with the world.</p>
                 <p>To be considered for the Aura Gallery collection, please contact our team with a brief introduction, examples of your artwork, pricing, and the inspiration behind your work.</p>
                 <p>Let us work together to give Kenyan artists a wider platform and share the beauty, stories, and creative spirit of Kenya with the world.</p>
                 <div class="cta-box">
@@ -904,13 +1004,187 @@
         }
 
         // Core functionality
-        const artworks = [
-            { id: 1, title: 'Abstract Harmony', artist: 'Mara K. Otieno', category: 'abstract', size: 'medium', price: 25000, image: 'Images/PXL_20251111_081942305.RAW-02.ORIGINAL.webp' },
-            { id: 2, title: 'Daydreams', artist: 'Nia Wambui', category: 'portrait', size: 'medium', price: 16500, image: 'Images/PXL_20251111_075255720.RAW-02.ORIGINAL.webp' },
-            { id: 3, title: 'Bended Light', artist: 'Eli Mwangi', category: 'landscape', size: 'medium', price: 10500, image: 'Images/PXL_20251111_075504005.RAW-02.ORIGINAL.webp' },
-            { id: 4, title: 'Twilight Dreams', artist: 'Amina Noor', category: 'abstract', size: 'large', price: 32000, image: 'Images/PXL_20251114_071724544.RAW-02.ORIGINAL.webp' },
-            { id: 5, title: 'Embracing the Spark', artist: 'Laila Njeri', category: 'portrait', size: 'small', price: 25000, image: 'Images/PXL_20251111_074611687.RAW-02.ORIGINAL_1.webp' }
+        const imageOptions = [
+            'Images/Abstract mask.webp',
+            'Images/Abundance.webp',
+            'Images/Acacia sunset.webp',
+            'Images/Ancestral melodies.webp',
+            'Images/Beaded elegance.webp',
+            'Images/Braided grace.webp',
+            'Images/Cuddles in color.webp',
+            'Images/Deep reflections.webp',
+            'Images/Expressions.webp',
+            'Images/Feirce kaleidoscope.webp',
+            'Images/Framed memories.webp',
+            'Images/Gentle giants.webp',
+            'Images/Golden hour.webp',
+            'Images/Guiding light.webp',
+            'Images/Header.webp',
+            'Images/Heritage.webp',
+            'Images/Hustle.webp',
+            'Images/PXL_20251111_081942305.RAW-02.ORIGINAL.webp',
+            'Images/PXL_20251111_075255720.RAW-02.ORIGINAL.webp',
+            'Images/PXL_20251111_075504005.RAW-02.ORIGINAL.webp',
+            'Images/PXL_20251114_071724544.RAW-02.ORIGINAL.webp',
+            'Images/PXL_20251111_074611687.RAW-02.ORIGINAL_1.webp',
+            'Images/PXL_20251114_072133511.RAW-02.ORIGINAL.webp',
+            'Images/PXL_20251111_075734671.RAW-02.ORIGINAL.webp',
+            'Images/PXL_20251111_081744067.RAW-02.ORIGINAL.webp',
+            'Images/PXL_20251111_081935118.RAW-02.ORIGINAL.webp',
+            'Images/PXL_20251111_083944562.RAW-02.ORIGINAL.webp',
+            'Images/PXL_20251114_065928266.RAW-02.ORIGINAL.webp',
+            'Images/PXL_20251114_070147327.RAW-02.ORIGINAL.webp',
+            'Images/PXL_20251114_070537276.RAW-02.ORIGINAL.webp',
+            'Images/PXL_20251114_070814766.RAW-02.ORIGINAL.webp',
+            'Images/PXL_20251114_071346434.RAW-02.ORIGINAL.webp',
+            'Images/PXL_20251114_071629616.RAW-02.ORIGINAL.webp',
+            'Images/PXL_20251114_071828222.RAW-02.ORIGINAL.webp',
+            'Images/PXL_20251114_071918585.RAW-02.ORIGINAL.webp',
+            'Images/PXL_20251114_072050453.RAW-02.ORIGINAL.webp',
+            'Images/PXL_20251114_072251993.RAW-02.ORIGINAL.webp',
+            'Images/PXL_20251114_073002363.RAW-02.ORIGINAL.webp',
+            'Images/PXL_20251114_073103889.RAW-02.ORIGINAL.webp',
+            'Images/PXL_20251114_125258055.RAW-02.ORIGINAL.webp',
+            'Images/PXL_20260809_065120114 copy.webp',
+            'Images/PXL_20260809_065143249 copy.webp',
+            'Images/PXL_20260809_070434140.NIGHT copy.webp',
+            'Images/Patterns of a queen.webp',
+            'Images/Rhythm.webp',
+            'Images/Serenity.webp',
+            'Images/Spectrum lion.webp',
+            'Images/Strength in silence.webp',
+            'Images/Technicolor Majesty.webp',
+            'Images/The helping hand.webp',
+            'Images/The joy ride.webp',
+            'Images/The midday haul.webp',
+            'Images/The pride of culture.webp',
+            'Images/The shadow giant.webp',
+            'Images/The village matatu.webp',
+            'Images/The warrior stance.webp',
+            'Images/Untitled 2.webp',
+            'Images/Vibrant heritage.webp',
+            'Images/Vivid controspection.webp',
+            'Images/Waiting with a fan.webp',
+            'Images/White splash.webp',
+            'Images/Young moran.webp'
         ];
+        const normalizeName = value => value.toLowerCase().replace(/[^a-z0-9]/g, '');
+        const imageByTitle = imageOptions.reduce((acc, imagePath) => {
+            const imageKey = normalizeName(imagePath.split('/').pop().replace(/\.webp$/i, ''));
+            acc[imageKey] = imagePath;
+            return acc;
+        }, {});
+        const artworkSpecs = [
+            ['Patterns of a Queen', '36 x 24 inches', 15500, 'A regal portrait woven with bold pattern, colour, and presence.'],
+            ['Braided Grace', '36 x 24 inches', 12000, 'A poised portrait celebrating braided hair and quiet strength.'],
+            ['Daydreams', '36 x 24 inches', 16500, 'A contemplative figure lost in a moment of reflection.'],
+            ['Ancestral Melodies', '36 x 24 inches', 15000, 'Traditional instruments evoke the rhythm of memory and heritage.'],
+            ['Expressions', '12 x 18 inches', 8500, 'A vivid character study alive with colour and personality.'],
+            ['Young Moran', '12 x 18 inches', 9000, 'A portrait honouring the adornment and pride of Maasai youth.'],
+            ['Header', '30 x 20 inches', 12000, 'An energetic sporting figure captured against a graphic field of colour.'],
+            ['Gentle Giants', '48 x 36 inches', 55000, 'Elephants move through a calm landscape in a tender family scene.'],
+            ['Rhythm', '36 x 24 inches', 10500, 'A geometric composition that finds music in shape and colour.'],
+            ['Deep Reflections', '36 x 24 inches', 17500, 'A thoughtful portrait rendered with warmth and depth.'],
+            ['Vivid Controspection', '48 x 36 inches', 25000, 'A luminous portrait exploring identity, beauty, and inward thought.'],
+            ['Hustle', '36 x 24 inches', 25500, 'An everyday street scene that celebrates work and perseverance.'],
+            ['Guiding Light', '36 x 24 inches', 25000, 'A child holds a lantern as a symbol of hope and direction.'],
+            ['Waiting with a Fan', '30 x 20 inches', 12500, 'A quiet seated figure brings stillness and grace to a domestic moment.'],
+            ['Sid Profile in Color', '36 x 24 inches', 15000, 'A richly coloured side profile framed by sculptural headwear.'],
+            ['Mara Sunset', '48 x 36 inches', 35000, 'Wildlife and acacia trees glow beneath a sweeping Mara sunset.'],
+            ['Kudu at Twilight', '48 x 36 inches', 45000, 'Kudu stand serenely in a softly lit savannah scene.'],
+            ['Spectrum Lion', '48 x 36 inches', 45500, 'A powerful lion portrait amplified by saturated expressive colour.'],
+            ['Acacia Sunset', '24 x 48 inches', 16000, 'A long horizon of acacias and wildlife silhouetted against a red sky.'],
+            ['The Dazzle of Zebras', '36 x 24 inches', 15500, 'A striking herd study focused on the rhythm of zebra stripes.'],
+            ['Dusk Silhouette', '24 x 48 inches', 17000, 'Wildlife silhouettes gather beneath a deep orange dusk.'],
+            ["The King's Regard", '36 x 24 inches', 13000, 'A direct lion portrait that captures calm authority and watchfulness.'],
+            ['Midnight Jazz', '36 x 24 inches', 12000, 'A dramatic musician emerges from darkness in a study of sound and mood.'],
+            ['The Joy Ride', '36 x 24 inches', 25000, 'A cyclist moves through a bright, joyful world of colour.'],
+            ['The Midday Haul', '36 x 24 inches', 21500, 'A working cart tells a story of travel, labour, and daily life.'],
+            ['Beaded Elegance', '36 x 24 inches', 26000, 'A graceful portrait highlighting ceremonial beads and poise.'],
+            ['Serenity', '12 x 18 inches', 8000, 'A serene portrait with a gentle, composed gaze.'],
+            ['Golden Hour', '36 x 24 inches', 26500, 'A warm landscape study of evening light over open ground.'],
+            ['The Helping Hand', '20 x 30 inches', 20000, 'An intimate scene of care, movement, and shared support.'],
+            ['Bended Light', '20 x 30 inches', 10500, 'A portrait study shaped by light, shadow, and quiet dignity.'],
+            ['Cuddles and Color', '20 x 30 inches', 14500, 'A tender childhood portrait bursting with colour and comfort.'],
+            ['The Shadow Giant', '48 x 36 inches', 55000, 'An elephant emerges from darkness with monumental presence.'],
+            ['Abundance', '48 x 36 inches', 48000, 'A celebratory figure carries a basket overflowing with harvest.'],
+            ['Maternal Bond', '48 x 36 inches', 45000, 'A mother elephant and calf share a grounded moment in nature.'],
+            ['The Village Matatu', '36 x 24 inches', 31000, 'A colourful matatu scene captures movement and community.'],
+            ['Fierce Kaleidoscope', '48 x 36 inches', 48000, 'A lion is reimagined through a fearless kaleidoscope of colour.'],
+            ['Mono Zebra', '48 x 36 inches', 55000, 'A monochrome zebra portrait explores contrast and graphic form.'],
+            ['Embracing the Spark', '36 x 24 inches', 25500, 'A tender portrait illuminated by a sense of warmth and possibility.'],
+            ['White Splash', '36 x 24 inches', 10000, 'A saxophonist appears in sharp monochrome against a dark ground.'],
+            ['Heritage', '36 x 24 inches', 12500, 'A dignified portrait celebrates cultural dress and ancestral identity.'],
+            ['Festival of Colours', '36 x 24 inches', 12000, 'A joyful portrait layered with bright ceremonial colour.'],
+            ['Glimpse of Joy', '36 x 24 inches', 14500, 'A playful child peers out from a vivid, story-filled setting.'],
+            ['The Pride of Culture', '12 x 18 inches', 7500, 'A close portrait honours traditional adornment and cultural pride.'],
+            ['Safe in the Wrap', '36 x 24 inches', 10500, 'A child leans close in a scene of protection and affection.'],
+            ['Framed Memories', '36 x 24 inches', 16000, 'Two children and a television create a nostalgic domestic moment.'],
+            ['Neon Wild', '36 x 24 inches', 9500, 'A giraffe bursts forward in vivid neon colour.'],
+            ['The Warrior Stance', '12 x 18 inches', 9000, 'A standing warrior embodies readiness, tradition, and resolve.'],
+            ['Gaze Behind the Veil', '30 x 20 inches', 16000, 'A softly rendered face meets the viewer from behind a luminous veil.'],
+            ['Strength in Silence', '48 x 36 inches', 55000, 'An elephant portrait conveys power through stillness.'],
+            ['Vibrant Heritage', '36 x 24 inches', 14000, 'A stylised mask brings bold colour to ancestral visual language.'],
+            ['The Sentinel of the Trees', '48 x 36 inches', 60000, 'A giraffe watches quietly from between the branches.'],
+            ['Golden Splendor', '36 x 24 inches', 15000, 'A stylised portrait glows with golden colour and striking pattern.'],
+            ['Majesty in Black', '48 x 36 inches', 45000, 'A solitary heron stands in a dramatic study of light and shadow.'],
+            ['A Radiant Smile', '36 x 24 inches', 21000, 'A smiling portrait radiates warmth, confidence, and connection.'],
+            ['Joy', '48 x 36 inches', 48000, 'A joyful portrait celebrates expression, colour, and self-possession.'],
+            ['Cream of Colours', '36 x 24 inches', 10500, 'A vibrant portrait combines layered colour with elegant adornment.'],
+            ['Technicolor Majesty', '48 x 36 inches', 45000, 'An elephant becomes a brilliant cascade of colour and energy.'],
+            ['Umbrellas in the Mist', '36 x 24 inches', 12000, 'Umbrellas punctuate a misty scene with playful colour and rhythm.']
+        ].map(([title, dimensions, price, description]) => ({ title, dimensions, price, description }));
+        const imageAliases = {
+            expressions: 'Images/Expressions.webp',
+            guidinglight: 'Images/Guiding light.webp',
+            cuddlesandcolor: 'Images/Cuddles in color.webp',
+            fiercekaleidoscope: 'Images/Feirce kaleidoscope.webp',
+            thekingsregard: 'Images/Untitled 2.webp',
+            technicolormajesty: 'Images/Technicolor Majesty.webp'
+        };
+        const fallbackImages = imageOptions.filter(image => image.includes('/PXL_'));
+        let fallbackImageIndex = 0;
+        const takeNextImage = () => fallbackImages[fallbackImageIndex++ % fallbackImages.length];
+        const inferSize = dimensions => {
+            const match = dimensions.match(/(\d+)\s*x\s*(\d+)/i);
+            if (!match) return 'medium';
+            const width = Number(match[1]);
+            const height = Number(match[2]);
+            const longest = Math.max(width, height);
+            if (longest >= 48) return 'large';
+            if (longest <= 18) return 'small';
+            return 'medium';
+        };
+        const defaultArtworks = artworkSpecs.map((spec, index) => {
+            const normalizedTitle = normalizeName(spec.title);
+            const image = imageAliases[normalizedTitle] || imageByTitle[normalizedTitle] || takeNextImage();
+            return {
+                id: index + 1,
+                title: spec.title,
+                artist: 'Aviary Collective',
+                category: 'mixed',
+                size: inferSize(spec.dimensions),
+                dimensions: spec.dimensions,
+                price: spec.price,
+                description: spec.description,
+                image
+            };
+        });
+        let artworks = defaultArtworks.map(artwork => ({
+            ...artwork,
+            dimensions: artwork.dimensions || (artwork.size === 'large' ? '48 x 36 inches' : artwork.size === 'small' ? '12 x 18 inches' : '36 x 24 inches'),
+            size: inferSize(artwork.dimensions || (artwork.size === 'large' ? '48 x 36 inches' : artwork.size === 'small' ? '12 x 18 inches' : '36 x 24 inches')),
+            price: Number(String(artwork.price).replace(/[^\d.-]/g, '')) || 0
+        }));
+        const getOrientation = dimensions => {
+            const match = dimensions.match(/(\d+)\s*x\s*(\d+)/i);
+            if (!match) return 'portrait';
+            const width = Number(match[1]);
+            const height = Number(match[2]);
+            return width >= height ? 'landscape' : 'portrait';
+        };
+        artworks = artworks.map(artwork => ({ ...artwork, orientation: getOrientation(artwork.dimensions || '') }));
+        const soldArtworkIds = new Set();
         const artists = [
             { name: 'Mara K. Otieno', image: 'Images/PXL_20251111_081942305.RAW-02.ORIGINAL.webp', focus: 'Abstract and experimental compositions shaped by memory, rhythm, and place.' },
             { name: 'Amina Noor', image: 'Images/PXL_20251114_071724544.RAW-02.ORIGINAL.webp', focus: 'Textural landscapes and atmospheric studies exploring light, movement, and stillness.' },
@@ -920,24 +1194,33 @@
         const cart = [];
         const money = v => `KES ${v.toLocaleString('en-KE')}`;
 
-        function renderCatalogue(list) {
+        function persistArtworks() {
+            localStorage.setItem('auraGalleryArtworks', JSON.stringify(artworks));
+            localStorage.setItem('auraGallerySoldArtworkIds', JSON.stringify([...soldArtworkIds]));
+        }
+
+        function renderCatalogue(list = artworks) {
             const grid = document.querySelector('#catalogue .paintings-grid');
             const countEl = document.getElementById('artworkCount');
             if (!grid) return;
-            grid.innerHTML = list.map(a => `<div class="painting-card" data-cat="${a.category}"><img class="painting-image" src="${a.image}" alt="${a.title}" loading="eager" decoding="async" width="400" height="300"><div class="painting-info"><p class="painting-artist">${a.artist}</p><h3 class="painting-title">${a.title}</h3><p class="painting-gallery">Aura Gallery</p><p class="painting-price">${money(a.price)}</p><button class="add-to-cart-btn" data-id="${a.id}">Add to Cart</button></div></div>`).join('');
-            if (countEl) countEl.textContent = `${list.length} Artwork${list.length === 1 ? '' : 's'}`;
+            const orientationOrder = { landscape: 0, portrait: 1 };
+            const available = list
+                .filter(a => !soldArtworkIds.has(a.id))
+                .sort((first, second) => orientationOrder[first.orientation] - orientationOrder[second.orientation]);
+            grid.innerHTML = available.map(a => `<div class="painting-card is-${a.orientation}" data-cat="${a.category}"><img class="painting-image is-${a.orientation}" src="${a.image}" alt="${a.title}" loading="lazy" decoding="async" width="400" height="300"><div class="painting-info"><h3 class="painting-title">${a.title}</h3><p class="painting-summary">${a.description}</p><p class="painting-description"><span class="description-dimensions">${a.dimensions}</span><span class="description-price">${money(a.price)}</span></p><button class="add-to-cart-btn" data-id="${a.id}">Add to Cart</button></div></div>`).join('') || '<p>No artworks match these filters. To be added soon.</p>';
+            if (countEl) countEl.textContent = `${available.length} Artwork${available.length === 1 ? '' : 's'}`;
             if (window.bindArtworkImage) document.querySelectorAll('#catalogue .painting-image').forEach(window.bindArtworkImage);
         }
 
         function applyFilters() {
             const priceRange = document.getElementById('priceFilter')?.value || '';
             const size = document.getElementById('sizeFilter')?.value || '';
-            let filtered = artworks;
-            if (priceRange) {
-                const [min, max] = priceRange.split('-').map(Number);
-                filtered = filtered.filter(a => a.price >= min && a.price <= max);
-            }
-            if (size) filtered = filtered.filter(a => a.size === size);
+            const [min, max] = priceRange ? priceRange.split('-').map(Number) : [0, Infinity];
+            const filtered = artworks.filter(a => {
+                const matchesPrice = a.price >= min && a.price <= max;
+                const matchesSize = !size || a.size === size;
+                return matchesPrice && matchesSize;
+            });
             renderCatalogue(filtered);
         }
 
@@ -996,7 +1279,6 @@
                             <div class="quantity-control">
                                 <button type="button" data-cart-action="decrease" data-id="${item.id}" aria-label="Decrease quantity">-</button>
                                 <span>${item.qty}</span>
-                                <button type="button" data-cart-action="increase" data-id="${item.id}" aria-label="Increase quantity">+</button>
                             </div>
                             <button type="button" class="remove-item" data-cart-action="remove" data-id="${item.id}">Remove</button>
                         </div>
@@ -1017,7 +1299,14 @@
                 return;
             }
             const subtotal = cart.reduce((t, i) => t + i.price * i.qty, 0);
-            alert(`Thank you for your order! Your total of ${money(subtotal)} will be confirmed by our team via email or phone to arrange payment and delivery.`);
+            if (!window.confirm(`Confirm purchase of ${cart.length} unique artwork${cart.length === 1 ? '' : 's'} for ${money(subtotal)}?`)) return;
+            cart.forEach(item => soldArtworkIds.add(item.id));
+            persistArtworks();
+            cart.splice(0, cart.length);
+            renderCart();
+            renderCatalogue();
+            alert('Purchase successful. The purchased artwork has been removed from the catalogue.');
+            navigateTo('catalogue');
         }
 
         const legalPages = {
@@ -1188,6 +1477,16 @@
 
         document.addEventListener('DOMContentLoaded', () => {
             initializeCarousel();
+
+            const featuredGrid = document.querySelector('#home-featured .paintings-grid');
+            if (featuredGrid) {
+                featuredGrid.innerHTML = [
+                    { id: 1, title: 'Patterns of a Queen', image: 'Images/Patterns of a queen.webp', dimensions: '36 x 24 inches', price: 'KES 15,500' },
+                    { id: 3, title: 'Daydreams', image: 'Images/PXL_20251111_075255720.RAW-02.ORIGINAL.webp', dimensions: '36 x 24 inches', price: 'KES 16,500' },
+                    { id: 8, title: 'Gentle Giants', image: 'Images/Gentle giants.webp', dimensions: '48 x 36 inches', price: 'KES 55,000' },
+                    { id: 11, title: 'Vivid Controspection', image: 'Images/Vivid controspection.webp', dimensions: '48 x 36 inches', price: 'KES 25,000' }
+                ].map(artwork => `<div class="painting-card"><img class="painting-image" src="${artwork.image}" alt="${artwork.title}" loading="lazy" width="400" height="300"><div class="painting-info"><h3 class="painting-title">${artwork.title}</h3><p class="painting-description"><span class="description-dimensions">${artwork.dimensions}</span><span class="description-price">${artwork.price}</span></p><button class="add-to-cart-btn" data-id="${artwork.id}">Add to Cart</button></div></div>`).join('');
+            }
             
             renderCatalogue(artworks);
 
@@ -1215,9 +1514,8 @@
                 const id = Number(btn.dataset.id);
                 const artwork = artworks.find(a => a.id === id);
                 if (!artwork) return;
-                const existing = cart.find(i => i.id === id);
-                if (existing) existing.qty++;
-                else cart.push({...artwork, qty: 1});
+                if (soldArtworkIds.has(id) || cart.some(i => i.id === id)) return;
+                cart.push({...artwork, qty: 1});
                 renderCart();
                 const originalText = btn.textContent;
                 btn.textContent = 'Added \u2713';
@@ -1232,7 +1530,7 @@
                 if (!item) return;
                 const action = actionBtn.dataset.cartAction;
                 if (action === 'remove') cart.splice(cart.indexOf(item), 1);
-                if (action === 'increase') item.qty++;
+                if (action === 'increase') item.qty = 1;
                 if (action === 'decrease') item.qty > 1 ? item.qty-- : cart.splice(cart.indexOf(item), 1);
                 renderCart();
             });
